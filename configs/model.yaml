@@ -1,0 +1,23 @@
+# LLM Model Configuration
+
+# Default model (Together AI)
+default_model: "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo"
+
+# Sampling parameters
+temperature: 0.7
+max_tokens: 300
+
+# Caching
+enable_cache: true
+cache_dir: ".cache"
+
+# Model variants for different use cases
+models:
+  # Main model for agents and students
+  default: "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo"
+
+  # Smaller/faster model for development/testing
+  fast: "meta-llama/Llama-2-13b-chat-hf"
+
+  # For LLM-as-judge (quality assessment)
+  judge: "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo"
