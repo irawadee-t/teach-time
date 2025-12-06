@@ -1,0 +1,54 @@
+# Experiment 2: Learning Gains on Simulated Students
+#
+# Goal: Measure whether metric-aware ReAct-Teacher improves learning outcomes
+# compared to baselines. Uses simulated students with internal knowledge state
+# and pre/post quizzes.
+
+name: "exp2_learning_gains"
+
+# Domain
+domain: "mathematics"
+
+# Tasks to use
+tasks:
+  - linear_equations
+  - quadratic_equations
+  - function_composition
+  - fraction_operations
+
+# Student personas
+students:
+  - struggling
+  - confident_mistaken
+
+# Agents to compare
+agents:
+  - baseline_cot
+  - metric_cot
+  - react_teacher
+
+# Number of episodes per (task, student, agent) combination
+num_episodes_per_condition: 50
+
+# Episode settings
+max_turns: 12
+enable_quizzes: true  # Pre/post quiz to measure learning
+
+# Scoring focus
+scoring_focus: "learning_focused"
+
+# Random seed
+random_seed: 43
+
+# Output
+description: |
+  Compare agents on learning outcomes. For each episode:
+  1. Administer pre-quiz
+  2. Run tutoring session
+  3. Administer post-quiz
+  4. Compute learning gain
+
+  Analyze:
+  - Distribution of learning gains per agent
+  - Mean and std of gain, effect sizes
+  - Breakdown by student persona

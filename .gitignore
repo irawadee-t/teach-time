@@ -205,3 +205,27 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# TeachTime-specific
+# Cache directory for LLM responses
+.cache/
+*.cache
+
+# Results (keep structure, ignore data)
+results/raw/**/*.jsonl
+results/raw/**/*.json
+results/processed/**/*.csv
+results/processed/**/*.json
+results/plots/**/*.png
+results/plots/**/*.pdf
+
+# Paper drafts
+paper/**/*.aux
+paper/**/*.bbl
+paper/**/*.blg
+paper/**/*.log
+paper/**/*.out
+paper/**/*.synctex.gz
+
+# macOS
+.DS_Store
