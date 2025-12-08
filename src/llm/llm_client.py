@@ -21,6 +21,13 @@ except ImportError:
     TOGETHER_AVAILABLE = False
     print("Warning: 'together' package not installed. Install with: pip install together")
 
+try:
+    import anthropic
+    ANTHROPIC_AVAILABLE = True
+except ImportError:
+    ANTHROPIC_AVAILABLE = False
+    print("Warning: 'anthropic' package not installed. Install with: pip install anthropic")
+
 
 @dataclass
 class LLMResponse:
@@ -135,10 +142,11 @@ class LLMCache:
 
 class LLMClient:
     """
-    Client for calling LLMs via Together AI with caching.
+    Client for calling LLMs via Together AI or Anthropic with caching.
 
     Supports:
     - Together AI API
+    - Anthropic API (Claude models)
     - SQLite caching for reproducibility
     - Token counting and usage tracking
     """
@@ -146,6 +154,7 @@ class LLMClient:
     def __init__(
         self,
         api_key: Optional[str] = None,
+        anthropic_api_key: Optional[str] = None,
         default_model: str = "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
         enable_cache: bool = True,
         cache_dir: str = ".cache",
@@ -153,15 +162,15 @@ class LLMClient:
     ):
         """
         Args:
-            api_key: Together AI API key (reads from env var if not provided)
+            api_key: Together AI API key (reads from TOGETHER_API_KEY if not provided)
+            anthropic_api_key: Anthropic API key (reads from ANTHROPIC_API_KEY if not provided)
             default_model: Default model to use
             enable_cache: Whether to use caching
             cache_dir: Directory for cache database
             verbose: Whether to print debug information
         """
-        self.api_key = api_key or os.getenv("TOGETHER_API_KEY")
-        if not self.api_key and TOGETHER_AVAILABLE:
-            print("Warning: TOGETHER_API_KEY not found in environment")
+        self.together_api_key = api_key or os.getenv("TOGETHER_API_KEY")
+        self.anthropic_api_key = anthropic_api_key or os.getenv("ANTHROPIC_API_KEY")
 
         self.default_model = default_model
         self.enable_cache = enable_cache
@@ -174,18 +183,42 @@ class LLMClient:
             self.cache = None
 
         # Initialize Together client
-        if TOGETHER_AVAILABLE and self.api_key:
-            self.client = Together(api_key=self.api_key)
+        if TOGETHER_AVAILABLE and self.together_api_key:
+            self.together_client = Together(api_key=self.together_api_key)
         else:
-            self.client = None
-            if self.verbose:
+            self.together_client = None
+            if self.verbose and not self.together_api_key:
                 print("Together client not initialized (API key missing or package not installed)")
+
+        # Initialize Anthropic client
+        if ANTHROPIC_AVAILABLE and self.anthropic_api_key:
+            self.anthropic_client = anthropic.Anthropic(api_key=self.anthropic_api_key)
+        else:
+            self.anthropic_client = None
+            if self.verbose and not self.anthropic_api_key:
+                print("Anthropic client not initialized (API key missing or package not installed)")
 
         # Usage tracking
         self.total_prompt_tokens = 0
         self.total_completion_tokens = 0
         self.total_cached_hits = 0
         self.total_api_calls = 0
+
+    def _detect_provider(self, model: str) -> str:
+        """
+        Detect which provider to use based on model name.
+
+        Args:
+            model: Model name
+
+        Returns:
+            Provider name: 'anthropic' or 'together'
+        """
+        # Claude models use Anthropic
+        if model.startswith("claude-"):
+            return "anthropic"
+        # Default to Together for all other models
+        return "together"
 
     def call(
         self,
@@ -219,19 +252,40 @@ class LLMClient:
                 self.total_cached_hits += 1
                 return cached_response
 
-        # Make API call
-        if not self.client:
-            # Fallback: return a placeholder for testing without API key
-            response_text = f"[Mock response - API key not configured]"
+        # Detect provider
+        provider = self._detect_provider(model)
+
+        # Route to appropriate provider
+        if provider == "anthropic":
+            response_text = self._call_anthropic(messages, model, temperature, max_tokens, stop)
+        else:
+            response_text = self._call_together(messages, model, temperature, max_tokens, stop)
+
+        # Cache the response
+        if self.enable_cache and self.cache and not response_text.startswith("[Error"):
+            self.cache.set(messages, model, temperature, max_tokens, response_text)
+
+        return response_text
+
+    def _call_together(
+        self,
+        messages: List[Dict[str, str]],
+        model: str,
+        temperature: float,
+        max_tokens: int,
+        stop: Optional[List[str]],
+    ) -> str:
+        """Call Together AI API."""
+        if not self.together_client:
             if self.verbose:
-                print(f"Warning: Using mock response (no API client available)")
-            return response_text
+                print(f"Warning: Using mock response (Together client not available)")
+            return "[Mock response - Together API key not configured]"
 
         try:
             if self.verbose:
-                print(f"[API call] {model} (temp={temperature}, max_tokens={max_tokens})")
+                print(f"[Together API call] {model} (temp={temperature}, max_tokens={max_tokens})")
 
-            response = self.client.chat.completions.create(
+            response = self.together_client.chat.completions.create(
                 model=model,
                 messages=messages,
                 temperature=temperature,
@@ -239,7 +293,6 @@ class LLMClient:
                 stop=stop,
             )
 
-            # Extract response text
             response_text = response.choices[0].message.content
 
             # Track usage
@@ -248,16 +301,67 @@ class LLMClient:
                 self.total_completion_tokens += response.usage.completion_tokens
 
             self.total_api_calls += 1
-
-            # Cache the response
-            if self.enable_cache and self.cache:
-                self.cache.set(messages, model, temperature, max_tokens, response_text)
-
             return response_text
 
         except Exception as e:
-            print(f"Error calling LLM: {e}")
-            # Return error placeholder
+            print(f"Error calling Together API: {e}")
+            return f"[Error: {str(e)}]"
+
+    def _call_anthropic(
+        self,
+        messages: List[Dict[str, str]],
+        model: str,
+        temperature: float,
+        max_tokens: int,
+        stop: Optional[List[str]],
+    ) -> str:
+        """Call Anthropic API."""
+        if not self.anthropic_client:
+            if self.verbose:
+                print(f"Warning: Using mock response (Anthropic client not available)")
+            return "[Mock response - Anthropic API key not configured]"
+
+        try:
+            if self.verbose:
+                print(f"[Anthropic API call] {model} (temp={temperature}, max_tokens={max_tokens})")
+
+            # Anthropic requires system message to be separate
+            system_message = None
+            api_messages = []
+            for msg in messages:
+                if msg["role"] == "system":
+                    system_message = msg["content"]
+                else:
+                    api_messages.append(msg)
+
+            # Build request params
+            params = {
+                "model": model,
+                "messages": api_messages,
+                "temperature": temperature,
+                "max_tokens": max_tokens,
+            }
+
+            if system_message:
+                params["system"] = system_message
+
+            if stop:
+                params["stop_sequences"] = stop
+
+            response = self.anthropic_client.messages.create(**params)
+
+            response_text = response.content[0].text
+
+            # Track usage
+            if hasattr(response, 'usage'):
+                self.total_prompt_tokens += response.usage.input_tokens
+                self.total_completion_tokens += response.usage.output_tokens
+
+            self.total_api_calls += 1
+            return response_text
+
+        except Exception as e:
+            print(f"Error calling Anthropic API: {e}")
             return f"[Error: {str(e)}]"
 
     def call_with_response_object(

@@ -6,6 +6,7 @@ pyyaml>=6.0.1
 # LLM & API
 together>=1.0.0
 openai>=1.0.0  # For API compatibility patterns
+anthropic>=0.39.0  # For TutorBench judge (Claude Sonnet 4)
 
 # Data & Analysis
 numpy>=1.24.0
@@ -13,6 +14,7 @@ pandas>=2.0.0
 matplotlib>=3.7.0
 seaborn>=0.12.0
 scipy>=1.11.0
+datasets>=2.14.0  # For loading TutorBench from HuggingFace
 
 # Jupyter
 jupyter>=1.0.0
