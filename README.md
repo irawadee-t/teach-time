@@ -32,7 +32,8 @@ We compare three agent architectures:
 
 ### Prerequisites
 - Python 3.9+
-- Together AI API key (get one at https://api.together.xyz)
+- CUDA-capable GPU (recommended) with at least 16GB VRAM for running SocraticLM
+- ~14GB disk space for model weights
 
 ### Setup
 
@@ -47,10 +48,13 @@ cd teach-time
 pip install -r requirements.txt
 ```
 
-3. Set up environment variables:
+3. Model Download:
+The SocraticLM model will be automatically downloaded from HuggingFace on first use.
+This is a ~7B parameter model (~14GB download).
+
+**Optional**: Pre-download the model:
 ```bash
-cp .env.example .env
-# Edit .env and add your TOGETHER_API_KEY
+python -c "from transformers import AutoTokenizer, AutoModelForCausalLM; AutoTokenizer.from_pretrained('CogBase-USTC/SocraticLM'); AutoModelForCausalLM.from_pretrained('CogBase-USTC/SocraticLM')"
 ```
 
 4. Verify installation:
@@ -68,22 +72,17 @@ python -c "import src; print('✓ TeachTime installed successfully')"
 # Run Experiment 1: Pedagogical Metrics Match
 python experiments/run_experiment.py --config exp1_metrics_match
 
-# Run with verbose output
+# Run with verbose output (see model loading and generation)
 python experiments/run_experiment.py --config exp2_learning_gains --verbose
 ```
+
+**Note**: First run will download the SocraticLM model (~14GB) and may take several minutes.
 
 ### Run Full Experiment Suite
 
 ```bash
 # Run all 4 experiments (Experiments 1-4)
 python experiments/run_experiment_suite.py
-```
-
-### Human Pilot Study
-
-```bash
-# Interact with a tutor agent yourself
-python experiments/run_human_pilot.py
 ```
 
 ### Analyze Results
@@ -203,11 +202,13 @@ All experiments are configured via YAML files in `configs/`:
 
 ### `configs/model.yaml`
 ```yaml
-default_model: "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo"
+default_model: "CogBase-USTC/SocraticLM"  # Fine-tuned for Socratic teaching
 temperature: 0.7
 max_tokens: 300
 enable_cache: true
 ```
+
+**About SocraticLM**: A fine-tuned version of Qwen2.5-Math-7B-Instruct trained on the SocraTeach dataset. Optimized for Socratic-style teaching guidance and mathematical problem-solving.
 
 ### `configs/env.yaml`
 ```yaml
@@ -356,4 +357,5 @@ MIT License - see LICENSE file for details
 - **ReAct**: [Yao et al., 2022] - Reasoning and Acting framework
 - **TeachLM**: [Sonkar et al., 2024] - LLM tutoring research
 - **AppBench**: [Mao et al., 2024] - Structured evaluation approach
-- **Together AI**: For providing LLM inference infrastructure
+- **SocraticLM**: [CogBase-USTC] - Fine-tuned model for Socratic teaching
+- **HuggingFace**: For providing the transformers library and model hosting

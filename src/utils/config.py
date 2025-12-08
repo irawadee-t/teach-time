@@ -66,6 +66,7 @@ class ExperimentConfig(BaseModel):
     """Configuration for a single experiment."""
     name: str
     domain: str
+    tasks: list[str] = []  # List of task IDs to use in the experiment
     students: list[str] = ["struggling", "confident_mistaken"]
     agents: list[str] = ["baseline_cot", "metric_cot", "react_teacher"]
     num_episodes_per_condition: int = 100
