@@ -1,0 +1,13 @@
+{
+  "model_name": "together",
+  "model_version": "default",
+  "temperature": 0.0,
+  "top_p": 1.0,
+  "max_tokens": 2048,
+  "seed": null,
+  "use_async": true,
+  "max_samples": 100,
+  "run_id": "together_20251207_183834",
+  "timestamp": "2025-12-07T18:38:34.219068",
+  "notes": "Run via run_eval.py with 3 runs"
+}

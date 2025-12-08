@@ -6,16 +6,24 @@ Uses Claude Sonnet 4 (Anthropic) as the judge model, achieving:
 - Better agreement than median human expert (0.78 vs 0.75)
 """
 
-import os
+import json
+import asyncio
 from typing import List, Optional
+from pydantic import BaseModel, Field
 from .models import Rubric, RubricRating
+from .providers import _init_provider
 
-try:
-    import anthropic
-    ANTHROPIC_AVAILABLE = True
-except ImportError:
-    ANTHROPIC_AVAILABLE = False
-    print("Warning: 'anthropic' package not installed. Install with: pip install anthropic")
+
+class RubricJudgment(BaseModel):
+    """Structured output for a single rubric judgment."""
+    criterion: str = Field(description="The rubric criterion being evaluated")
+    passed: bool = Field(description="Whether the criterion was met (true/false)")
+    explanation: str = Field(description="Brief explanation of the judgment")
+
+
+class BatchJudgment(BaseModel):
+    """Structured output for batch rubric evaluation."""
+    judgments: List[RubricJudgment] = Field(description="List of judgments for each rubric")
 
 
 class TutorBenchJudge:
@@ -37,29 +45,29 @@ class TutorBenchJudge:
             model: Judge model name (default: Claude Sonnet 4)
             verbose: Whether to print debug information
         """
-        self.api_key = api_key or os.getenv("ANTHROPIC_API_KEY")
-        if not self.api_key and ANTHROPIC_AVAILABLE:
-            print("Warning: ANTHROPIC_API_KEY not found in environment")
-
         self.model = model
         self.verbose = verbose
 
-        # Initialize Anthropic client
-        if ANTHROPIC_AVAILABLE and self.api_key:
-            self.client = anthropic.Anthropic(api_key=self.api_key)
-        else:
+        # Initialize async Anthropic client using provider init system
+        try:
+            self.client = _init_provider(
+                library_name="anthropic",
+                client_class_path="anthropic.AsyncAnthropic",
+                api_key_vars=["ANTHROPIC_API_KEY"],
+            )
+        except (ImportError, ValueError) as e:
             self.client = None
             if self.verbose:
-                print("Anthropic client not initialized")
+                print(f"Warning: {e}")
 
-    def evaluate_rubric(
+    async def evaluate_rubric(
         self,
         model_response: str,
         rubric: Rubric,
         context: Optional[str] = None,
     ) -> RubricRating:
         """
-        Evaluate a model response against a single rubric criterion.
+        Evaluate a single rubric criterion asynchronously.
 
         Args:
             model_response: The model's tutoring response to evaluate
@@ -69,13 +77,8 @@ class TutorBenchJudge:
         Returns:
             RubricRating with pass/fail decision and explanation
         """
-        # Construct judge prompt
-        judge_prompt = self._construct_judge_prompt(
-            model_response, rubric, context
-        )
-
-        # Get judgment from LLM
-        passed, explanation = self._get_judgment(judge_prompt)
+        judge_prompt = self._construct_judge_prompt(model_response, rubric, context)
+        passed, explanation = await self._get_judgment(judge_prompt)
 
         return RubricRating(
             rubric=rubric,
@@ -83,27 +86,56 @@ class TutorBenchJudge:
             explanation=explanation,
         )
 
-    def evaluate_rubrics(
+    async def evaluate_rubrics(
         self,
         model_response: str,
         rubrics: List[Rubric],
         context: Optional[str] = None,
+        batch_size: int = 5,
     ) -> List[RubricRating]:
         """
-        Evaluate a model response against multiple rubric criteria.
+        Evaluate rubrics concurrently with batching.
+
+        Evaluates rubrics in batches for better throughput while
+        respecting rate limits.
 
         Args:
             model_response: The model's tutoring response
             rubrics: List of rubric criteria
             context: Optional context
+            batch_size: Number of rubrics to evaluate concurrently
 
         Returns:
-            List of rubric ratings
+            List of rubric ratings (same order as input rubrics)
         """
+        if not rubrics:
+            return []
+
+        # Create tasks for all rubrics
+        tasks = [
+            self.evaluate_rubric(model_response, rubric, context)
+            for rubric in rubrics
+        ]
+
+        # Execute in batches
         ratings = []
-        for rubric in rubrics:
-            rating = self.evaluate_rubric(model_response, rubric, context)
-            ratings.append(rating)
+        for i in range(0, len(tasks), batch_size):
+            batch = tasks[i:i + batch_size]
+            batch_results = await asyncio.gather(*batch, return_exceptions=True)
+
+            # Handle exceptions
+            for idx, result in enumerate(batch_results):
+                if isinstance(result, Exception):
+                    # Fallback to failed rating
+                    rubric_idx = i + idx
+                    ratings.append(RubricRating(
+                        rubric=rubrics[rubric_idx],
+                        passed=False,
+                        explanation=f"[Error: {str(result)}]",
+                    ))
+                else:
+                    ratings.append(result)
+
         return ratings
 
     def _construct_judge_prompt(
@@ -140,9 +172,9 @@ class TutorBenchJudge:
 
         return "\n".join(prompt_parts)
 
-    def _get_judgment(self, judge_prompt: str) -> tuple[bool, str]:
+    async def _get_judgment(self, judge_prompt: str) -> tuple[bool, str]:
         """
-        Get pass/fail judgment from LLM judge.
+        Get pass/fail judgment from LLM judge asynchronously.
 
         Args:
             judge_prompt: The constructed prompt
@@ -157,24 +189,20 @@ class TutorBenchJudge:
             return True, "[Mock judgment - API not configured]"
 
         try:
-            response = self.client.messages.create(
+            response = await self.client.messages.create(
                 model=self.model,
                 max_tokens=500,
-                temperature=0.0,  # Deterministic for consistency
-                messages=[
-                    {"role": "user", "content": judge_prompt}
-                ],
+                temperature=0.0,
+                messages=[{"role": "user", "content": judge_prompt}],
             )
 
-            # Extract judgment from response
             content = response.content[0].text
             passed, explanation = self._parse_judgment(content)
-
             return passed, explanation
 
         except Exception as e:
             if self.verbose:
-                print(f"Error getting judgment: {e}")
+                print(f"Error in async judgment: {e}")
             return False, f"[Error: {str(e)}]"
 
     def _parse_judgment(self, response_text: str) -> tuple[bool, str]:

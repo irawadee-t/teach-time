@@ -1,0 +1,142 @@
+{
+  "metadata": {
+    "is_multi_run": false,
+    "n_samples": 50
+  },
+  "overall": {
+    "baseline": {
+      "mean": 0.3165320924939213
+    },
+    "chain": {
+      "mean": 0.21833714341179192
+    },
+    "delta": -0.09819494908212936,
+    "improvement_pct": -31.022114790466343
+  },
+  "by_use_case": {},
+  "by_dimension": {
+    "instruction_following": {
+      "baseline": {
+        "mean": 0.26587301587301587
+      },
+      "chain": {
+        "mean": 0.19444444444444445
+      },
+      "delta": -0.07142857142857142,
+      "improvement_pct": -26.865671641791046,
+      "n_rubrics": 252
+    },
+    "truthfulness": {
+      "baseline": {
+        "mean": 0.3230769230769231
+      },
+      "chain": {
+        "mean": 0.25384615384615383
+      },
+      "delta": -0.06923076923076926,
+      "improvement_pct": -21.428571428571438,
+      "n_rubrics": 130
+    },
+    "conciseness_relevance": {
+      "baseline": {
+        "mean": 0.4444444444444444
+      },
+      "chain": {
+        "mean": 0.5
+      },
+      "delta": 0.05555555555555558,
+      "improvement_pct": 12.500000000000005,
+      "n_rubrics": 18
+    },
+    "style_tone": {
+      "baseline": {
+        "mean": 0.5316455696202531
+      },
+      "chain": {
+        "mean": 0.4050632911392405
+      },
+      "delta": -0.1265822784810126,
+      "improvement_pct": -23.809523809523803,
+      "n_rubrics": 79
+    }
+  },
+  "by_skill": {
+    "asking_guiding_questions": {
+      "baseline": {
+        "mean": 0.0
+      },
+      "chain": {
+        "mean": 0.6666666666666666
+      },
+      "delta": 0.6666666666666666,
+      "improvement_pct": Infinity,
+      "n_rubrics": 3
+    },
+    "identifying_core_difficulty": {
+      "baseline": {
+        "mean": 0.19402985074626866
+      },
+      "chain": {
+        "mean": 0.14925373134328357
+      },
+      "delta": -0.04477611940298509,
+      "improvement_pct": -23.076923076923087,
+      "n_rubrics": 67
+    },
+    "identifying_correct_steps": {
+      "baseline": {
+        "mean": 0.3387096774193548
+      },
+      "chain": {
+        "mean": 0.22580645161290322
+      },
+      "delta": -0.1129032258064516,
+      "improvement_pct": -33.33333333333333,
+      "n_rubrics": 62
+    },
+    "including_examples": {
+      "baseline": {
+        "mean": 0.0
+      },
+      "chain": {
+        "mean": 0.0
+      },
+      "delta": 0.0,
+      "improvement_pct": 0.0,
+      "n_rubrics": 15
+    },
+    "providing_alternative_solutions": {
+      "baseline": {
+        "mean": 0.0
+      },
+      "chain": {
+        "mean": 0.0
+      },
+      "delta": 0.0,
+      "improvement_pct": 0.0,
+      "n_rubrics": 6
+    },
+    "stating_knowledge": {
+      "baseline": {
+        "mean": 0.375
+      },
+      "chain": {
+        "mean": 0.2867647058823529
+      },
+      "delta": -0.08823529411764708,
+      "improvement_pct": -23.529411764705888,
+      "n_rubrics": 136
+    },
+    "step_by_step_help": {
+      "baseline": {
+        "mean": 0.41379310344827586
+      },
+      "chain": {
+        "mean": 0.3103448275862069
+      },
+      "delta": -0.10344827586206895,
+      "improvement_pct": -24.999999999999996,
+      "n_rubrics": 29
+    }
+  }
+}

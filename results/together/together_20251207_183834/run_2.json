@@ -1,0 +1,764 @@
+{
+  "metadata": {
+    "model_name": "together",
+    "model_version": "default",
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "max_tokens": 2048,
+    "seed": null,
+    "use_async": true,
+    "max_samples": 100,
+    "run_id": "together_20251207_183834",
+    "timestamp": "2025-12-07T18:38:34.219068",
+    "notes": "Run via run_eval.py with 3 runs"
+  },
+  "overall": {
+    "overall_score": 0.06930256682345116,
+    "std_score": 0.1691929617562016,
+    "median_score": 0.0,
+    "mean_pass_rate": 0.08114982239982242,
+    "n_samples": 100,
+    "total_rubrics": 947
+  },
+  "by_modality": {
+    "text_only": {
+      "overall_score": 0.06930256682345116,
+      "std_score": 0.1691929617562016,
+      "median_score": 0.0,
+      "mean_pass_rate": 0.08114982239982242,
+      "n_samples": 100,
+      "total_rubrics": 947
+    },
+    "multimodal": null
+  },
+  "by_use_case": {
+    "adaptive": {
+      "overall_score": 0.06930256682345116,
+      "std_score": 0.1691929617562016,
+      "median_score": 0.0,
+      "mean_pass_rate": 0.08114982239982242,
+      "n_samples": 100,
+      "total_rubrics": 947
+    }
+  },
+  "by_dimension": {
+    "instruction_following": {
+      "pass_rate": 0.07735849056603773,
+      "n_rubrics": 530
+    },
+    "truthfulness": {
+      "pass_rate": 0.05045871559633028,
+      "n_rubrics": 218
+    },
+    "conciseness_relevance": {
+      "pass_rate": 0.08823529411764706,
+      "n_rubrics": 34
+    },
+    "style_tone": {
+      "pass_rate": 0.13333333333333333,
+      "n_rubrics": 165
+    },
+    "visual_perception": {
+      "pass_rate": 0.0,
+      "n_rubrics": 0
+    },
+    "visual_reasoning": {
+      "pass_rate": 0.0,
+      "n_rubrics": 0
+    },
+    "student_level_calibration": {
+      "pass_rate": 0.0,
+      "n_rubrics": 0
+    },
+    "emotional_component": {
+      "pass_rate": 0.0,
+      "n_rubrics": 0
+    }
+  },
+  "by_skill": {
+    "asking_guiding_questions": {
+      "pass_rate": 0.0,
+      "n_rubrics": 0
+    },
+    "identifying_core_difficulty": {
+      "pass_rate": 0.0,
+      "n_rubrics": 0
+    },
+    "identifying_correct_steps": {
+      "pass_rate": 0.0,
+      "n_rubrics": 0
+    },
+    "identifying_incorrect_steps": {
+      "pass_rate": 0.0,
+      "n_rubrics": 0
+    },
+    "including_examples": {
+      "pass_rate": 0.0,
+      "n_rubrics": 0
+    },
+    "providing_alternative_solutions": {
+      "pass_rate": 0.0,
+      "n_rubrics": 0
+    },
+    "stating_knowledge": {
+      "pass_rate": 0.0,
+      "n_rubrics": 0
+    },
+    "step_by_step_help": {
+      "pass_rate": 0.0,
+      "n_rubrics": 0
+    }
+  },
+  "by_subject": {
+    "Biology": {
+      "overall_score": 0.0807680391610125,
+      "std_score": 0.21142804867462703,
+      "median_score": 0.0,
+      "mean_pass_rate": 0.08721833721833722,
+      "n_samples": 12,
+      "total_rubrics": 137
+    },
+    "Computer Science": {
+      "overall_score": 0.02066115702479339,
+      "std_score": 0.06533631529273509,
+      "median_score": 0.0,
+      "mean_pass_rate": 0.01515151515151515,
+      "n_samples": 11,
+      "total_rubrics": 102
+    },
+    "Chemistry": {
+      "overall_score": 0.04741425653023194,
+      "std_score": 0.09223905554064638,
+      "median_score": 0.0,
+      "mean_pass_rate": 0.06117295403009687,
+      "n_samples": 21,
+      "total_rubrics": 211
+    },
+    "Statistics": {
+      "overall_score": 0.0842221530084902,
+      "std_score": 0.17710569542312052,
+      "median_score": 0.0,
+      "mean_pass_rate": 0.10069444444444445,
+      "n_samples": 20,
+      "total_rubrics": 187
+    },
+    "Physics": {
+      "overall_score": 0.04087879087879088,
+      "std_score": 0.11335240925356203,
+      "median_score": 0.0,
+      "mean_pass_rate": 0.056172839506172835,
+      "n_samples": 18,
+      "total_rubrics": 149
+    },
+    "Calculus": {
+      "overall_score": 0.12876704455651822,
+      "std_score": 0.24962910389080858,
+      "median_score": 0.0,
+      "mean_pass_rate": 0.14400352733686067,
+      "n_samples": 18,
+      "total_rubrics": 161
+    }
+  },
+  "sample_results": [
+    {
+      "sample_id": "6842a1fbcafd33210e815bd6",
+      "weighted_score": 0.22727272727272727,
+      "pass_rate": 0.5,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "684a8c40ddc9f025efade29b",
+      "weighted_score": 0.20754716981132076,
+      "pass_rate": 0.14285714285714285,
+      "critical_pass_rate": 0.25
+    },
+    {
+      "sample_id": "6847710b7b4ee0eddf8194e4",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "685454ee424059c5f6deab23",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "6847710b1f412e3e21269c74",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "685454f0a47330cab0e42af7",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "6842a1fc67aa278c9daae8c1",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "685454ef2187108ef9b08ac6",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "6842a1fb91d4dec454518bfd",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "6847710a9a6b1451d91de150",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "685454eeb138b019d5728a96",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "685454f0fc51d7cd57aa6f85",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "685454ee44fbb3cf43c29765",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "684a8c40537a18f48946bc17",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "6847710a450d4ae28699d87f",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "6842a1fb4b3ada7c29040359",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "685454ee930e1af9135defda",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "685454eec5d43a37be94b49c",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "685454eed4c0443e0df34e6c",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "6847710b748618a10eb516c8",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "6842a1fb493da3d4b37fd8b5",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "685454ee7728ae576b847f3a",
+      "weighted_score": 0.02702702702702703,
+      "pass_rate": 0.1111111111111111,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "6842a1fbbdfc0b0552b0553e",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "685454eecda0c5d0f3d211fd",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "6842a1fb0015fc211142e86e",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "685454ee7a61803fa9dfd9d6",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "685454eea47330cab0e42acf",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "685454eead07ff0ed76d4179",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "684a8c400f2d31d3b4e0975d",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "685454ee714d62d3ac325d05",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "6847710b5f4fdb5c45e43ea2",
+      "weighted_score": 0.09433962264150944,
+      "pass_rate": 0.07692307692307693,
+      "critical_pass_rate": 0.1
+    },
+    {
+      "sample_id": "685454f0a675fc48d54e7f52",
+      "weighted_score": 0.3157894736842105,
+      "pass_rate": 0.2857142857142857,
+      "critical_pass_rate": 0.3333333333333333
+    },
+    {
+      "sample_id": "684a8c4060c36b9489a7278b",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "684a8c41d3b4bb8eaeda2328",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "6842a1fb5b975e19cd0c270f",
+      "weighted_score": 0.22727272727272727,
+      "pass_rate": 0.16666666666666666,
+      "critical_pass_rate": 0.25
+    },
+    {
+      "sample_id": "6842a1fbba6af9cb6614fe61",
+      "weighted_score": 0.47368421052631576,
+      "pass_rate": 0.6,
+      "critical_pass_rate": 0.42857142857142855
+    },
+    {
+      "sample_id": "6847710b5817461e60913ea0",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "684a8c41f2ed21c3af4f5e68",
+      "weighted_score": 0.2,
+      "pass_rate": 0.5,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "684a8c40abab6ca3db430abd",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "6842a1fa0a1677ecde971ae1",
+      "weighted_score": 0.4230769230769231,
+      "pass_rate": 0.5,
+      "critical_pass_rate": 0.4
+    },
+    {
+      "sample_id": "6842a1fbf56d6ef965ad750e",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "6842a1fbbcb6e8da4c11f241",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "685454eea675fc48d54e7f2a",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "6847710a9bc321f32d5b5a95",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "684a8c40ad4c4ea90e9b4522",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "6842a1fa67aa278c9daae89e",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "685454eee805192d91587860",
+      "weighted_score": 0.09615384615384616,
+      "pass_rate": 0.08333333333333333,
+      "critical_pass_rate": 0.1
+    },
+    {
+      "sample_id": "6842a1fbd1556c5edbd19e10",
+      "weighted_score": 0.14893617021276595,
+      "pass_rate": 0.2727272727272727,
+      "critical_pass_rate": 0.1111111111111111
+    },
+    {
+      "sample_id": "6842a1fb0c7748874c889af5",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "685454f0cda0c5d0f3d21224",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "6847710a74c7f1cb6eb0b17b",
+      "weighted_score": 0.53125,
+      "pass_rate": 0.625,
+      "critical_pass_rate": 0.5
+    },
+    {
+      "sample_id": "684a8c4018b7bd8684a48247",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "685454eef56b8827a9494657",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "6847710b1b2bfa550f74960f",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "6842a1fab8e8a60a16f55ffc",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "685454ee7272e9f8923e1701",
+      "weighted_score": 0.8947368421052632,
+      "pass_rate": 0.7142857142857143,
+      "critical_pass_rate": 1.0
+    },
+    {
+      "sample_id": "684a8c41a2df538ed4adb700",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "685454ee560be313d9ec6a3a",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "6847710b38b750070d6473ec",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "685454ef80207bfd97b578a9",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 1.0
+    },
+    {
+      "sample_id": "6847710b5817461e60913ea3",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "685454eef8ab7067dd48b74f",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "685454ee2e6607c81507261e",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "6842a1fb7996124c02b91b09",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "6847710bde93ff93d7ba427f",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "685454f056f4afc24172730d",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "684a8c406dff21aacb332629",
+      "weighted_score": 0.5675675675675675,
+      "pass_rate": 0.5555555555555556,
+      "critical_pass_rate": 0.5714285714285714
+    },
+    {
+      "sample_id": "685454ef513ee4759d9bd93a",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "6847710a0598f7a09e49fec5",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "684a8c415d646cbe4fda10bd",
+      "weighted_score": 0.18181818181818182,
+      "pass_rate": 0.2222222222222222,
+      "critical_pass_rate": 0.16666666666666666
+    },
+    {
+      "sample_id": "685454ee22969a049b1c9d71",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "6842a1fb5ca82eb2207af64b",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "684a8c40f1bc5bb34f054474",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "685454ee3f42c0760b91933d",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "685454ee513ee4759d9bd912",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "684a8c416dff21aacb332649",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "6847710a54afe630835408b3",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "6847710b756f1682065c9cb9",
+      "weighted_score": 0.23255813953488372,
+      "pass_rate": 0.2222222222222222,
+      "critical_pass_rate": 0.23529411764705882
+    },
+    {
+      "sample_id": "6842a1fb44e7b28b9fc8ba76",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "6842a1fb2e00dd1898a9bdc6",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "6847710b9f5075c5d5824b1b",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "685454ee8639de96a3d235d4",
+      "weighted_score": 0.39285714285714285,
+      "pass_rate": 0.5833333333333334,
+      "critical_pass_rate": 0.25
+    },
+    {
+      "sample_id": "6842a1fabdfc0b0552b0551b",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "685454ee1c115c624d955267",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "6847710b25bf4abe09f74b97",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "684a8c40d894a549149c50c1",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "684a8c402e4d9fec5e495e22",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "684a8c40a8da4aded13ef565",
+      "weighted_score": 0.10344827586206896,
+      "pass_rate": 0.3333333333333333,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "684a8c403b901ee3995f38f5",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "6847710b001aed0b224ab300",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "6842a1fbb8f271121fd79472",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "685454eee6d053a2b0277f8f",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "684a8c41d3b4bb8eaeda2326",
+      "weighted_score": 0.5277777777777778,
+      "pass_rate": 0.5833333333333334,
+      "critical_pass_rate": 0.5
+    },
+    {
+      "sample_id": "6842a1fb8996ff64ca7a423c",
+      "weighted_score": 0.2857142857142857,
+      "pass_rate": 0.4,
+      "critical_pass_rate": 0.25
+    },
+    {
+      "sample_id": "685454ee2ae3f8515f9eaec1",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "685454efc5d43a37be94b4c3",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "6847710a748618a10eb516a5",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "684a8c40abab6ca3db430abb",
+      "weighted_score": 0.7714285714285715,
+      "pass_rate": 0.6363636363636364,
+      "critical_pass_rate": 0.8333333333333334
+    },
+    {
+      "sample_id": "6842a1fbeec1338496adc799",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    },
+    {
+      "sample_id": "6842a1fbb320bf9b06f08ac4",
+      "weighted_score": 0.0,
+      "pass_rate": 0.0,
+      "critical_pass_rate": 0.0
+    }
+  ]
+}

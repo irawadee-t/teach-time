@@ -1,0 +1,142 @@
+{
+  "metadata": {
+    "is_multi_run": false,
+    "n_samples": 20
+  },
+  "overall": {
+    "baseline": {
+      "mean": 0.3270128605413186
+    },
+    "chain": {
+      "mean": 0.18571500866366777
+    },
+    "delta": -0.14129785187765084,
+    "improvement_pct": -43.20865290855973
+  },
+  "by_use_case": {},
+  "by_dimension": {
+    "instruction_following": {
+      "baseline": {
+        "mean": 0.2840909090909091
+      },
+      "chain": {
+        "mean": 0.125
+      },
+      "delta": -0.15909090909090912,
+      "improvement_pct": -56.00000000000001,
+      "n_rubrics": 88
+    },
+    "truthfulness": {
+      "baseline": {
+        "mean": 0.3076923076923077
+      },
+      "chain": {
+        "mean": 0.16923076923076924
+      },
+      "delta": -0.13846153846153847,
+      "improvement_pct": -45.0,
+      "n_rubrics": 65
+    },
+    "conciseness_relevance": {
+      "baseline": {
+        "mean": 0.6666666666666666
+      },
+      "chain": {
+        "mean": 0.3333333333333333
+      },
+      "delta": -0.3333333333333333,
+      "improvement_pct": -50.0,
+      "n_rubrics": 12
+    },
+    "style_tone": {
+      "baseline": {
+        "mean": 0.53125
+      },
+      "chain": {
+        "mean": 0.75
+      },
+      "delta": 0.21875,
+      "improvement_pct": 41.17647058823529,
+      "n_rubrics": 32
+    }
+  },
+  "by_skill": {
+    "asking_guiding_questions": {
+      "baseline": {
+        "mean": 0.0
+      },
+      "chain": {
+        "mean": 1.0
+      },
+      "delta": 1.0,
+      "improvement_pct": Infinity,
+      "n_rubrics": 1
+    },
+    "identifying_core_difficulty": {
+      "baseline": {
+        "mean": 0.13043478260869565
+      },
+      "chain": {
+        "mean": 0.08695652173913043
+      },
+      "delta": -0.043478260869565216,
+      "improvement_pct": -33.33333333333333,
+      "n_rubrics": 23
+    },
+    "identifying_correct_steps": {
+      "baseline": {
+        "mean": 0.36363636363636365
+      },
+      "chain": {
+        "mean": 0.12121212121212122
+      },
+      "delta": -0.24242424242424243,
+      "improvement_pct": -66.66666666666666,
+      "n_rubrics": 33
+    },
+    "including_examples": {
+      "baseline": {
+        "mean": 0.0
+      },
+      "chain": {
+        "mean": 0.0
+      },
+      "delta": 0.0,
+      "improvement_pct": 0.0,
+      "n_rubrics": 7
+    },
+    "providing_alternative_solutions": {
+      "baseline": {
+        "mean": 0.0
+      },
+      "chain": {
+        "mean": 0.0
+      },
+      "delta": 0.0,
+      "improvement_pct": 0.0,
+      "n_rubrics": 1
+    },
+    "stating_knowledge": {
+      "baseline": {
+        "mean": 0.4074074074074074
+      },
+      "chain": {
+        "mean": 0.24074074074074073
+      },
+      "delta": -0.16666666666666666,
+      "improvement_pct": -40.909090909090914,
+      "n_rubrics": 54
+    },
+    "step_by_step_help": {
+      "baseline": {
+        "mean": 0.6666666666666666
+      },
+      "chain": {
+        "mean": 0.25
+      },
+      "delta": -0.41666666666666663,
+      "improvement_pct": -62.5,
+      "n_rubrics": 12
+    }
+  }
+}

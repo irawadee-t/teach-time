@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "is_multi_run": false,
+    "n_samples": 5
+  },
+  "overall": {
+    "baseline": {
+      "mean": 0.33331369451652465
+    },
+    "chain": {
+      "mean": 0.06277873070325901
+    },
+    "delta": -0.27053496381326564,
+    "improvement_pct": -81.16527111365157
+  },
+  "by_use_case": {},
+  "by_dimension": {
+    "instruction_following": {
+      "baseline": {
+        "mean": 0.4444444444444444
+      },
+      "chain": {
+        "mean": 0.05555555555555555
+      },
+      "delta": -0.38888888888888884,
+      "improvement_pct": -87.49999999999999,
+      "n_rubrics": 18
+    },
+    "truthfulness": {
+      "baseline": {
+        "mean": 0.25
+      },
+      "chain": {
+        "mean": 0.14285714285714285
+      },
+      "delta": -0.10714285714285715,
+      "improvement_pct": -42.85714285714286,
+      "n_rubrics": 28
+    },
+    "conciseness_relevance": {
+      "baseline": {
+        "mean": 0.6666666666666666
+      },
+      "chain": {
+        "mean": 0.0
+      },
+      "delta": -0.6666666666666666,
+      "improvement_pct": -100.0,
+      "n_rubrics": 3
+    },
+    "style_tone": {
+      "baseline": {
+        "mean": 0.42857142857142855
+      },
+      "chain": {
+        "mean": 0.2857142857142857
+      },
+      "delta": -0.14285714285714285,
+      "improvement_pct": -33.33333333333333,
+      "n_rubrics": 7
+    }
+  },
+  "by_skill": {
+    "identifying_core_difficulty": {
+      "baseline": {
+        "mean": 0.0
+      },
+      "chain": {
+        "mean": 0.0
+      },
+      "delta": 0.0,
+      "improvement_pct": 0.0,
+      "n_rubrics": 6
+    },
+    "identifying_correct_steps": {
+      "baseline": {
+        "mean": 0.5
+      },
+      "chain": {
+        "mean": 0.0
+      },
+      "delta": -0.5,
+      "improvement_pct": -100.0,
+      "n_rubrics": 12
+    },
+    "stating_knowledge": {
+      "baseline": {
+        "mean": 0.4117647058823529
+      },
+      "chain": {
+        "mean": 0.17647058823529413
+      },
+      "delta": -0.2352941176470588,
+      "improvement_pct": -57.14285714285714,
+      "n_rubrics": 17
+    },
+    "step_by_step_help": {
+      "baseline": {
+        "mean": 0.5
+      },
+      "chain": {
+        "mean": 0.0
+      },
+      "delta": -0.5,
+      "improvement_pct": -100.0,
+      "n_rubrics": 2
+    }
+  }
+}
