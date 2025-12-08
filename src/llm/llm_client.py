@@ -1,8 +1,8 @@
 """
-LLM client with Together AI integration and caching.
+LLM client with multi-provider support and caching.
 
-Provides a clean abstraction over Together AI API with SQLite-based caching
-for reproducibility and cost savings.
+Supports Together AI, Anthropic, and HuggingFace Transformers with SQLite-based caching
+for reproducibility and efficiency.
 """
 
 import os
@@ -19,14 +19,19 @@ try:
     TOGETHER_AVAILABLE = True
 except ImportError:
     TOGETHER_AVAILABLE = False
-    print("Warning: 'together' package not installed. Install with: pip install together")
 
 try:
     import anthropic
     ANTHROPIC_AVAILABLE = True
 except ImportError:
     ANTHROPIC_AVAILABLE = False
-    print("Warning: 'anthropic' package not installed. Install with: pip install anthropic")
+
+try:
+    import torch
+    from transformers import AutoTokenizer, AutoModelForCausalLM
+    TRANSFORMERS_AVAILABLE = True
+except ImportError:
+    TRANSFORMERS_AVAILABLE = False
 
 
 @dataclass
@@ -142,11 +147,12 @@ class LLMCache:
 
 class LLMClient:
     """
-    Client for calling LLMs via Together AI or Anthropic with caching.
+    Client for calling LLMs with multi-provider support and caching.
 
     Supports:
-    - Together AI API
+    - Together AI API (Llama, Mistral, etc.)
     - Anthropic API (Claude models)
+    - HuggingFace Transformers (SocraticLM, local models)
     - SQLite caching for reproducibility
     - Token counting and usage tracking
     """
@@ -155,7 +161,7 @@ class LLMClient:
         self,
         api_key: Optional[str] = None,
         anthropic_api_key: Optional[str] = None,
-        default_model: str = "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
+        default_model: str = "CogBase-USTC/SocraticLM",
         enable_cache: bool = True,
         cache_dir: str = ".cache",
         verbose: bool = False,
@@ -187,16 +193,43 @@ class LLMClient:
             self.together_client = Together(api_key=self.together_api_key)
         else:
             self.together_client = None
-            if self.verbose and not self.together_api_key:
-                print("Together client not initialized (API key missing or package not installed)")
 
         # Initialize Anthropic client
         if ANTHROPIC_AVAILABLE and self.anthropic_api_key:
             self.anthropic_client = anthropic.Anthropic(api_key=self.anthropic_api_key)
         else:
             self.anthropic_client = None
-            if self.verbose and not self.anthropic_api_key:
-                print("Anthropic client not initialized (API key missing or package not installed)")
+
+        # Initialize HuggingFace model and tokenizer
+        self.tokenizer = None
+        self.model = None
+        if TRANSFORMERS_AVAILABLE:
+            try:
+                if self.verbose:
+                    print(f"Loading model: {default_model}")
+
+                # Get HuggingFace token from environment or use cached token
+                hf_token = os.getenv("HF_TOKEN") or None
+
+                self.tokenizer = AutoTokenizer.from_pretrained(
+                    default_model,
+                    token=hf_token,
+                    trust_remote_code=True
+                )
+                self.model = AutoModelForCausalLM.from_pretrained(
+                    default_model,
+                    torch_dtype=torch.bfloat16,
+                    device_map="auto",
+                    trust_remote_code=True,
+                    token=hf_token
+                )
+                if self.verbose:
+                    print(f"Model loaded successfully on device: {self.model.device}")
+            except Exception as e:
+                if self.verbose:
+                    print(f"Could not load HuggingFace model: {e}")
+                self.tokenizer = None
+                self.model = None
 
         # Usage tracking
         self.total_prompt_tokens = 0
@@ -212,11 +245,15 @@ class LLMClient:
             model: Model name
 
         Returns:
-            Provider name: 'anthropic' or 'together'
+            Provider name: 'anthropic', 'together', or 'huggingface'
         """
         # Claude models use Anthropic
         if model.startswith("claude-"):
             return "anthropic"
+        # HuggingFace models (contain / or are known HF models)
+        if "/" in model or model == self.default_model:
+            if self.model and self.tokenizer:
+                return "huggingface"
         # Default to Together for all other models
         return "together"
 
@@ -229,7 +266,7 @@ class LLMClient:
         stop: Optional[List[str]] = None,
     ) -> str:
         """
-        Call LLM with messages.
+        Call LLM with messages using the appropriate provider.
 
         Args:
             messages: List of message dicts with 'role' and 'content'
@@ -255,14 +292,19 @@ class LLMClient:
         # Detect provider
         provider = self._detect_provider(model)
 
+        if self.verbose:
+            print(f"[{provider.upper()}] {model} (temp={temperature}, max_tokens={max_tokens})")
+
         # Route to appropriate provider
         if provider == "anthropic":
             response_text = self._call_anthropic(messages, model, temperature, max_tokens, stop)
-        else:
+        elif provider == "huggingface":
+            response_text = self._call_huggingface(messages, model, temperature, max_tokens)
+        else:  # together
             response_text = self._call_together(messages, model, temperature, max_tokens, stop)
 
         # Cache the response
-        if self.enable_cache and self.cache and not response_text.startswith("[Error"):
+        if self.enable_cache and self.cache:
             self.cache.set(messages, model, temperature, max_tokens, response_text)
 
         return response_text
@@ -273,18 +315,15 @@ class LLMClient:
         model: str,
         temperature: float,
         max_tokens: int,
-        stop: Optional[List[str]],
+        stop: Optional[List[str]]
     ) -> str:
         """Call Together AI API."""
         if not self.together_client:
             if self.verbose:
-                print(f"Warning: Using mock response (Together client not available)")
-            return "[Mock response - Together API key not configured]"
+                print("Warning: Together client not available")
+            return "[Mock response - Together AI not configured]"
 
         try:
-            if self.verbose:
-                print(f"[Together API call] {model} (temp={temperature}, max_tokens={max_tokens})")
-
             response = self.together_client.chat.completions.create(
                 model=model,
                 messages=messages,
@@ -304,7 +343,7 @@ class LLMClient:
             return response_text
 
         except Exception as e:
-            print(f"Error calling Together API: {e}")
+            print(f"Error calling Together AI: {e}")
             return f"[Error: {str(e)}]"
 
     def _call_anthropic(
@@ -313,55 +352,116 @@ class LLMClient:
         model: str,
         temperature: float,
         max_tokens: int,
-        stop: Optional[List[str]],
+        stop: Optional[List[str]]
     ) -> str:
         """Call Anthropic API."""
         if not self.anthropic_client:
             if self.verbose:
-                print(f"Warning: Using mock response (Anthropic client not available)")
-            return "[Mock response - Anthropic API key not configured]"
+                print("Warning: Anthropic client not available")
+            return "[Mock response - Anthropic not configured]"
 
         try:
-            if self.verbose:
-                print(f"[Anthropic API call] {model} (temp={temperature}, max_tokens={max_tokens})")
-
-            # Anthropic requires system message to be separate
+            # Extract system message if present
             system_message = None
-            api_messages = []
+            chat_messages = []
             for msg in messages:
                 if msg["role"] == "system":
                     system_message = msg["content"]
                 else:
-                    api_messages.append(msg)
+                    chat_messages.append(msg)
 
-            # Build request params
-            params = {
-                "model": model,
-                "messages": api_messages,
-                "temperature": temperature,
-                "max_tokens": max_tokens,
-            }
-
+            # Call Anthropic API
             if system_message:
-                params["system"] = system_message
-
-            if stop:
-                params["stop_sequences"] = stop
-
-            response = self.anthropic_client.messages.create(**params)
+                response = self.anthropic_client.messages.create(
+                    model=model,
+                    max_tokens=max_tokens,
+                    temperature=temperature,
+                    system=system_message,
+                    messages=chat_messages,
+                    stop_sequences=stop if stop else anthropic.NOT_GIVEN,
+                )
+            else:
+                response = self.anthropic_client.messages.create(
+                    model=model,
+                    max_tokens=max_tokens,
+                    temperature=temperature,
+                    messages=chat_messages,
+                    stop_sequences=stop if stop else anthropic.NOT_GIVEN,
+                )
 
             response_text = response.content[0].text
 
             # Track usage
-            if hasattr(response, 'usage'):
-                self.total_prompt_tokens += response.usage.input_tokens
-                self.total_completion_tokens += response.usage.output_tokens
-
+            self.total_prompt_tokens += response.usage.input_tokens
+            self.total_completion_tokens += response.usage.output_tokens
             self.total_api_calls += 1
+
             return response_text
 
         except Exception as e:
-            print(f"Error calling Anthropic API: {e}")
+            print(f"Error calling Anthropic: {e}")
+            return f"[Error: {str(e)}]"
+
+    def _call_huggingface(
+        self,
+        messages: List[Dict[str, str]],
+        model: str,
+        temperature: float,
+        max_tokens: int
+    ) -> str:
+        """Call local HuggingFace model."""
+        if not self.model or not self.tokenizer:
+            if self.verbose:
+                print("Warning: HuggingFace model not loaded")
+            return "[Mock response - Model not loaded]"
+
+        try:
+            # Apply chat template
+            prompt = self.tokenizer.apply_chat_template(
+                messages,
+                tokenize=False,
+                add_generation_prompt=True
+            )
+
+            # Tokenize input
+            inputs = self.tokenizer.encode(prompt, return_tensors="pt")
+            input_length = inputs.shape[1]
+
+            # Generate response
+            with torch.no_grad():
+                outputs = self.model.generate(
+                    input_ids=inputs.to(self.model.device),
+                    max_new_tokens=max_tokens,
+                    temperature=temperature,
+                    do_sample=temperature > 0,
+                    pad_token_id=self.tokenizer.eos_token_id,
+                )
+
+            # Decode response (only the generated part, not the prompt)
+            full_response = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
+
+            # Extract only the assistant's response by removing the prompt
+            prompt_text = self.tokenizer.decode(inputs[0], skip_special_tokens=True)
+            if full_response.startswith(prompt_text):
+                response_text = full_response[len(prompt_text):].strip()
+            else:
+                response_text = full_response.strip()
+
+            # Track usage (approximate token counts)
+            output_length = outputs.shape[1]
+            prompt_tokens = input_length
+            completion_tokens = output_length - input_length
+
+            self.total_prompt_tokens += prompt_tokens
+            self.total_completion_tokens += completion_tokens
+            self.total_api_calls += 1
+
+            return response_text
+
+        except Exception as e:
+            print(f"Error calling HuggingFace model: {e}")
+            import traceback
+            traceback.print_exc()
             return f"[Error: {str(e)}]"
 
     def call_with_response_object(
@@ -437,7 +537,7 @@ class LLMClient:
 
 # Convenience function for quick usage
 def create_llm_client(
-    model: str = "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
+    model: str = "CogBase-USTC/SocraticLM",
     enable_cache: bool = True,
     verbose: bool = False,
 ) -> LLMClient:
@@ -445,7 +545,7 @@ def create_llm_client(
     Create an LLM client with default settings.
 
     Args:
-        model: Model name to use
+        model: HuggingFace model name to use
         enable_cache: Whether to enable caching
         verbose: Whether to print debug info
 

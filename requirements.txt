@@ -3,10 +3,16 @@ python-dotenv>=1.0.0
 pydantic>=2.5.0
 pyyaml>=6.0.1
 
-# LLM & API
-together>=1.0.0
+# LLM & API (Multi-provider support)
+together>=1.0.0  # Together AI
 openai>=1.0.0  # For API compatibility patterns
-anthropic>=0.39.0  # For TutorBench judge (Claude Sonnet 4)
+anthropic>=0.39.0  # Anthropic Claude models
+
+# HuggingFace Transformers (Local models)
+torch>=2.0.0
+transformers>=4.35.0
+accelerate>=0.25.0  # For efficient model loading with device_map
+sentencepiece>=0.1.99  # For tokenization (some models require this)
 
 # Data & Analysis
 numpy>=1.24.0

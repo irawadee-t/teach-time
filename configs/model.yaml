@@ -1,7 +1,9 @@
 # LLM Model Configuration
 
-# Default model (Together AI)
-default_model: "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo"
+# Default model (HuggingFace - SocraticLM)
+# SocraticLM is a fine-tuned version of Qwen2.5-Math-7B-Instruct on the SocraTeach dataset
+# Designed for Socratic-style teaching and mathematical problem solving
+default_model: "CogBase-USTC/SocraticLM"
 
 # Sampling parameters
 temperature: 0.7
@@ -13,11 +15,11 @@ cache_dir: ".cache"
 
 # Model variants for different use cases
 models:
-  # Main model for agents and students
-  default: "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo"
+  # Main model for agents and students (SocraticLM)
+  default: "CogBase-USTC/SocraticLM"
 
-  # Smaller/faster model for development/testing
-  fast: "meta-llama/Llama-2-13b-chat-hf"
+  # Same model for all use cases (fine-tuned for teaching)
+  fast: "CogBase-USTC/SocraticLM"
 
   # For LLM-as-judge (quality assessment)
-  judge: "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo"
+  judge: "CogBase-USTC/SocraticLM"
