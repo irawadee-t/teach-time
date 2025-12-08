@@ -1,0 +1,51 @@
+# Experiment 3: Robustness Across Student Personas
+#
+# Goal: Test robustness of tutoring strategies across diverse student behaviors.
+# Does ReAct-Teacher adapt better to different student types compared to baselines?
+
+name: "exp3_persona_robustness"
+
+# Domain
+domain: "mathematics"
+
+# Tasks to use (smaller set for this experiment)
+tasks:
+  - linear_equations
+  - fraction_operations
+
+# Student personas (all three)
+students:
+  - struggling
+  - confident_mistaken
+  - minimal_talker
+
+# Agents to compare
+agents:
+  - baseline_cot
+  - metric_cot
+  - react_teacher
+
+# Number of episodes per (task, student, agent) combination
+num_episodes_per_condition: 40
+
+# Episode settings
+max_turns: 10
+enable_quizzes: true
+
+# Scoring focus
+scoring_focus: "full"  # All components
+
+# Random seed
+random_seed: 44
+
+# Output
+description: |
+  Test adaptation to different student personas. Analyze:
+  - Agent × persona performance matrix (heatmap)
+  - Which agent degrades least across personas?
+  - Interaction effects (agent × persona on learning gain)
+
+  Personas:
+  - Struggling: High confusion, needs multiple explanations
+  - Confident but mistaken: Systematic misconceptions
+  - Minimal talker: Terse responses, low talk ratio challenge

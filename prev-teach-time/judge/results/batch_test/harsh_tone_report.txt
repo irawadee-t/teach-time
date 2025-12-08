@@ -1,0 +1,86 @@
+================================================================================
+PEDAGOGICAL EVALUATION REPORT
+================================================================================
+Generated: 2025-12-07 23:56:53
+
+OVERALL PEDAGOGICAL EFFECTIVENESS SCORE (PES)
+--------------------------------------------------------------------------------
+Score: 25.0/100
+Category: Very Poor
+Quality: poor
+
+Summary: The tutoring session was pedagogically ineffective, with superficial engagement (mostly passive/active), shallow questioning, and minimal student participation. While basic interaction occurred, significant improvements are needed in feedback quality, question depth, and fostering student-led dialogue.
+
+KEY FINDINGS
+--------------------------------------------------------------------------------
+
+Strengths:
+  1. Basic engagement present (some active participation)
+  2. Minimal scaffolding provided (low but existent guidance)
+
+Areas for Improvement:
+  1. Lack of deep questioning (no conceptual/metacognitive questions)
+  2. Low student talk ratio (limited student contribution)
+  3. Weak feedback and coherence (minimal error correction or clarity)
+
+Recommendations:
+  1. Incorporate higher-order questions (e.g., 'Why does this method work?' or 'How would you approach this problem?') to deepen thinking.
+  2. Use open-ended prompts (e.g., 'Explain your reasoning') to increase student talk ratio and constructive engagement.
+  3. Provide clearer, more specific feedback (e.g., 'The error here is X; let’s fix it by Y') to improve guidance and coherence.
+
+DETAILED SCORE BREAKDOWN
+--------------------------------------------------------------------------------
+
+LAYER 1: 8-Dimension Tutor Response Quality (80% weight)
+Layer Score: 0.250
+Weighted Contribution: 20.00/100
+
+  Comprehension Probing: 2/5
+    The tutor rarely probes comprehension effectively. Most questions are accusatory or dismissive rather than genuine checks for understanding. The few questions asked are either rhetorical or lack depth to reveal true comprehension gaps.
+    Evidence: Turn 1: 'Have you even read chapter 5?' (accusatory, not a comprehension check)...
+
+  Background Knowledge Assessment: 2/5
+    The tutor superficially asks about background knowledge in Turn 1 ('Have you even read chapter 5?') but does not meaningfully explore the student's understanding or adapt teaching based on the response. The tutor's approach is dismissive and lacks constructive assessment or adaptation.
+    Evidence: Turn 1 [TUTOR]: We're doing quadratic equations. You should already know this from your textbook. Ha...
+
+  Appropriate Guidance Level: 2/5
+    The tutor frequently reveals answers and provides excessive step-by-step instructions, often with a condescending tone. The student is left as a passive recipient rather than being encouraged to engage in productive cognitive work.
+    Evidence: Turn 3: 'Anyway, solve x² + 3x + 2 = 0. This is basic factoring.'...
+
+  Error Feedback Quality: 2/5
+    The tutor's feedback is mostly discouraging and lacks constructive explanations. While they do eventually provide correct answers, the tone is harsh and does not help the student understand why they might be struggling or how to improve.
+    Evidence: Turn 1 [TUTOR]: We're doing quadratic equations. You should already know this from your textbook. Ha...
+
+  Encouragement & Tone: 2/5
+    The tutor's tone is predominantly harsh and discouraging, with frequent expressions of frustration and impatience. The language used often belittles the student's efforts and lacks warmth or encouragement.
+    Evidence: You should already know this from your textbook. Have you even read chapter 5?...
+
+  Response Coherence: 2/5
+    The tutor's responses are frequently unclear and poorly organized, often coming across as dismissive and unhelpful. The tutor fails to provide clear, step-by-step explanations and instead resorts to criticism, making it difficult for the student to follow the teaching logic.
+    Evidence: You should already know this from your textbook. Have you even read chapter 5?...
+
+  Response Relevance: 2/5
+    The tutor frequently provides irrelevant or discouraging comments instead of addressing the student's learning needs directly. The tutor's responses often include criticism and lack constructive guidance, focusing more on the student's perceived shortcomings rather than explaining the concepts clearly.
+    Evidence: Turn 1: 'You should already know this from your textbook. Have you even read chapter 5?'...
+
+  Student Talk Ratio: 2/5
+    The tutor dominates the conversation with long explanations and critical remarks, while the student provides minimal, hesitant responses. The student appears passive and unsure, with the tutor doing most of the cognitive work.
+    Evidence: Turn 1 [TUTOR]: We're doing quadratic equations. You should already know this from your textbook. Ha...
+
+LAYER 2: Question Depth Analysis (10% weight)
+Layer Score: 0.250
+Weighted Contribution: 2.50/100
+Raw Score: 2/5
+Question Distribution: {'recall': 2, 'procedural': 3, 'conceptual': 0, 'metacognitive': 0}
+Justification: The tutor's questions are dominated by recall and procedural types, with no conceptual or metacognitive questions. The recall questions are simple factual checks (e.g., reading chapter 5 or stating the zero product property), while the procedural questions focus on the steps to solve quadratic equations (e.g., factoring). There is no attempt to explore deeper understanding (conceptual) or reflect on learning strategies (metacognitive). The tutor's approach is dismissive and lacks scaffolding for deeper thinking, fitting the 'Poor' (2) category.
+
+LAYER 3: ICAP Student Engagement (10% weight)
+Layer Score: 0.250
+Weighted Contribution: 2.50/100
+Raw Score: 2/5
+Engagement Distribution: {'passive': 50, 'active': 38, 'constructive': 6, 'interactive': 6}
+Justification: The student's engagement is dominated by passive and active behaviors. Most of their responses are either minimal acknowledgments (e.g., 'Okay...', 'I'm trying my best...') or simple repetitions of the tutor's prompts (e.g., 'Maybe... 1 and 2?'). There is very little constructive or interactive engagement—only one instance of constructive thinking ('Oh, so x = -1 or x = -2?') and no true back-and-forth dialogue where the student builds on the tutor's ideas. The tutor's dismissive and critical tone likely discourages deeper engagement. Thus, the overall engagement level is 'Poor' (Score 2).
+
+================================================================================
+END OF REPORT
+================================================================================

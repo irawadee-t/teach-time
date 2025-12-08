@@ -1,0 +1,239 @@
+{
+  "name": "harsh_tone",
+  "pes_score": 25.0,
+  "pes_category": "Very Poor",
+  "conversation": [
+    {
+      "role": "tutor",
+      "content": "We're doing quadratic equations. You should already know this from your textbook. Have you even read chapter 5?"
+    },
+    {
+      "role": "student",
+      "content": "I tried to read it but I didn't really understand..."
+    },
+    {
+      "role": "tutor",
+      "content": "Well, that's the problem. You need to put in more effort. Anyway, solve x\u00b2 + 3x + 2 = 0. This is basic factoring."
+    },
+    {
+      "role": "student",
+      "content": "Um... I'm not sure how to factor it."
+    },
+    {
+      "role": "tutor",
+      "content": "It's simple. You need two numbers that multiply to 2 and add to 3. Come on, this isn't that hard."
+    },
+    {
+      "role": "student",
+      "content": "Maybe... 1 and 2?"
+    },
+    {
+      "role": "tutor",
+      "content": "Yes, obviously. So it factors to (x + 1)(x + 2) = 0. Now what?"
+    },
+    {
+      "role": "student",
+      "content": "I... I'm not sure."
+    },
+    {
+      "role": "tutor",
+      "content": "You're not sure? We literally just covered the zero product property. If you're not going to pay attention, this is going to be very difficult. When two things multiply to zero, one of them must BE zero. So x + 1 = 0 or x + 2 = 0."
+    },
+    {
+      "role": "student",
+      "content": "Oh, so x = -1 or x = -2?"
+    },
+    {
+      "role": "tutor",
+      "content": "Finally. Yes, x = -1 or x = -2. See how easy that was? I don't understand why you're struggling with such a straightforward concept."
+    },
+    {
+      "role": "student",
+      "content": "Sorry, I'm trying my best..."
+    },
+    {
+      "role": "tutor",
+      "content": "Well, try harder. Let's do another one: x\u00b2 + 5x + 6 = 0. Same process. What are the factors?"
+    },
+    {
+      "role": "student",
+      "content": "Um... 2 and 3?"
+    },
+    {
+      "role": "tutor",
+      "content": "Correct. So (x + 2)(x + 3) = 0, giving x = -2 or x = -3. At least you're getting the factoring part now, even if it's taking you longer than it should."
+    },
+    {
+      "role": "student",
+      "content": "Okay..."
+    },
+    {
+      "role": "tutor",
+      "content": "Look, quadratics aren't going away. You need to master this. Practice more problems on your own because we're wasting time on basics. Most students pick this up much faster."
+    },
+    {
+      "role": "student",
+      "content": "I'll practice more."
+    },
+    {
+      "role": "tutor",
+      "content": "Good. You should. Otherwise you're going to fall behind even more than you already are."
+    }
+  ],
+  "evaluation": {
+    "overall_quality": "poor",
+    "summary": "The tutoring session was pedagogically ineffective, with superficial engagement (mostly passive/active), shallow questioning, and minimal student participation. While basic interaction occurred, significant improvements are needed in feedback quality, question depth, and fostering student-led dialogue.",
+    "strengths": [
+      "Basic engagement present (some active participation)",
+      "Minimal scaffolding provided (low but existent guidance)"
+    ],
+    "areas_for_improvement": [
+      "Lack of deep questioning (no conceptual/metacognitive questions)",
+      "Low student talk ratio (limited student contribution)",
+      "Weak feedback and coherence (minimal error correction or clarity)"
+    ],
+    "recommendations": [
+      "Incorporate higher-order questions (e.g., 'Why does this method work?' or 'How would you approach this problem?') to deepen thinking.",
+      "Use open-ended prompts (e.g., 'Explain your reasoning') to increase student talk ratio and constructive engagement.",
+      "Provide clearer, more specific feedback (e.g., 'The error here is X; let\u2019s fix it by Y') to improve guidance and coherence."
+    ],
+    "layers": {
+      "layer1_dimensions": {
+        "score": 0.25,
+        "weight": 0.8,
+        "weighted_contribution": 20.0,
+        "dimensions": {
+          "comprehension_probing": {
+            "score": 2,
+            "normalized": 0.25,
+            "justification": "The tutor rarely probes comprehension effectively. Most questions are accusatory or dismissive rather than genuine checks for understanding. The few questions asked are either rhetorical or lack depth to reveal true comprehension gaps.",
+            "evidence": [
+              "Turn 1: 'Have you even read chapter 5?' (accusatory, not a comprehension check)",
+              "Turn 3: 'This is basic factoring.' (assumes understanding, no probing)",
+              "Turn 5: 'Come on, this isn't that hard.' (dismissive, no probing)",
+              "Turn 9: 'If you're not going to pay attention...' (critical, not a comprehension check)",
+              "Turn 15: 'At least you're getting the factoring part now...' (backhanded, no probing)"
+            ]
+          },
+          "background_knowledge": {
+            "score": 2,
+            "normalized": 0.25,
+            "justification": "The tutor superficially asks about background knowledge in Turn 1 ('Have you even read chapter 5?') but does not meaningfully explore the student's understanding or adapt teaching based on the response. The tutor's approach is dismissive and lacks constructive assessment or adaptation.",
+            "evidence": [
+              "Turn 1 [TUTOR]: We're doing quadratic equations. You should already know this from your textbook. Have you even read chapter 5?",
+              "Turn 3 [TUTOR]: Well, that's the problem. You need to put in more effort. Anyway, solve x\u00b2 + 3x + 2 = 0. This is basic factoring.",
+              "Turn 9 [TUTOR]: You're not sure? We literally just covered the zero product property. If you're not going to pay attention, this is going to be very difficult."
+            ]
+          },
+          "guidance_level": {
+            "score": 2,
+            "normalized": 0.25,
+            "justification": "The tutor frequently reveals answers and provides excessive step-by-step instructions, often with a condescending tone. The student is left as a passive recipient rather than being encouraged to engage in productive cognitive work.",
+            "evidence": [
+              "Turn 3: 'Anyway, solve x\u00b2 + 3x + 2 = 0. This is basic factoring.'",
+              "Turn 5: 'It's simple. You need two numbers that multiply to 2 and add to 3. Come on, this isn't that hard.'",
+              "Turn 7: 'Yes, obviously. So it factors to (x + 1)(x + 2) = 0. Now what?'",
+              "Turn 9: 'You're not sure? We literally just covered the zero product property... So x + 1 = 0 or x + 2 = 0.'",
+              "Turn 15: 'Correct. So (x + 2)(x + 3) = 0, giving x = -2 or x = -3.'"
+            ]
+          },
+          "error_feedback": {
+            "score": 2,
+            "normalized": 0.25,
+            "justification": "The tutor's feedback is mostly discouraging and lacks constructive explanations. While they do eventually provide correct answers, the tone is harsh and does not help the student understand why they might be struggling or how to improve.",
+            "evidence": [
+              "Turn 1 [TUTOR]: We're doing quadratic equations. You should already know this from your textbook. Have you even read chapter 5?",
+              "Turn 5 [TUTOR]: It's simple. You need two numbers that multiply to 2 and add to 3. Come on, this isn't that hard.",
+              "Turn 9 [TUTOR]: You're not sure? We literally just covered the zero product property. If you're not going to pay attention, this is going to be very difficult.",
+              "Turn 19 [TUTOR]: Good. You should. Otherwise you're going to fall behind even more than you already are."
+            ]
+          },
+          "encouragement": {
+            "score": 2,
+            "normalized": 0.25,
+            "justification": "The tutor's tone is predominantly harsh and discouraging, with frequent expressions of frustration and impatience. The language used often belittles the student's efforts and lacks warmth or encouragement.",
+            "evidence": [
+              "You should already know this from your textbook. Have you even read chapter 5?",
+              "Well, that's the problem. You need to put in more effort.",
+              "It's simple. You need two numbers that multiply to 2 and add to 3. Come on, this isn't that hard.",
+              "You're not sure? We literally just covered the zero product property. If you're not going to pay attention, this is going to be very difficult.",
+              "Finally. Yes, x = -1 or x = -2. See how easy that was? I don't understand why you're struggling with such a straightforward concept.",
+              "Well, try harder.",
+              "At least you're getting the factoring part now, even if it's taking you longer than it should.",
+              "Most students pick this up much faster.",
+              "Otherwise you're going to fall behind even more than you already are."
+            ]
+          },
+          "coherence": {
+            "score": 2,
+            "normalized": 0.25,
+            "justification": "The tutor's responses are frequently unclear and poorly organized, often coming across as dismissive and unhelpful. The tutor fails to provide clear, step-by-step explanations and instead resorts to criticism, making it difficult for the student to follow the teaching logic.",
+            "evidence": [
+              "You should already know this from your textbook. Have you even read chapter 5?",
+              "Well, that's the problem. You need to put in more effort. Anyway, solve x\u00b2 + 3x + 2 = 0. This is basic factoring.",
+              "It's simple. You need two numbers that multiply to 2 and add to 3. Come on, this isn't that hard.",
+              "You're not sure? We literally just covered the zero product property. If you're not going to pay attention, this is going to be very difficult.",
+              "Look, quadratics aren't going away. You need to master this. Practice more problems on your own because we're wasting time on basics. Most students pick this up much faster."
+            ]
+          },
+          "relevance": {
+            "score": 2,
+            "normalized": 0.25,
+            "justification": "The tutor frequently provides irrelevant or discouraging comments instead of addressing the student's learning needs directly. The tutor's responses often include criticism and lack constructive guidance, focusing more on the student's perceived shortcomings rather than explaining the concepts clearly.",
+            "evidence": [
+              "Turn 1: 'You should already know this from your textbook. Have you even read chapter 5?'",
+              "Turn 3: 'Well, that's the problem. You need to put in more effort. Anyway, solve x\u00b2 + 3x + 2 = 0. This is basic factoring.'",
+              "Turn 9: 'You're not sure? We literally just covered the zero product property. If you're not going to pay attention, this is going to be very difficult.'",
+              "Turn 11: 'Finally. Yes, x = -1 or x = -2. See how easy that was? I don't understand why you're struggling with such a straightforward concept.'",
+              "Turn 19: 'Good. You should. Otherwise you're going to fall behind even more than you already are.'"
+            ]
+          },
+          "student_talk_ratio": {
+            "score": 2,
+            "normalized": 0.25,
+            "justification": "The tutor dominates the conversation with long explanations and critical remarks, while the student provides minimal, hesitant responses. The student appears passive and unsure, with the tutor doing most of the cognitive work.",
+            "evidence": [
+              "Turn 1 [TUTOR]: We're doing quadratic equations. You should already know this from your textbook. Have you even read chapter 5?",
+              "Turn 3 [TUTOR]: Well, that's the problem. You need to put in more effort. Anyway, solve x\u00b2 + 3x + 2 = 0. This is basic factoring.",
+              "Turn 5 [TUTOR]: It's simple. You need two numbers that multiply to 2 and add to 3. Come on, this isn't that hard.",
+              "Turn 9 [TUTOR]: You're not sure? We literally just covered the zero product property. If you're not going to pay attention, this is going to be very difficult.",
+              "Turn 19 [TUTOR]: Good. You should. Otherwise you're going to fall behind even more than you already are.",
+              "Estimated ratio: 0.25"
+            ]
+          }
+        }
+      },
+      "layer2_question_depth": {
+        "score": 0.25,
+        "weight": 0.1,
+        "weighted_contribution": 2.5,
+        "details": {
+          "raw_score": 2,
+          "question_count": {
+            "recall": 2,
+            "procedural": 3,
+            "conceptual": 0,
+            "metacognitive": 0
+          },
+          "justification": "The tutor's questions are dominated by recall and procedural types, with no conceptual or metacognitive questions. The recall questions are simple factual checks (e.g., reading chapter 5 or stating the zero product property), while the procedural questions focus on the steps to solve quadratic equations (e.g., factoring). There is no attempt to explore deeper understanding (conceptual) or reflect on learning strategies (metacognitive). The tutor's approach is dismissive and lacks scaffolding for deeper thinking, fitting the 'Poor' (2) category."
+        }
+      },
+      "layer3_icap": {
+        "score": 0.25,
+        "weight": 0.1,
+        "weighted_contribution": 2.5,
+        "details": {
+          "raw_score": 2,
+          "distribution": {
+            "passive": 50,
+            "active": 38,
+            "constructive": 6,
+            "interactive": 6
+          },
+          "justification": "The student's engagement is dominated by passive and active behaviors. Most of their responses are either minimal acknowledgments (e.g., 'Okay...', 'I'm trying my best...') or simple repetitions of the tutor's prompts (e.g., 'Maybe... 1 and 2?'). There is very little constructive or interactive engagement\u2014only one instance of constructive thinking ('Oh, so x = -1 or x = -2?') and no true back-and-forth dialogue where the student builds on the tutor's ideas. The tutor's dismissive and critical tone likely discourages deeper engagement. Thus, the overall engagement level is 'Poor' (Score 2)."
+        }
+      }
+    }
+  },
+  "generated_at": "2025-12-07T23:56:53.194973"
+}

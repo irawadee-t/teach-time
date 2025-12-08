@@ -1,0 +1,52 @@
+# Experiment 4: Ablation - ReAct With/Without Metrics
+#
+# Goal: Decompose the contribution of (a) ReAct structure vs (b) metric awareness.
+# Is it the ReAct framework or the explicit metrics that matter more?
+
+name: "exp4_react_ablation"
+
+# Domain
+domain: "mathematics"
+
+# Tasks to use
+tasks:
+  - linear_equations
+  - fraction_operations
+
+# Student personas
+students:
+  - struggling
+  - confident_mistaken
+
+# Ablation variants
+agents:
+  - react_teacher              # Full: ReAct + metrics
+  - react_teacher_no_metrics   # ReAct structure without metrics
+  - baseline_cot               # No ReAct, no metrics (reference)
+
+# Number of episodes per (task, student, agent) combination
+num_episodes_per_condition: 50
+
+# Episode settings
+max_turns: 10
+enable_quizzes: true
+
+# Scoring focus
+scoring_focus: "full"
+
+# Random seed
+random_seed: 45
+
+# Output
+description: |
+  Ablation study to understand:
+  - Does ReAct structure help without metrics?
+  - Does metrics awareness contribute independently?
+  - Interaction between ReAct and metrics
+
+  Agents compared:
+  1. react_teacher: Full model (ReAct + metrics)
+  2. react_teacher_no_metrics: ReAct without metric observation
+  3. baseline_cot: Neither ReAct nor metrics
+
+  Analyze pedagogy scores, learning gains, and action diversity.
