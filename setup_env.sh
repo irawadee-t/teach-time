@@ -1,41 +1,38 @@
 #!/bin/bash
-# Setup script for TeachTime TutorBench evaluation environment
+# Setup script for TeachTime TutorBench evaluation environment using uv
 
 set -e  # Exit on error
 
-echo "🔧 Setting up TeachTime evaluation environment..."
+echo "Setting up TeachTime evaluation environment with uv..."
 
-# Create virtual environment
-echo "📦 Creating virtual environment..."
-python3 -m venv venv
+# Check if uv is installed
+if ! command -v uv &> /dev/null; then
+    echo "uv not found. Installing uv..."
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+    export PATH="$HOME/.local/bin:$PATH"
+fi
+
+# Create virtual environment with uv
+echo "Creating virtual environment..."
+uv venv venv
 
 # Activate virtual environment
-echo "✓ Virtual environment created"
-echo "🔌 Activating virtual environment..."
+echo "Activating virtual environment..."
 source venv/bin/activate
 
-# Upgrade pip
-echo "⬆️  Upgrading pip..."
-pip install --upgrade pip
-
-# Install requirements
-echo "📚 Installing dependencies..."
-pip install -r requirements.txt
+# Install all dependencies with uv
+echo "Installing dependencies..."
+uv pip install -r requirements.txt
 
 echo ""
-echo "✅ Setup complete!"
+echo "Setup complete!"
 echo ""
-echo "To activate the environment, run:"
+echo "To activate the environment:"
 echo "  source venv/bin/activate"
 echo ""
-echo "To deactivate, run:"
-echo "  deactivate"
+echo "To run evaluation:"
+echo "  python run_eval.py --provider together --samples 10"
 echo ""
-echo "Next steps:"
-echo "1. Set your API keys in .env file:"
-echo "   export ANTHROPIC_API_KEY='your-key-here'"
-echo "   export TOGETHER_API_KEY='your-key-here'"
-echo ""
-echo "2. Try the example:"
-echo "   python -m evals.example"
-echo ""
+echo "Required: Set API keys in .env or environment:"
+echo "  ANTHROPIC_API_KEY=your-key"
+echo "  TOGETHER_API_KEY=your-key"
