@@ -29,7 +29,7 @@ from .data_loader import (
     save_results_to_json,
 )
 from .providers import get_provider, ConcurrencyConfig, get_async_provider
-from .chains import (
+from .pipelines import (
     ChainedPipeline,
     StageTemplate,
     ChainedPipelineResult,
@@ -37,8 +37,7 @@ from .chains import (
     create_custom_chain,
     compare_single_vs_chain,
     TUTORING_STAGES,
-)
-from .best_of_n import (
+    save_chain_debug_log,
     BestOfNPipeline,
     BestOfNResult,
     create_best_of_n_pipeline,
@@ -82,6 +81,7 @@ __all__ = [
     "create_custom_chain",
     "compare_single_vs_chain",
     "TUTORING_STAGES",
+    "save_chain_debug_log",
     # Best-of-N pipelines
     "BestOfNPipeline",
     "BestOfNResult",
