@@ -1,0 +1,86 @@
+================================================================================
+PEDAGOGICAL EVALUATION REPORT
+================================================================================
+Generated: 2025-12-07 23:52:52
+
+OVERALL PEDAGOGICAL EFFECTIVENESS SCORE (PES)
+--------------------------------------------------------------------------------
+Score: 42.5/100
+Category: Poor
+Quality: adequate
+
+Summary: The tutoring session demonstrated strong coherence and relevance but lacked depth in questioning and active student engagement. Improvements in fostering student participation and deeper cognitive engagement would enhance pedagogical effectiveness.
+
+KEY FINDINGS
+--------------------------------------------------------------------------------
+
+Strengths:
+  1. Response Coherence (5/5) - Tutor's responses were clear and logically structured.
+  2. Response Relevance (5/5) - Tutor stayed focused on the topic and addressed the student's needs directly.
+
+Areas for Improvement:
+  1. Student Talk Ratio (2/5) - The conversation was tutor-dominated, with limited student participation.
+  2. Question Depth (2/5) - Questions were mostly surface-level, lacking deeper conceptual or metacognitive prompts.
+  3. ICAP Engagement (2/5) - Engagement was predominantly passive (85.7%), with minimal active or constructive participation.
+
+Recommendations:
+  1. Increase open-ended questions to encourage student elaboration and deeper thinking (e.g., 'Can you explain why you think that?').
+  2. Incorporate metacognitive prompts (e.g., 'How did you approach solving this problem?') to deepen engagement.
+  3. Balance tutor-student talk ratio by pausing more frequently to invite student input and reflections.
+
+DETAILED SCORE BREAKDOWN
+--------------------------------------------------------------------------------
+
+LAYER 1: 8-Dimension Tutor Response Quality (80% weight)
+Layer Score: 0.469
+Weighted Contribution: 37.50/100
+
+  Comprehension Probing: 2/5
+    The tutor rarely probes comprehension effectively, mostly relying on the student's passive acknowledgments like 'Okay' or 'Got it.' The only explicit check is a generic 'Do you understand the pattern now?' which does not deeply verify understanding.
+    Evidence: Turn 14 [STUDENT]: I think so?...
+
+  Background Knowledge Assessment: 1/5
+    The tutor makes no attempt to assess the student's prior knowledge about quadratic equations. The teaching begins immediately without any probing questions to understand the student's baseline understanding.
+    Evidence: Turn 1 [TUTOR]: Today we're solving quadratic equations. Let me show you how it's done. We have x² +...
+
+  Appropriate Guidance Level: 2/5
+    The tutor frequently reveals answers and provides step-by-step instructions without allowing the student to engage in productive struggle. The student's role is largely passive, as the tutor does most of the cognitive work.
+    Evidence: Turn 3: 'The first step is to factor it. You need to find two numbers that multiply to 2 and add to ...
+
+  Error Feedback Quality: 3/5
+    The tutor provides clear explanations when demonstrating the steps, but there are no actual student errors in the conversation to evaluate the tutor's feedback on mistakes. The tutor's teaching is adequate but lacks opportunities to demonstrate error feedback.
+    Evidence: The tutor explains the steps clearly: 'The first step is to factor it. You need to find two numbers ...
+
+  Encouragement & Tone: 3/5
+    The tutor's tone is generally neutral and instructional, with occasional moments of encouragement (e.g., 'Good. Just remember...'). However, the language lacks consistent warmth or celebration of progress, and there are no explicit efforts to normalize struggle or maintain motivation.
+    Evidence: Today we're solving quadratic equations. Let me show you how it's done....
+
+  Response Coherence: 5/5
+    The tutor's responses are consistently clear, logically structured, and easy to follow. Each step is explained in a straightforward manner, building on the previous one without any confusion or ambiguity.
+    Evidence: The first step is to factor it. You need to find two numbers that multiply to 2 and add to 3. Those ...
+
+  Response Relevance: 5/5
+    The tutor's responses are consistently relevant and directly address the student's learning needs. Each step of solving quadratic equations is clearly explained without any tangents or irrelevant information.
+    Evidence: Turn 3 [TUTOR]: The first step is to factor it. You need to find two numbers that multiply to 2 and ...
+
+  Student Talk Ratio: 2/5
+    The tutor dominates the conversation with long explanations, while the student provides only minimal responses like 'Okay' and 'Got it.' The student is mostly passive and does not engage in substantive cognitive work.
+    Evidence: Turn 2 [STUDENT]: Okay....
+
+LAYER 2: Question Depth Analysis (10% weight)
+Layer Score: 0.250
+Weighted Contribution: 2.50/100
+Raw Score: 2/5
+Question Distribution: {'recall': 0, 'procedural': 0, 'conceptual': 1, 'metacognitive': 0}
+Justification: The tutor's questions are almost entirely absent, with only one conceptual question ('Do you understand the pattern now?') appearing at the very end of the conversation. The majority of the interaction consists of the tutor explaining steps and solutions without engaging the student with questions that promote deeper thinking or reflection. This approach is dominated by direct instruction rather than questioning, resulting in a low score of 2 (Poor) for question depth.
+
+LAYER 3: ICAP Student Engagement (10% weight)
+Layer Score: 0.250
+Weighted Contribution: 2.50/100
+Raw Score: 2/5
+Engagement Distribution: {'passive': 85.7, 'active': 14.3, 'constructive': 0, 'interactive': 0}
+Justification: The student's engagement is almost entirely passive, with responses limited to acknowledgments like 'Okay,' 'I see,' and 'Got it.' There are no instances of constructive or interactive engagement, and the student does not generate any new ideas or engage in dialogue. The minimal active engagement (e.g., 'I think so?') does not significantly alter the overwhelmingly passive nature of the interaction. Thus, the score of 2 ('Poor') is appropriate, as the student is primarily a passive recipient of information with minimal participation.
+
+================================================================================
+END OF REPORT
+================================================================================

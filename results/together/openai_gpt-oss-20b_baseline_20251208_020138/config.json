@@ -1,0 +1,13 @@
+{
+  "model_name": "openai_gpt-oss-20b",
+  "model_version": "openai/gpt-oss-20b",
+  "temperature": 0.0,
+  "top_p": 1.0,
+  "max_tokens": 2048,
+  "seed": null,
+  "use_async": true,
+  "max_samples": 100,
+  "run_id": "openai_gpt-oss-20b_20251208_020138",
+  "timestamp": "2025-12-08T02:01:38.504448",
+  "notes": "Run via run_eval.py with 3 runs"
+}

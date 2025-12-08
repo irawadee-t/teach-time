@@ -1,0 +1,40 @@
+{
+  "total_samples": 998,
+  "kept_samples": 980,
+  "removed_samples": 18,
+  "keep_rate": 0.9819639278557114,
+  "average_critical_pass_rate": 0.9942384769539077,
+  "quality_score_distribution": {
+    "1": 0,
+    "2": 1,
+    "3": 5,
+    "4": 28,
+    "5": 964
+  },
+  "average_quality_score": 4.958917835671342,
+  "filtering_threshold": 0.8,
+  "common_strengths": [
+    "Maintains an encouraging, validating tone while correcting the student's error",
+    "Validates the student's reasoning as sophisticated rather than dismissing it, building confidence while correcting the misconception",
+    "Uses an effective, relatable analogy (cooking during financial hardship) that clearly illustrates the distinction between enabling conditions and direct causation",
+    "Appropriate pedagogical approach with positive reinforcement and a thought-provoking follow-up question",
+    "Uses multiple effective pedagogical tools: analogies, concrete examples, and a thought-provoking closing question",
+    "Maintains excellent balance between mathematical rigor and conceptual clarity, showing key equations while prioritizing understanding",
+    "Maintains an encouraging tone while thoroughly correcting the misconception, validating the student's reasoning attempt",
+    "Uses an excellent guitar string analogy that makes the abstract concept concrete and relatable",
+    "Uses multiple effective analogies (library card, street address) that make abstract concepts concrete and relatable",
+    "Explains the practical implications of the MRP=MC rule in real-world decision-making"
+  ],
+  "common_weaknesses": [
+    "The explanation of why lies become ineffective in a universal lying world could be slightly more developed",
+    "The calculation showing $15,000 growing to $24,157 could have been shown explicitly (15,000 × 1.10^5) for students who want to verify the math",
+    "The response is somewhat lengthy, though the detail is appropriate for the complexity of the topic",
+    "Could have briefly mentioned that foreign key constraints also prevent orphaned records (referential integrity enforcement) to connect back to the original explanation",
+    "Could have briefly mentioned the distinction between 'monadic' and 'dyadic' versions of democratic peace theory for more advanced understanding",
+    "The response is somewhat lengthy, though the content is relevant and well-organized",
+    "Could have more explicitly shown the student's calculation error step-by-step before showing the correct method",
+    "The initial explanation's omission of worst-case complexity could have been more explicitly acknowledged as an oversight",
+    "Could have briefly acknowledged why the student's confusion is understandable (e.g., many longitudinal studies happen to be correlational)",
+    "The rhetorical question about what determines allele frequency lists factors but doesn't elaborate on them, which might leave the student wanting more explanation"
+  ]
+}

@@ -1,0 +1,2540 @@
+{
+  "n_runs": 3,
+  "metadata": {
+    "model_name": "openai_gpt-oss-20b",
+    "model_version": "openai/gpt-oss-20b",
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "max_tokens": 2048,
+    "seed": null,
+    "use_async": true,
+    "max_samples": 100,
+    "run_id": "openai_gpt-oss-20b_20251208_020138",
+    "timestamp": "2025-12-08T02:01:38.504448",
+    "notes": "Run via run_eval.py with 3 runs"
+  },
+  "overall_score_mean": 0.5092081735380611,
+  "overall_score_ci_margin": 0.020187575591257417,
+  "overall_score_std": 0.0066353352190253335,
+  "overall_score_median": 0.5075450444716829,
+  "overall_score_min": 0.5020418001192102,
+  "overall_score_max": 0.5180376760232903,
+  "all_runs": [
+    0.5020418001192102,
+    0.5180376760232903,
+    0.5075450444716829
+  ],
+  "text_only_mean": 0.5092081735380611,
+  "text_only_ci_margin": 0.020187575591257417,
+  "multimodal_mean": null,
+  "multimodal_ci_margin": null,
+  "by_use_case": {
+    "adaptive": {
+      "mean": 0.5092081735380611,
+      "ci_margin": 0.020187575591257417,
+      "scores": [
+        0.5020418001192102,
+        0.5180376760232903,
+        0.5075450444716829
+      ]
+    }
+  },
+  "by_dimension": {
+    "visual_reasoning": {
+      "mean_pass_rate": 0.0,
+      "ci_margin": NaN,
+      "pass_rates": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "student_level_calibration": {
+      "mean_pass_rate": 0.0,
+      "ci_margin": NaN,
+      "pass_rates": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "emotional_component": {
+      "mean_pass_rate": 0.0,
+      "ci_margin": NaN,
+      "pass_rates": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "instruction_following": {
+      "mean_pass_rate": 0.5314465408805031,
+      "ci_margin": 0.07861590065891266,
+      "pass_rates": [
+        0.5150943396226415,
+        0.5679245283018868,
+        0.5113207547169811
+      ]
+    },
+    "truthfulness": {
+      "mean_pass_rate": 0.5336391437308868,
+      "ci_margin": 0.047441697362185176,
+      "pass_rates": [
+        0.555045871559633,
+        0.518348623853211,
+        0.5275229357798165
+      ]
+    },
+    "conciseness_relevance": {
+      "mean_pass_rate": 0.5980392156862745,
+      "ci_margin": 0.04218286989898179,
+      "pass_rates": [
+        0.5882352941176471,
+        0.5882352941176471,
+        0.6176470588235294
+      ]
+    },
+    "style_tone": {
+      "mean_pass_rate": 0.46060606060606063,
+      "ci_margin": 0.060221520284110264,
+      "pass_rates": [
+        0.46060606060606063,
+        0.43636363636363634,
+        0.48484848484848486
+      ]
+    },
+    "visual_perception": {
+      "mean_pass_rate": 0.0,
+      "ci_margin": NaN,
+      "pass_rates": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "by_skill": {
+    "stating_knowledge": {
+      "mean_pass_rate": 0.592741935483871,
+      "ci_margin": 0.043661714706547894,
+      "pass_rates": [
+        0.6048387096774194,
+        0.6008064516129032,
+        0.5725806451612904
+      ]
+    },
+    "identifying_correct_steps": {
+      "mean_pass_rate": 0.4660493827160494,
+      "ci_margin": 0.08077782347247237,
+      "pass_rates": [
+        0.4351851851851852,
+        0.5,
+        0.46296296296296297
+      ]
+    },
+    "providing_alternative_solutions": {
+      "mean_pass_rate": 0.3666666666666667,
+      "ci_margin": 0.0717108788282691,
+      "pass_rates": [
+        0.35,
+        0.4,
+        0.35
+      ]
+    },
+    "including_examples": {
+      "mean_pass_rate": 0.3829787234042554,
+      "ci_margin": 0.13983852356695697,
+      "pass_rates": [
+        0.3617021276595745,
+        0.44680851063829785,
+        0.3404255319148936
+      ]
+    },
+    "asking_guiding_questions": {
+      "mean_pass_rate": 0.4444444444444444,
+      "ci_margin": 0.4780725255217936,
+      "pass_rates": [
+        0.3333333333333333,
+        0.6666666666666666,
+        0.3333333333333333
+      ]
+    },
+    "identifying_incorrect_steps": {
+      "mean_pass_rate": 0.0,
+      "ci_margin": NaN,
+      "pass_rates": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "step_by_step_help": {
+      "mean_pass_rate": 0.5819209039548022,
+      "ci_margin": 0.1898575824160914,
+      "pass_rates": [
+        0.6610169491525424,
+        0.576271186440678,
+        0.5084745762711864
+      ]
+    },
+    "identifying_core_difficulty": {
+      "mean_pass_rate": 0.5639097744360902,
+      "ci_margin": 0.04941662111012757,
+      "pass_rates": [
+        0.556390977443609,
+        0.5864661654135338,
+        0.5488721804511278
+      ]
+    }
+  },
+  "by_subject": {
+    "Chemistry": {
+      "mean": 0.6333867757990431,
+      "ci_margin": 0.05887449136789247,
+      "scores": [
+        0.6284746685954278,
+        0.6591580939546147,
+        0.6125275648470867
+      ]
+    },
+    "Calculus": {
+      "mean": 0.5434352516987336,
+      "ci_margin": 0.041181735068219205,
+      "scores": [
+        0.5326164585443857,
+        0.535168341500555,
+        0.5625209550512604
+      ]
+    },
+    "Physics": {
+      "mean": 0.41206829638761744,
+      "ci_margin": 0.05075049300427181,
+      "scores": [
+        0.4120451368435239,
+        0.3916500633083538,
+        0.43250968901097464
+      ]
+    },
+    "Statistics": {
+      "mean": 0.4924445100603732,
+      "ci_margin": 0.08869155741997864,
+      "scores": [
+        0.4682215347112438,
+        0.5334463245071281,
+        0.4756656709627478
+      ]
+    },
+    "Computer Science": {
+      "mean": 0.5010701356670572,
+      "ci_margin": 0.10543227511318579,
+      "scores": [
+        0.4628979360217657,
+        0.5467739534667765,
+        0.4935385175126293
+      ]
+    },
+    "Biology": {
+      "mean": 0.4216641252438998,
+      "ci_margin": 0.09847915093791634,
+      "scores": [
+        0.4621662719975311,
+        0.3829396970370551,
+        0.4198864066971133
+      ]
+    }
+  },
+  "individual_runs": [
+    {
+      "metadata": {
+        "model_name": "openai_gpt-oss-20b",
+        "model_version": "openai/gpt-oss-20b",
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "max_tokens": 2048,
+        "seed": null,
+        "use_async": true,
+        "max_samples": 100,
+        "run_id": "openai_gpt-oss-20b_20251208_020138",
+        "timestamp": "2025-12-08T02:01:38.504448",
+        "notes": "Run via run_eval.py with 3 runs"
+      },
+      "overall": {
+        "overall_score": 0.5020418001192102,
+        "std_score": 0.24097801281973932,
+        "median_score": 0.47996794871794873,
+        "mean_pass_rate": 0.5195431937343702,
+        "n_samples": 100,
+        "total_rubrics": 947
+      },
+      "by_modality": {
+        "text_only": {
+          "overall_score": 0.5020418001192102,
+          "std_score": 0.24097801281973932,
+          "median_score": 0.47996794871794873,
+          "mean_pass_rate": 0.5195431937343702,
+          "n_samples": 100,
+          "total_rubrics": 947
+        },
+        "multimodal": null
+      },
+      "by_use_case": {
+        "adaptive": {
+          "overall_score": 0.5020418001192102,
+          "std_score": 0.24097801281973932,
+          "median_score": 0.47996794871794873,
+          "mean_pass_rate": 0.5195431937343702,
+          "n_samples": 100,
+          "total_rubrics": 947
+        }
+      },
+      "by_dimension": {
+        "instruction_following": {
+          "pass_rate": 0.5150943396226415,
+          "n_rubrics": 530
+        },
+        "truthfulness": {
+          "pass_rate": 0.555045871559633,
+          "n_rubrics": 218
+        },
+        "conciseness_relevance": {
+          "pass_rate": 0.5882352941176471,
+          "n_rubrics": 34
+        },
+        "style_tone": {
+          "pass_rate": 0.46060606060606063,
+          "n_rubrics": 165
+        },
+        "visual_perception": {
+          "pass_rate": 0.0,
+          "n_rubrics": 0
+        },
+        "visual_reasoning": {
+          "pass_rate": 0.0,
+          "n_rubrics": 0
+        },
+        "student_level_calibration": {
+          "pass_rate": 0.0,
+          "n_rubrics": 0
+        },
+        "emotional_component": {
+          "pass_rate": 0.0,
+          "n_rubrics": 0
+        }
+      },
+      "by_skill": {
+        "asking_guiding_questions": {
+          "pass_rate": 0.3333333333333333,
+          "n_rubrics": 6
+        },
+        "identifying_core_difficulty": {
+          "pass_rate": 0.556390977443609,
+          "n_rubrics": 133
+        },
+        "identifying_correct_steps": {
+          "pass_rate": 0.4351851851851852,
+          "n_rubrics": 108
+        },
+        "identifying_incorrect_steps": {
+          "pass_rate": 0.0,
+          "n_rubrics": 0
+        },
+        "including_examples": {
+          "pass_rate": 0.3617021276595745,
+          "n_rubrics": 47
+        },
+        "providing_alternative_solutions": {
+          "pass_rate": 0.35,
+          "n_rubrics": 20
+        },
+        "stating_knowledge": {
+          "pass_rate": 0.6048387096774194,
+          "n_rubrics": 248
+        },
+        "step_by_step_help": {
+          "pass_rate": 0.6610169491525424,
+          "n_rubrics": 59
+        }
+      },
+      "by_subject": {
+        "Calculus": {
+          "overall_score": 0.5326164585443857,
+          "std_score": 0.23037578922558383,
+          "median_score": 0.47246376811594204,
+          "mean_pass_rate": 0.5407447490780823,
+          "n_samples": 18,
+          "total_rubrics": 161
+        },
+        "Chemistry": {
+          "overall_score": 0.6284746685954278,
+          "std_score": 0.23993264292455402,
+          "median_score": 0.6097560975609756,
+          "mean_pass_rate": 0.608656290799148,
+          "n_samples": 21,
+          "total_rubrics": 211
+        },
+        "Physics": {
+          "overall_score": 0.4120451368435239,
+          "std_score": 0.20933654824549022,
+          "median_score": 0.44368131868131866,
+          "mean_pass_rate": 0.44096119929453265,
+          "n_samples": 18,
+          "total_rubrics": 149
+        },
+        "Statistics": {
+          "overall_score": 0.4682215347112438,
+          "std_score": 0.23500927093071028,
+          "median_score": 0.474671669793621,
+          "mean_pass_rate": 0.5069715007215007,
+          "n_samples": 20,
+          "total_rubrics": 187
+        },
+        "Computer Science": {
+          "overall_score": 0.4628979360217657,
+          "std_score": 0.17068222937908362,
+          "median_score": 0.41509433962264153,
+          "mean_pass_rate": 0.4714590964590965,
+          "n_samples": 11,
+          "total_rubrics": 102
+        },
+        "Biology": {
+          "overall_score": 0.4621662719975311,
+          "std_score": 0.26954452589962824,
+          "median_score": 0.46372126436781613,
+          "mean_pass_rate": 0.514695843372314,
+          "n_samples": 12,
+          "total_rubrics": 137
+        }
+      },
+      "sample_results": [
+        {
+          "sample_id": "6842a1fbcafd33210e815bd6",
+          "weighted_score": 1.0,
+          "pass_rate": 1.0,
+          "critical_pass_rate": 1.0
+        },
+        {
+          "sample_id": "684a8c40ddc9f025efade29b",
+          "weighted_score": 0.5849056603773585,
+          "pass_rate": 0.7142857142857143,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "6847710b7b4ee0eddf8194e4",
+          "weighted_score": 0.9230769230769231,
+          "pass_rate": 0.8,
+          "critical_pass_rate": 1.0
+        },
+        {
+          "sample_id": "685454ee424059c5f6deab23",
+          "weighted_score": 0.65625,
+          "pass_rate": 0.625,
+          "critical_pass_rate": 0.6666666666666666
+        },
+        {
+          "sample_id": "6847710b1f412e3e21269c74",
+          "weighted_score": 0.37037037037037035,
+          "pass_rate": 0.2857142857142857,
+          "critical_pass_rate": 0.4
+        },
+        {
+          "sample_id": "685454f0a47330cab0e42af7",
+          "weighted_score": 0.30303030303030304,
+          "pass_rate": 0.2222222222222222,
+          "critical_pass_rate": 0.3333333333333333
+        },
+        {
+          "sample_id": "6842a1fc67aa278c9daae8c1",
+          "weighted_score": 0.7619047619047619,
+          "pass_rate": 0.8888888888888888,
+          "critical_pass_rate": 0.6666666666666666
+        },
+        {
+          "sample_id": "685454ef2187108ef9b08ac6",
+          "weighted_score": 0.4074074074074074,
+          "pass_rate": 0.42857142857142855,
+          "critical_pass_rate": 0.4
+        },
+        {
+          "sample_id": "6842a1fb91d4dec454518bfd",
+          "weighted_score": 0.03571428571428571,
+          "pass_rate": 0.125,
+          "critical_pass_rate": 0.0
+        },
+        {
+          "sample_id": "6847710a9a6b1451d91de150",
+          "weighted_score": 0.7391304347826086,
+          "pass_rate": 0.7142857142857143,
+          "critical_pass_rate": 0.75
+        },
+        {
+          "sample_id": "685454eeb138b019d5728a96",
+          "weighted_score": 0.7380952380952381,
+          "pass_rate": 0.7,
+          "critical_pass_rate": 0.75
+        },
+        {
+          "sample_id": "685454f0fc51d7cd57aa6f85",
+          "weighted_score": 0.25925925925925924,
+          "pass_rate": 0.42857142857142855,
+          "critical_pass_rate": 0.2
+        },
+        {
+          "sample_id": "685454ee44fbb3cf43c29765",
+          "weighted_score": 0.42105263157894735,
+          "pass_rate": 0.4,
+          "critical_pass_rate": 0.42857142857142855
+        },
+        {
+          "sample_id": "684a8c40537a18f48946bc17",
+          "weighted_score": 0.024390243902439025,
+          "pass_rate": 0.1111111111111111,
+          "critical_pass_rate": 0.0
+        },
+        {
+          "sample_id": "6847710a450d4ae28699d87f",
+          "weighted_score": 0.5675675675675675,
+          "pass_rate": 0.5555555555555556,
+          "critical_pass_rate": 0.5714285714285714
+        },
+        {
+          "sample_id": "6842a1fb4b3ada7c29040359",
+          "weighted_score": 0.782608695652174,
+          "pass_rate": 0.8571428571428571,
+          "critical_pass_rate": 0.75
+        },
+        {
+          "sample_id": "685454ee930e1af9135defda",
+          "weighted_score": 0.35714285714285715,
+          "pass_rate": 0.3181818181818182,
+          "critical_pass_rate": 0.3684210526315789
+        },
+        {
+          "sample_id": "685454eec5d43a37be94b49c",
+          "weighted_score": 0.9545454545454546,
+          "pass_rate": 0.8333333333333334,
+          "critical_pass_rate": 1.0
+        },
+        {
+          "sample_id": "685454eed4c0443e0df34e6c",
+          "weighted_score": 0.4878048780487805,
+          "pass_rate": 0.4444444444444444,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "6847710b748618a10eb516c8",
+          "weighted_score": 0.75,
+          "pass_rate": 0.6666666666666666,
+          "critical_pass_rate": 0.7777777777777778
+        },
+        {
+          "sample_id": "6842a1fb493da3d4b37fd8b5",
+          "weighted_score": 0.5675675675675675,
+          "pass_rate": 0.5555555555555556,
+          "critical_pass_rate": 0.5714285714285714
+        },
+        {
+          "sample_id": "685454ee7728ae576b847f3a",
+          "weighted_score": 0.5675675675675675,
+          "pass_rate": 0.5555555555555556,
+          "critical_pass_rate": 0.5714285714285714
+        },
+        {
+          "sample_id": "6842a1fbbdfc0b0552b0553e",
+          "weighted_score": 0.08333333333333333,
+          "pass_rate": 0.25,
+          "critical_pass_rate": 0.0
+        },
+        {
+          "sample_id": "685454eecda0c5d0f3d211fd",
+          "weighted_score": 0.3541666666666667,
+          "pass_rate": 0.4166666666666667,
+          "critical_pass_rate": 0.3333333333333333
+        },
+        {
+          "sample_id": "6842a1fb0015fc211142e86e",
+          "weighted_score": 0.6666666666666666,
+          "pass_rate": 0.6666666666666666,
+          "critical_pass_rate": 0.6666666666666666
+        },
+        {
+          "sample_id": "685454ee7a61803fa9dfd9d6",
+          "weighted_score": 0.5555555555555556,
+          "pass_rate": 0.5,
+          "critical_pass_rate": 0.5714285714285714
+        },
+        {
+          "sample_id": "685454eea47330cab0e42acf",
+          "weighted_score": 0.16666666666666666,
+          "pass_rate": 0.16666666666666666,
+          "critical_pass_rate": 0.16666666666666666
+        },
+        {
+          "sample_id": "685454eead07ff0ed76d4179",
+          "weighted_score": 0.43478260869565216,
+          "pass_rate": 0.4,
+          "critical_pass_rate": 0.4444444444444444
+        },
+        {
+          "sample_id": "684a8c400f2d31d3b4e0975d",
+          "weighted_score": 0.2608695652173913,
+          "pass_rate": 0.2857142857142857,
+          "critical_pass_rate": 0.25
+        },
+        {
+          "sample_id": "685454ee714d62d3ac325d05",
+          "weighted_score": 0.2608695652173913,
+          "pass_rate": 0.2857142857142857,
+          "critical_pass_rate": 0.25
+        },
+        {
+          "sample_id": "6847710b5f4fdb5c45e43ea2",
+          "weighted_score": 0.49056603773584906,
+          "pass_rate": 0.46153846153846156,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "685454f0a675fc48d54e7f52",
+          "weighted_score": 1.0,
+          "pass_rate": 1.0,
+          "critical_pass_rate": 1.0
+        },
+        {
+          "sample_id": "684a8c4060c36b9489a7278b",
+          "weighted_score": 0.574468085106383,
+          "pass_rate": 0.6363636363636364,
+          "critical_pass_rate": 0.5555555555555556
+        },
+        {
+          "sample_id": "684a8c41d3b4bb8eaeda2328",
+          "weighted_score": 0.13953488372093023,
+          "pass_rate": 0.18181818181818182,
+          "critical_pass_rate": 0.125
+        },
+        {
+          "sample_id": "6842a1fb5b975e19cd0c270f",
+          "weighted_score": 0.22727272727272727,
+          "pass_rate": 0.16666666666666666,
+          "critical_pass_rate": 0.25
+        },
+        {
+          "sample_id": "6842a1fbba6af9cb6614fe61",
+          "weighted_score": 0.4473684210526316,
+          "pass_rate": 0.5,
+          "critical_pass_rate": 0.42857142857142855
+        },
+        {
+          "sample_id": "6847710b5817461e60913ea0",
+          "weighted_score": 0.0,
+          "pass_rate": 0.0,
+          "critical_pass_rate": 0.0
+        },
+        {
+          "sample_id": "684a8c41f2ed21c3af4f5e68",
+          "weighted_score": 0.7,
+          "pass_rate": 0.75,
+          "critical_pass_rate": 0.6666666666666666
+        },
+        {
+          "sample_id": "684a8c40abab6ca3db430abd",
+          "weighted_score": 0.9090909090909091,
+          "pass_rate": 0.6666666666666666,
+          "critical_pass_rate": 1.0
+        },
+        {
+          "sample_id": "6842a1fa0a1677ecde971ae1",
+          "weighted_score": 0.4230769230769231,
+          "pass_rate": 0.5,
+          "critical_pass_rate": 0.4
+        },
+        {
+          "sample_id": "6842a1fbf56d6ef965ad750e",
+          "weighted_score": 0.625,
+          "pass_rate": 0.75,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "6842a1fbbcb6e8da4c11f241",
+          "weighted_score": 0.4411764705882353,
+          "pass_rate": 0.3,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "685454eea675fc48d54e7f2a",
+          "weighted_score": 0.8181818181818182,
+          "pass_rate": 0.7777777777777778,
+          "critical_pass_rate": 0.8333333333333334
+        },
+        {
+          "sample_id": "6847710a9bc321f32d5b5a95",
+          "weighted_score": 0.8387096774193549,
+          "pass_rate": 0.8571428571428571,
+          "critical_pass_rate": 0.8333333333333334
+        },
+        {
+          "sample_id": "684a8c40ad4c4ea90e9b4522",
+          "weighted_score": 0.4791666666666667,
+          "pass_rate": 0.5833333333333334,
+          "critical_pass_rate": 0.4444444444444444
+        },
+        {
+          "sample_id": "6842a1fa67aa278c9daae89e",
+          "weighted_score": 0.46153846153846156,
+          "pass_rate": 0.6666666666666666,
+          "critical_pass_rate": 0.0
+        },
+        {
+          "sample_id": "685454eee805192d91587860",
+          "weighted_score": 0.4807692307692308,
+          "pass_rate": 0.4166666666666667,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "6842a1fbd1556c5edbd19e10",
+          "weighted_score": 0.7659574468085106,
+          "pass_rate": 0.7272727272727273,
+          "critical_pass_rate": 0.7777777777777778
+        },
+        {
+          "sample_id": "6842a1fb0c7748874c889af5",
+          "weighted_score": 0.5,
+          "pass_rate": 0.5,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "685454f0cda0c5d0f3d21224",
+          "weighted_score": 0.6097560975609756,
+          "pass_rate": 0.5555555555555556,
+          "critical_pass_rate": 0.625
+        },
+        {
+          "sample_id": "6847710a74c7f1cb6eb0b17b",
+          "weighted_score": 0.84375,
+          "pass_rate": 0.875,
+          "critical_pass_rate": 0.8333333333333334
+        },
+        {
+          "sample_id": "684a8c4018b7bd8684a48247",
+          "weighted_score": 0.36,
+          "pass_rate": 0.5555555555555556,
+          "critical_pass_rate": 0.25
+        },
+        {
+          "sample_id": "685454eef56b8827a9494657",
+          "weighted_score": 0.7142857142857143,
+          "pass_rate": 0.6666666666666666,
+          "critical_pass_rate": 0.75
+        },
+        {
+          "sample_id": "6847710b1b2bfa550f74960f",
+          "weighted_score": 0.4666666666666667,
+          "pass_rate": 0.6,
+          "critical_pass_rate": 0.4
+        },
+        {
+          "sample_id": "6842a1fab8e8a60a16f55ffc",
+          "weighted_score": 0.1935483870967742,
+          "pass_rate": 0.5454545454545454,
+          "critical_pass_rate": 0.0
+        },
+        {
+          "sample_id": "685454ee7272e9f8923e1701",
+          "weighted_score": 0.9473684210526315,
+          "pass_rate": 0.8571428571428571,
+          "critical_pass_rate": 1.0
+        },
+        {
+          "sample_id": "684a8c41a2df538ed4adb700",
+          "weighted_score": 0.43243243243243246,
+          "pass_rate": 0.6153846153846154,
+          "critical_pass_rate": 0.3333333333333333
+        },
+        {
+          "sample_id": "685454ee560be313d9ec6a3a",
+          "weighted_score": 0.18518518518518517,
+          "pass_rate": 0.14285714285714285,
+          "critical_pass_rate": 0.2
+        },
+        {
+          "sample_id": "6847710b38b750070d6473ec",
+          "weighted_score": 0.7222222222222222,
+          "pass_rate": 0.9,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "685454ef80207bfd97b578a9",
+          "weighted_score": 0.3333333333333333,
+          "pass_rate": 0.3333333333333333,
+          "critical_pass_rate": 1.0
+        },
+        {
+          "sample_id": "6847710b5817461e60913ea3",
+          "weighted_score": 0.42857142857142855,
+          "pass_rate": 0.5,
+          "critical_pass_rate": 0.4
+        },
+        {
+          "sample_id": "685454eef8ab7067dd48b74f",
+          "weighted_score": 0.4838709677419355,
+          "pass_rate": 0.42857142857142855,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "685454ee2e6607c81507261e",
+          "weighted_score": 0.5901639344262295,
+          "pass_rate": 0.6153846153846154,
+          "critical_pass_rate": 0.5833333333333334
+        },
+        {
+          "sample_id": "6842a1fb7996124c02b91b09",
+          "weighted_score": 0.15789473684210525,
+          "pass_rate": 0.2,
+          "critical_pass_rate": 0.14285714285714285
+        },
+        {
+          "sample_id": "6847710bde93ff93d7ba427f",
+          "weighted_score": 0.6666666666666666,
+          "pass_rate": 0.6666666666666666,
+          "critical_pass_rate": 0.6666666666666666
+        },
+        {
+          "sample_id": "685454f056f4afc24172730d",
+          "weighted_score": 0.3225806451612903,
+          "pass_rate": 0.2857142857142857,
+          "critical_pass_rate": 0.3333333333333333
+        },
+        {
+          "sample_id": "684a8c406dff21aacb332629",
+          "weighted_score": 0.43243243243243246,
+          "pass_rate": 0.4444444444444444,
+          "critical_pass_rate": 0.42857142857142855
+        },
+        {
+          "sample_id": "685454ef513ee4759d9bd93a",
+          "weighted_score": 0.4642857142857143,
+          "pass_rate": 0.625,
+          "critical_pass_rate": 0.4
+        },
+        {
+          "sample_id": "6847710a0598f7a09e49fec5",
+          "weighted_score": 0.14285714285714285,
+          "pass_rate": 0.4117647058823529,
+          "critical_pass_rate": 0.0
+        },
+        {
+          "sample_id": "684a8c415d646cbe4fda10bd",
+          "weighted_score": 0.48484848484848486,
+          "pass_rate": 0.4444444444444444,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "685454ee22969a049b1c9d71",
+          "weighted_score": 0.7391304347826086,
+          "pass_rate": 0.7142857142857143,
+          "critical_pass_rate": 0.75
+        },
+        {
+          "sample_id": "6842a1fb5ca82eb2207af64b",
+          "weighted_score": 0.7142857142857143,
+          "pass_rate": 0.6,
+          "critical_pass_rate": 0.75
+        },
+        {
+          "sample_id": "684a8c40f1bc5bb34f054474",
+          "weighted_score": 0.4444444444444444,
+          "pass_rate": 0.5714285714285714,
+          "critical_pass_rate": 0.4
+        },
+        {
+          "sample_id": "685454ee3f42c0760b91933d",
+          "weighted_score": 0.7941176470588235,
+          "pass_rate": 0.7,
+          "critical_pass_rate": 0.8333333333333334
+        },
+        {
+          "sample_id": "685454ee513ee4759d9bd912",
+          "weighted_score": 0.5151515151515151,
+          "pass_rate": 0.5555555555555556,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "684a8c416dff21aacb332649",
+          "weighted_score": 0.23809523809523808,
+          "pass_rate": 0.2,
+          "critical_pass_rate": 0.25
+        },
+        {
+          "sample_id": "6847710a54afe630835408b3",
+          "weighted_score": 0.39285714285714285,
+          "pass_rate": 0.375,
+          "critical_pass_rate": 0.4
+        },
+        {
+          "sample_id": "6847710b756f1682065c9cb9",
+          "weighted_score": 0.05813953488372093,
+          "pass_rate": 0.05555555555555555,
+          "critical_pass_rate": 0.058823529411764705
+        },
+        {
+          "sample_id": "6842a1fb44e7b28b9fc8ba76",
+          "weighted_score": 0.11764705882352941,
+          "pass_rate": 0.18181818181818182,
+          "critical_pass_rate": 0.1
+        },
+        {
+          "sample_id": "6842a1fb2e00dd1898a9bdc6",
+          "weighted_score": 0.6458333333333334,
+          "pass_rate": 0.5833333333333334,
+          "critical_pass_rate": 0.6666666666666666
+        },
+        {
+          "sample_id": "6847710b9f5075c5d5824b1b",
+          "weighted_score": 0.21153846153846154,
+          "pass_rate": 0.25,
+          "critical_pass_rate": 0.2
+        },
+        {
+          "sample_id": "685454ee8639de96a3d235d4",
+          "weighted_score": 0.39285714285714285,
+          "pass_rate": 0.5833333333333334,
+          "critical_pass_rate": 0.25
+        },
+        {
+          "sample_id": "6842a1fabdfc0b0552b0551b",
+          "weighted_score": 0.15625,
+          "pass_rate": 0.125,
+          "critical_pass_rate": 0.16666666666666666
+        },
+        {
+          "sample_id": "685454ee1c115c624d955267",
+          "weighted_score": 0.5116279069767442,
+          "pass_rate": 0.5454545454545454,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "6847710b25bf4abe09f74b97",
+          "weighted_score": 0.40540540540540543,
+          "pass_rate": 0.3333333333333333,
+          "critical_pass_rate": 0.42857142857142855
+        },
+        {
+          "sample_id": "684a8c40d894a549149c50c1",
+          "weighted_score": 0.5925925925925926,
+          "pass_rate": 0.5714285714285714,
+          "critical_pass_rate": 0.6
+        },
+        {
+          "sample_id": "684a8c402e4d9fec5e495e22",
+          "weighted_score": 0.7391304347826086,
+          "pass_rate": 0.7142857142857143,
+          "critical_pass_rate": 0.75
+        },
+        {
+          "sample_id": "684a8c40a8da4aded13ef565",
+          "weighted_score": 0.4482758620689655,
+          "pass_rate": 0.5555555555555556,
+          "critical_pass_rate": 0.4
+        },
+        {
+          "sample_id": "684a8c403b901ee3995f38f5",
+          "weighted_score": 0.39285714285714285,
+          "pass_rate": 0.375,
+          "critical_pass_rate": 0.4
+        },
+        {
+          "sample_id": "6847710b001aed0b224ab300",
+          "weighted_score": 0.9090909090909091,
+          "pass_rate": 0.8571428571428571,
+          "critical_pass_rate": 1.0
+        },
+        {
+          "sample_id": "6842a1fbb8f271121fd79472",
+          "weighted_score": 0.52,
+          "pass_rate": 0.5555555555555556,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "685454eee6d053a2b0277f8f",
+          "weighted_score": 0.27586206896551724,
+          "pass_rate": 0.4444444444444444,
+          "critical_pass_rate": 0.2
+        },
+        {
+          "sample_id": "684a8c41d3b4bb8eaeda2326",
+          "weighted_score": 0.7777777777777778,
+          "pass_rate": 0.6666666666666666,
+          "critical_pass_rate": 0.8333333333333334
+        },
+        {
+          "sample_id": "6842a1fb8996ff64ca7a423c",
+          "weighted_score": 0.5238095238095238,
+          "pass_rate": 0.6,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "685454ee2ae3f8515f9eaec1",
+          "weighted_score": 0.6923076923076923,
+          "pass_rate": 0.6,
+          "critical_pass_rate": 0.75
+        },
+        {
+          "sample_id": "685454efc5d43a37be94b4c3",
+          "weighted_score": 0.3548387096774194,
+          "pass_rate": 0.42857142857142855,
+          "critical_pass_rate": 0.3333333333333333
+        },
+        {
+          "sample_id": "6847710a748618a10eb516a5",
+          "weighted_score": 0.4782608695652174,
+          "pass_rate": 0.42857142857142855,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "684a8c40abab6ca3db430abb",
+          "weighted_score": 0.9714285714285714,
+          "pass_rate": 0.9090909090909091,
+          "critical_pass_rate": 1.0
+        },
+        {
+          "sample_id": "6842a1fbeec1338496adc799",
+          "weighted_score": 0.41509433962264153,
+          "pass_rate": 0.46153846153846156,
+          "critical_pass_rate": 0.4
+        },
+        {
+          "sample_id": "6842a1fbb320bf9b06f08ac4",
+          "weighted_score": 0.42857142857142855,
+          "pass_rate": 0.5,
+          "critical_pass_rate": 0.4
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "model_name": "openai_gpt-oss-20b",
+        "model_version": "openai/gpt-oss-20b",
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "max_tokens": 2048,
+        "seed": null,
+        "use_async": true,
+        "max_samples": 100,
+        "run_id": "openai_gpt-oss-20b_20251208_020138",
+        "timestamp": "2025-12-08T02:01:38.504448",
+        "notes": "Run via run_eval.py with 3 runs"
+      },
+      "overall": {
+        "overall_score": 0.5180376760232903,
+        "std_score": 0.23846439528803579,
+        "median_score": 0.5161290322580645,
+        "mean_pass_rate": 0.5362250714971304,
+        "n_samples": 100,
+        "total_rubrics": 947
+      },
+      "by_modality": {
+        "text_only": {
+          "overall_score": 0.5180376760232903,
+          "std_score": 0.23846439528803579,
+          "median_score": 0.5161290322580645,
+          "mean_pass_rate": 0.5362250714971304,
+          "n_samples": 100,
+          "total_rubrics": 947
+        },
+        "multimodal": null
+      },
+      "by_use_case": {
+        "adaptive": {
+          "overall_score": 0.5180376760232903,
+          "std_score": 0.23846439528803579,
+          "median_score": 0.5161290322580645,
+          "mean_pass_rate": 0.5362250714971304,
+          "n_samples": 100,
+          "total_rubrics": 947
+        }
+      },
+      "by_dimension": {
+        "instruction_following": {
+          "pass_rate": 0.5679245283018868,
+          "n_rubrics": 530
+        },
+        "truthfulness": {
+          "pass_rate": 0.518348623853211,
+          "n_rubrics": 218
+        },
+        "conciseness_relevance": {
+          "pass_rate": 0.5882352941176471,
+          "n_rubrics": 34
+        },
+        "style_tone": {
+          "pass_rate": 0.43636363636363634,
+          "n_rubrics": 165
+        },
+        "visual_perception": {
+          "pass_rate": 0.0,
+          "n_rubrics": 0
+        },
+        "visual_reasoning": {
+          "pass_rate": 0.0,
+          "n_rubrics": 0
+        },
+        "student_level_calibration": {
+          "pass_rate": 0.0,
+          "n_rubrics": 0
+        },
+        "emotional_component": {
+          "pass_rate": 0.0,
+          "n_rubrics": 0
+        }
+      },
+      "by_skill": {
+        "asking_guiding_questions": {
+          "pass_rate": 0.6666666666666666,
+          "n_rubrics": 6
+        },
+        "identifying_core_difficulty": {
+          "pass_rate": 0.5864661654135338,
+          "n_rubrics": 133
+        },
+        "identifying_correct_steps": {
+          "pass_rate": 0.5,
+          "n_rubrics": 108
+        },
+        "identifying_incorrect_steps": {
+          "pass_rate": 0.0,
+          "n_rubrics": 0
+        },
+        "including_examples": {
+          "pass_rate": 0.44680851063829785,
+          "n_rubrics": 47
+        },
+        "providing_alternative_solutions": {
+          "pass_rate": 0.4,
+          "n_rubrics": 20
+        },
+        "stating_knowledge": {
+          "pass_rate": 0.6008064516129032,
+          "n_rubrics": 248
+        },
+        "step_by_step_help": {
+          "pass_rate": 0.576271186440678,
+          "n_rubrics": 59
+        }
+      },
+      "by_subject": {
+        "Calculus": {
+          "overall_score": 0.535168341500555,
+          "std_score": 0.23894501991240086,
+          "median_score": 0.5,
+          "mean_pass_rate": 0.5415484207150874,
+          "n_samples": 18,
+          "total_rubrics": 161
+        },
+        "Chemistry": {
+          "overall_score": 0.6591580939546147,
+          "std_score": 0.1966521441126488,
+          "median_score": 0.6521739130434783,
+          "mean_pass_rate": 0.6383786848072562,
+          "n_samples": 21,
+          "total_rubrics": 211
+        },
+        "Physics": {
+          "overall_score": 0.3916500633083538,
+          "std_score": 0.25071260474157786,
+          "median_score": 0.4258241758241758,
+          "mean_pass_rate": 0.41863977072310404,
+          "n_samples": 18,
+          "total_rubrics": 149
+        },
+        "Statistics": {
+          "overall_score": 0.5334463245071281,
+          "std_score": 0.2068542710789332,
+          "median_score": 0.5212224108658743,
+          "mean_pass_rate": 0.56251443001443,
+          "n_samples": 20,
+          "total_rubrics": 187
+        },
+        "Computer Science": {
+          "overall_score": 0.5467739534667765,
+          "std_score": 0.18536133681308095,
+          "median_score": 0.5192307692307693,
+          "mean_pass_rate": 0.5588439338439338,
+          "n_samples": 11,
+          "total_rubrics": 102
+        },
+        "Biology": {
+          "overall_score": 0.3829396970370551,
+          "std_score": 0.21167776797128982,
+          "median_score": 0.4168632075471698,
+          "mean_pass_rate": 0.4612996208584444,
+          "n_samples": 12,
+          "total_rubrics": 137
+        }
+      },
+      "sample_results": [
+        {
+          "sample_id": "6842a1fbcafd33210e815bd6",
+          "weighted_score": 0.7272727272727273,
+          "pass_rate": 0.8,
+          "critical_pass_rate": 0.6666666666666666
+        },
+        {
+          "sample_id": "684a8c40ddc9f025efade29b",
+          "weighted_score": 0.37735849056603776,
+          "pass_rate": 0.5714285714285714,
+          "critical_pass_rate": 0.25
+        },
+        {
+          "sample_id": "6847710b7b4ee0eddf8194e4",
+          "weighted_score": 0.7307692307692307,
+          "pass_rate": 0.7,
+          "critical_pass_rate": 0.75
+        },
+        {
+          "sample_id": "685454ee424059c5f6deab23",
+          "weighted_score": 0.65625,
+          "pass_rate": 0.625,
+          "critical_pass_rate": 0.6666666666666666
+        },
+        {
+          "sample_id": "6847710b1f412e3e21269c74",
+          "weighted_score": 0.18518518518518517,
+          "pass_rate": 0.14285714285714285,
+          "critical_pass_rate": 0.2
+        },
+        {
+          "sample_id": "685454f0a47330cab0e42af7",
+          "weighted_score": 0.7575757575757576,
+          "pass_rate": 0.5555555555555556,
+          "critical_pass_rate": 0.8333333333333334
+        },
+        {
+          "sample_id": "6842a1fc67aa278c9daae8c1",
+          "weighted_score": 0.9523809523809523,
+          "pass_rate": 0.8888888888888888,
+          "critical_pass_rate": 1.0
+        },
+        {
+          "sample_id": "685454ef2187108ef9b08ac6",
+          "weighted_score": 0.0,
+          "pass_rate": 0.0,
+          "critical_pass_rate": 0.0
+        },
+        {
+          "sample_id": "6842a1fb91d4dec454518bfd",
+          "weighted_score": 0.21428571428571427,
+          "pass_rate": 0.25,
+          "critical_pass_rate": 0.2
+        },
+        {
+          "sample_id": "6847710a9a6b1451d91de150",
+          "weighted_score": 0.7391304347826086,
+          "pass_rate": 0.7142857142857143,
+          "critical_pass_rate": 0.75
+        },
+        {
+          "sample_id": "685454eeb138b019d5728a96",
+          "weighted_score": 0.6190476190476191,
+          "pass_rate": 0.6,
+          "critical_pass_rate": 0.625
+        },
+        {
+          "sample_id": "685454f0fc51d7cd57aa6f85",
+          "weighted_score": 0.2222222222222222,
+          "pass_rate": 0.2857142857142857,
+          "critical_pass_rate": 0.2
+        },
+        {
+          "sample_id": "685454ee44fbb3cf43c29765",
+          "weighted_score": 0.5263157894736842,
+          "pass_rate": 0.4,
+          "critical_pass_rate": 0.5714285714285714
+        },
+        {
+          "sample_id": "684a8c40537a18f48946bc17",
+          "weighted_score": 0.024390243902439025,
+          "pass_rate": 0.1111111111111111,
+          "critical_pass_rate": 0.0
+        },
+        {
+          "sample_id": "6847710a450d4ae28699d87f",
+          "weighted_score": 0.4594594594594595,
+          "pass_rate": 0.5555555555555556,
+          "critical_pass_rate": 0.42857142857142855
+        },
+        {
+          "sample_id": "6842a1fb4b3ada7c29040359",
+          "weighted_score": 0.9565217391304348,
+          "pass_rate": 0.8571428571428571,
+          "critical_pass_rate": 1.0
+        },
+        {
+          "sample_id": "685454ee930e1af9135defda",
+          "weighted_score": 0.35714285714285715,
+          "pass_rate": 0.3181818181818182,
+          "critical_pass_rate": 0.3684210526315789
+        },
+        {
+          "sample_id": "685454eec5d43a37be94b49c",
+          "weighted_score": 0.9545454545454546,
+          "pass_rate": 0.8333333333333334,
+          "critical_pass_rate": 1.0
+        },
+        {
+          "sample_id": "685454eed4c0443e0df34e6c",
+          "weighted_score": 0.4878048780487805,
+          "pass_rate": 0.4444444444444444,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "6847710b748618a10eb516c8",
+          "weighted_score": 0.4375,
+          "pass_rate": 0.4166666666666667,
+          "critical_pass_rate": 0.4444444444444444
+        },
+        {
+          "sample_id": "6842a1fb493da3d4b37fd8b5",
+          "weighted_score": 0.32432432432432434,
+          "pass_rate": 0.4444444444444444,
+          "critical_pass_rate": 0.2857142857142857
+        },
+        {
+          "sample_id": "685454ee7728ae576b847f3a",
+          "weighted_score": 0.43243243243243246,
+          "pass_rate": 0.4444444444444444,
+          "critical_pass_rate": 0.42857142857142855
+        },
+        {
+          "sample_id": "6842a1fbbdfc0b0552b0553e",
+          "weighted_score": 0.0,
+          "pass_rate": 0.0,
+          "critical_pass_rate": 0.0
+        },
+        {
+          "sample_id": "685454eecda0c5d0f3d211fd",
+          "weighted_score": 0.14583333333333334,
+          "pass_rate": 0.25,
+          "critical_pass_rate": 0.1111111111111111
+        },
+        {
+          "sample_id": "6842a1fb0015fc211142e86e",
+          "weighted_score": 0.6944444444444444,
+          "pass_rate": 0.75,
+          "critical_pass_rate": 0.6666666666666666
+        },
+        {
+          "sample_id": "685454ee7a61803fa9dfd9d6",
+          "weighted_score": 0.625,
+          "pass_rate": 0.5625,
+          "critical_pass_rate": 0.6428571428571429
+        },
+        {
+          "sample_id": "685454eea47330cab0e42acf",
+          "weighted_score": 0.16666666666666666,
+          "pass_rate": 0.16666666666666666,
+          "critical_pass_rate": 0.16666666666666666
+        },
+        {
+          "sample_id": "685454eead07ff0ed76d4179",
+          "weighted_score": 0.6521739130434783,
+          "pass_rate": 0.6,
+          "critical_pass_rate": 0.6666666666666666
+        },
+        {
+          "sample_id": "684a8c400f2d31d3b4e0975d",
+          "weighted_score": 0.30434782608695654,
+          "pass_rate": 0.42857142857142855,
+          "critical_pass_rate": 0.25
+        },
+        {
+          "sample_id": "685454ee714d62d3ac325d05",
+          "weighted_score": 0.34782608695652173,
+          "pass_rate": 0.5714285714285714,
+          "critical_pass_rate": 0.25
+        },
+        {
+          "sample_id": "6847710b5f4fdb5c45e43ea2",
+          "weighted_score": 0.39622641509433965,
+          "pass_rate": 0.38461538461538464,
+          "critical_pass_rate": 0.4
+        },
+        {
+          "sample_id": "685454f0a675fc48d54e7f52",
+          "weighted_score": 1.0,
+          "pass_rate": 1.0,
+          "critical_pass_rate": 1.0
+        },
+        {
+          "sample_id": "684a8c4060c36b9489a7278b",
+          "weighted_score": 0.5531914893617021,
+          "pass_rate": 0.5454545454545454,
+          "critical_pass_rate": 0.5555555555555556
+        },
+        {
+          "sample_id": "684a8c41d3b4bb8eaeda2328",
+          "weighted_score": 0.627906976744186,
+          "pass_rate": 0.6363636363636364,
+          "critical_pass_rate": 0.625
+        },
+        {
+          "sample_id": "6842a1fb5b975e19cd0c270f",
+          "weighted_score": 0.45454545454545453,
+          "pass_rate": 0.3333333333333333,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "6842a1fbba6af9cb6614fe61",
+          "weighted_score": 0.3157894736842105,
+          "pass_rate": 0.4,
+          "critical_pass_rate": 0.2857142857142857
+        },
+        {
+          "sample_id": "6847710b5817461e60913ea0",
+          "weighted_score": 0.14285714285714285,
+          "pass_rate": 0.3333333333333333,
+          "critical_pass_rate": 0.0
+        },
+        {
+          "sample_id": "684a8c41f2ed21c3af4f5e68",
+          "weighted_score": 0.7,
+          "pass_rate": 0.75,
+          "critical_pass_rate": 0.6666666666666666
+        },
+        {
+          "sample_id": "684a8c40abab6ca3db430abd",
+          "weighted_score": 0.6060606060606061,
+          "pass_rate": 0.4444444444444444,
+          "critical_pass_rate": 0.6666666666666666
+        },
+        {
+          "sample_id": "6842a1fa0a1677ecde971ae1",
+          "weighted_score": 0.4230769230769231,
+          "pass_rate": 0.5,
+          "critical_pass_rate": 0.4
+        },
+        {
+          "sample_id": "6842a1fbf56d6ef965ad750e",
+          "weighted_score": 0.5625,
+          "pass_rate": 0.625,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "6842a1fbbcb6e8da4c11f241",
+          "weighted_score": 0.8823529411764706,
+          "pass_rate": 0.6,
+          "critical_pass_rate": 1.0
+        },
+        {
+          "sample_id": "685454eea675fc48d54e7f2a",
+          "weighted_score": 0.9696969696969697,
+          "pass_rate": 0.8888888888888888,
+          "critical_pass_rate": 1.0
+        },
+        {
+          "sample_id": "6847710a9bc321f32d5b5a95",
+          "weighted_score": 0.5161290322580645,
+          "pass_rate": 0.5714285714285714,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "684a8c40ad4c4ea90e9b4522",
+          "weighted_score": 0.22916666666666666,
+          "pass_rate": 0.25,
+          "critical_pass_rate": 0.2222222222222222
+        },
+        {
+          "sample_id": "6842a1fa67aa278c9daae89e",
+          "weighted_score": 0.23076923076923078,
+          "pass_rate": 0.3333333333333333,
+          "critical_pass_rate": 0.0
+        },
+        {
+          "sample_id": "685454eee805192d91587860",
+          "weighted_score": 0.5769230769230769,
+          "pass_rate": 0.5,
+          "critical_pass_rate": 0.6
+        },
+        {
+          "sample_id": "6842a1fbd1556c5edbd19e10",
+          "weighted_score": 0.6808510638297872,
+          "pass_rate": 0.7272727272727273,
+          "critical_pass_rate": 0.6666666666666666
+        },
+        {
+          "sample_id": "6842a1fb0c7748874c889af5",
+          "weighted_score": 0.5,
+          "pass_rate": 0.5,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "685454f0cda0c5d0f3d21224",
+          "weighted_score": 0.6097560975609756,
+          "pass_rate": 0.5555555555555556,
+          "critical_pass_rate": 0.625
+        },
+        {
+          "sample_id": "6847710a74c7f1cb6eb0b17b",
+          "weighted_score": 1.0,
+          "pass_rate": 1.0,
+          "critical_pass_rate": 1.0
+        },
+        {
+          "sample_id": "684a8c4018b7bd8684a48247",
+          "weighted_score": 0.8,
+          "pass_rate": 0.8888888888888888,
+          "critical_pass_rate": 0.75
+        },
+        {
+          "sample_id": "685454eef56b8827a9494657",
+          "weighted_score": 0.7142857142857143,
+          "pass_rate": 0.6666666666666666,
+          "critical_pass_rate": 0.75
+        },
+        {
+          "sample_id": "6847710b1b2bfa550f74960f",
+          "weighted_score": 0.5,
+          "pass_rate": 0.7,
+          "critical_pass_rate": 0.4
+        },
+        {
+          "sample_id": "6842a1fab8e8a60a16f55ffc",
+          "weighted_score": 0.3225806451612903,
+          "pass_rate": 0.5454545454545454,
+          "critical_pass_rate": 0.2
+        },
+        {
+          "sample_id": "685454ee7272e9f8923e1701",
+          "weighted_score": 0.9473684210526315,
+          "pass_rate": 0.8571428571428571,
+          "critical_pass_rate": 1.0
+        },
+        {
+          "sample_id": "684a8c41a2df538ed4adb700",
+          "weighted_score": 0.5405405405405406,
+          "pass_rate": 0.6153846153846154,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "685454ee560be313d9ec6a3a",
+          "weighted_score": 0.5555555555555556,
+          "pass_rate": 0.42857142857142855,
+          "critical_pass_rate": 0.6
+        },
+        {
+          "sample_id": "6847710b38b750070d6473ec",
+          "weighted_score": 0.7222222222222222,
+          "pass_rate": 0.9,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "685454ef80207bfd97b578a9",
+          "weighted_score": 0.5,
+          "pass_rate": 0.5,
+          "critical_pass_rate": 1.0
+        },
+        {
+          "sample_id": "6847710b5817461e60913ea3",
+          "weighted_score": 0.42857142857142855,
+          "pass_rate": 0.5,
+          "critical_pass_rate": 0.4
+        },
+        {
+          "sample_id": "685454eef8ab7067dd48b74f",
+          "weighted_score": 0.4838709677419355,
+          "pass_rate": 0.42857142857142855,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "685454ee2e6607c81507261e",
+          "weighted_score": 0.5737704918032787,
+          "pass_rate": 0.5384615384615384,
+          "critical_pass_rate": 0.5833333333333334
+        },
+        {
+          "sample_id": "6842a1fb7996124c02b91b09",
+          "weighted_score": 0.18421052631578946,
+          "pass_rate": 0.3,
+          "critical_pass_rate": 0.14285714285714285
+        },
+        {
+          "sample_id": "6847710bde93ff93d7ba427f",
+          "weighted_score": 0.6363636363636364,
+          "pass_rate": 0.5555555555555556,
+          "critical_pass_rate": 0.6666666666666666
+        },
+        {
+          "sample_id": "685454f056f4afc24172730d",
+          "weighted_score": 0.3225806451612903,
+          "pass_rate": 0.2857142857142857,
+          "critical_pass_rate": 0.3333333333333333
+        },
+        {
+          "sample_id": "684a8c406dff21aacb332629",
+          "weighted_score": 0.7027027027027027,
+          "pass_rate": 0.6666666666666666,
+          "critical_pass_rate": 0.7142857142857143
+        },
+        {
+          "sample_id": "685454ef513ee4759d9bd93a",
+          "weighted_score": 0.42857142857142855,
+          "pass_rate": 0.5,
+          "critical_pass_rate": 0.4
+        },
+        {
+          "sample_id": "6847710a0598f7a09e49fec5",
+          "weighted_score": 0.16326530612244897,
+          "pass_rate": 0.47058823529411764,
+          "critical_pass_rate": 0.0
+        },
+        {
+          "sample_id": "684a8c415d646cbe4fda10bd",
+          "weighted_score": 0.48484848484848486,
+          "pass_rate": 0.4444444444444444,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "685454ee22969a049b1c9d71",
+          "weighted_score": 0.7391304347826086,
+          "pass_rate": 0.7142857142857143,
+          "critical_pass_rate": 0.75
+        },
+        {
+          "sample_id": "6842a1fb5ca82eb2207af64b",
+          "weighted_score": 0.5238095238095238,
+          "pass_rate": 0.6,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "684a8c40f1bc5bb34f054474",
+          "weighted_score": 0.4074074074074074,
+          "pass_rate": 0.42857142857142855,
+          "critical_pass_rate": 0.4
+        },
+        {
+          "sample_id": "685454ee3f42c0760b91933d",
+          "weighted_score": 0.38235294117647056,
+          "pass_rate": 0.5,
+          "critical_pass_rate": 0.3333333333333333
+        },
+        {
+          "sample_id": "685454ee513ee4759d9bd912",
+          "weighted_score": 0.6666666666666666,
+          "pass_rate": 0.6666666666666666,
+          "critical_pass_rate": 0.6666666666666666
+        },
+        {
+          "sample_id": "684a8c416dff21aacb332649",
+          "weighted_score": 0.7142857142857143,
+          "pass_rate": 0.6,
+          "critical_pass_rate": 0.75
+        },
+        {
+          "sample_id": "6847710a54afe630835408b3",
+          "weighted_score": 0.7857142857142857,
+          "pass_rate": 0.75,
+          "critical_pass_rate": 0.8
+        },
+        {
+          "sample_id": "6847710b756f1682065c9cb9",
+          "weighted_score": 0.4069767441860465,
+          "pass_rate": 0.3888888888888889,
+          "critical_pass_rate": 0.4117647058823529
+        },
+        {
+          "sample_id": "6842a1fb44e7b28b9fc8ba76",
+          "weighted_score": 0.6078431372549019,
+          "pass_rate": 0.6363636363636364,
+          "critical_pass_rate": 0.6
+        },
+        {
+          "sample_id": "6842a1fb2e00dd1898a9bdc6",
+          "weighted_score": 0.8958333333333334,
+          "pass_rate": 0.9166666666666666,
+          "critical_pass_rate": 0.8888888888888888
+        },
+        {
+          "sample_id": "6847710b9f5075c5d5824b1b",
+          "weighted_score": 0.5192307692307693,
+          "pass_rate": 0.5833333333333334,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "685454ee8639de96a3d235d4",
+          "weighted_score": 0.6071428571428571,
+          "pass_rate": 0.75,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "6842a1fabdfc0b0552b0551b",
+          "weighted_score": 0.46875,
+          "pass_rate": 0.375,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "685454ee1c115c624d955267",
+          "weighted_score": 0.3953488372093023,
+          "pass_rate": 0.45454545454545453,
+          "critical_pass_rate": 0.375
+        },
+        {
+          "sample_id": "6847710b25bf4abe09f74b97",
+          "weighted_score": 0.5405405405405406,
+          "pass_rate": 0.4444444444444444,
+          "critical_pass_rate": 0.5714285714285714
+        },
+        {
+          "sample_id": "684a8c40d894a549149c50c1",
+          "weighted_score": 0.5925925925925926,
+          "pass_rate": 0.5714285714285714,
+          "critical_pass_rate": 0.6
+        },
+        {
+          "sample_id": "684a8c402e4d9fec5e495e22",
+          "weighted_score": 0.30434782608695654,
+          "pass_rate": 0.42857142857142855,
+          "critical_pass_rate": 0.25
+        },
+        {
+          "sample_id": "684a8c40a8da4aded13ef565",
+          "weighted_score": 0.4827586206896552,
+          "pass_rate": 0.6666666666666666,
+          "critical_pass_rate": 0.4
+        },
+        {
+          "sample_id": "684a8c403b901ee3995f38f5",
+          "weighted_score": 0.21428571428571427,
+          "pass_rate": 0.25,
+          "critical_pass_rate": 0.2
+        },
+        {
+          "sample_id": "6847710b001aed0b224ab300",
+          "weighted_score": 0.9090909090909091,
+          "pass_rate": 0.8571428571428571,
+          "critical_pass_rate": 1.0
+        },
+        {
+          "sample_id": "6842a1fbb8f271121fd79472",
+          "weighted_score": 0.32,
+          "pass_rate": 0.4444444444444444,
+          "critical_pass_rate": 0.25
+        },
+        {
+          "sample_id": "685454eee6d053a2b0277f8f",
+          "weighted_score": 0.0,
+          "pass_rate": 0.0,
+          "critical_pass_rate": 0.0
+        },
+        {
+          "sample_id": "684a8c41d3b4bb8eaeda2326",
+          "weighted_score": 0.9444444444444444,
+          "pass_rate": 0.8333333333333334,
+          "critical_pass_rate": 1.0
+        },
+        {
+          "sample_id": "6842a1fb8996ff64ca7a423c",
+          "weighted_score": 0.5238095238095238,
+          "pass_rate": 0.6,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "685454ee2ae3f8515f9eaec1",
+          "weighted_score": 0.5,
+          "pass_rate": 0.5,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "685454efc5d43a37be94b4c3",
+          "weighted_score": 0.5161290322580645,
+          "pass_rate": 0.5714285714285714,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "6847710a748618a10eb516a5",
+          "weighted_score": 0.30434782608695654,
+          "pass_rate": 0.42857142857142855,
+          "critical_pass_rate": 0.25
+        },
+        {
+          "sample_id": "684a8c40abab6ca3db430abb",
+          "weighted_score": 0.7142857142857143,
+          "pass_rate": 0.8181818181818182,
+          "critical_pass_rate": 0.6666666666666666
+        },
+        {
+          "sample_id": "6842a1fbeec1338496adc799",
+          "weighted_score": 0.32075471698113206,
+          "pass_rate": 0.38461538461538464,
+          "critical_pass_rate": 0.3
+        },
+        {
+          "sample_id": "6842a1fbb320bf9b06f08ac4",
+          "weighted_score": 0.42857142857142855,
+          "pass_rate": 0.5,
+          "critical_pass_rate": 0.4
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "model_name": "openai_gpt-oss-20b",
+        "model_version": "openai/gpt-oss-20b",
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "max_tokens": 2048,
+        "seed": null,
+        "use_async": true,
+        "max_samples": 100,
+        "run_id": "openai_gpt-oss-20b_20251208_020138",
+        "timestamp": "2025-12-08T02:01:38.504448",
+        "notes": "Run via run_eval.py with 3 runs"
+      },
+      "overall": {
+        "overall_score": 0.5075450444716829,
+        "std_score": 0.24198072407271778,
+        "median_score": 0.5,
+        "mean_pass_rate": 0.5215977266197854,
+        "n_samples": 100,
+        "total_rubrics": 947
+      },
+      "by_modality": {
+        "text_only": {
+          "overall_score": 0.5075450444716829,
+          "std_score": 0.24198072407271778,
+          "median_score": 0.5,
+          "mean_pass_rate": 0.5215977266197854,
+          "n_samples": 100,
+          "total_rubrics": 947
+        },
+        "multimodal": null
+      },
+      "by_use_case": {
+        "adaptive": {
+          "overall_score": 0.5075450444716829,
+          "std_score": 0.24198072407271778,
+          "median_score": 0.5,
+          "mean_pass_rate": 0.5215977266197854,
+          "n_samples": 100,
+          "total_rubrics": 947
+        }
+      },
+      "by_dimension": {
+        "instruction_following": {
+          "pass_rate": 0.5113207547169811,
+          "n_rubrics": 530
+        },
+        "truthfulness": {
+          "pass_rate": 0.5275229357798165,
+          "n_rubrics": 218
+        },
+        "conciseness_relevance": {
+          "pass_rate": 0.6176470588235294,
+          "n_rubrics": 34
+        },
+        "style_tone": {
+          "pass_rate": 0.48484848484848486,
+          "n_rubrics": 165
+        },
+        "visual_perception": {
+          "pass_rate": 0.0,
+          "n_rubrics": 0
+        },
+        "visual_reasoning": {
+          "pass_rate": 0.0,
+          "n_rubrics": 0
+        },
+        "student_level_calibration": {
+          "pass_rate": 0.0,
+          "n_rubrics": 0
+        },
+        "emotional_component": {
+          "pass_rate": 0.0,
+          "n_rubrics": 0
+        }
+      },
+      "by_skill": {
+        "asking_guiding_questions": {
+          "pass_rate": 0.3333333333333333,
+          "n_rubrics": 6
+        },
+        "identifying_core_difficulty": {
+          "pass_rate": 0.5488721804511278,
+          "n_rubrics": 133
+        },
+        "identifying_correct_steps": {
+          "pass_rate": 0.46296296296296297,
+          "n_rubrics": 108
+        },
+        "identifying_incorrect_steps": {
+          "pass_rate": 0.0,
+          "n_rubrics": 0
+        },
+        "including_examples": {
+          "pass_rate": 0.3404255319148936,
+          "n_rubrics": 47
+        },
+        "providing_alternative_solutions": {
+          "pass_rate": 0.35,
+          "n_rubrics": 20
+        },
+        "stating_knowledge": {
+          "pass_rate": 0.5725806451612904,
+          "n_rubrics": 248
+        },
+        "step_by_step_help": {
+          "pass_rate": 0.5084745762711864,
+          "n_rubrics": 59
+        }
+      },
+      "by_subject": {
+        "Calculus": {
+          "overall_score": 0.5625209550512604,
+          "std_score": 0.26500990001001,
+          "median_score": 0.5465838509316769,
+          "mean_pass_rate": 0.5442520442520443,
+          "n_samples": 18,
+          "total_rubrics": 161
+        },
+        "Chemistry": {
+          "overall_score": 0.6125275648470867,
+          "std_score": 0.18956776413410317,
+          "median_score": 0.5675675675675675,
+          "mean_pass_rate": 0.603308596165739,
+          "n_samples": 21,
+          "total_rubrics": 211
+        },
+        "Physics": {
+          "overall_score": 0.43250968901097464,
+          "std_score": 0.21257552574788754,
+          "median_score": 0.44594594594594594,
+          "mean_pass_rate": 0.45428791887125214,
+          "n_samples": 18,
+          "total_rubrics": 149
+        },
+        "Statistics": {
+          "overall_score": 0.4756656709627478,
+          "std_score": 0.24715924647557902,
+          "median_score": 0.4001322751322751,
+          "mean_pass_rate": 0.513531746031746,
+          "n_samples": 20,
+          "total_rubrics": 187
+        },
+        "Computer Science": {
+          "overall_score": 0.4935385175126293,
+          "std_score": 0.24661310519436,
+          "median_score": 0.45454545454545453,
+          "mean_pass_rate": 0.5178571428571429,
+          "n_samples": 11,
+          "total_rubrics": 102
+        },
+        "Biology": {
+          "overall_score": 0.4198864066971133,
+          "std_score": 0.22924466513838454,
+          "median_score": 0.4245495495495496,
+          "mean_pass_rate": 0.46245910951793306,
+          "n_samples": 12,
+          "total_rubrics": 137
+        }
+      },
+      "sample_results": [
+        {
+          "sample_id": "6842a1fbcafd33210e815bd6",
+          "weighted_score": 1.0,
+          "pass_rate": 1.0,
+          "critical_pass_rate": 1.0
+        },
+        {
+          "sample_id": "684a8c40ddc9f025efade29b",
+          "weighted_score": 0.3584905660377358,
+          "pass_rate": 0.5238095238095238,
+          "critical_pass_rate": 0.25
+        },
+        {
+          "sample_id": "6847710b7b4ee0eddf8194e4",
+          "weighted_score": 0.7307692307692307,
+          "pass_rate": 0.7,
+          "critical_pass_rate": 0.75
+        },
+        {
+          "sample_id": "685454ee424059c5f6deab23",
+          "weighted_score": 0.5,
+          "pass_rate": 0.5,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "6847710b1f412e3e21269c74",
+          "weighted_score": 0.5925925925925926,
+          "pass_rate": 0.5714285714285714,
+          "critical_pass_rate": 0.6
+        },
+        {
+          "sample_id": "685454f0a47330cab0e42af7",
+          "weighted_score": 0.7878787878787878,
+          "pass_rate": 0.6666666666666666,
+          "critical_pass_rate": 0.8333333333333334
+        },
+        {
+          "sample_id": "6842a1fc67aa278c9daae8c1",
+          "weighted_score": 0.7142857142857143,
+          "pass_rate": 0.7777777777777778,
+          "critical_pass_rate": 0.6666666666666666
+        },
+        {
+          "sample_id": "685454ef2187108ef9b08ac6",
+          "weighted_score": 0.6296296296296297,
+          "pass_rate": 0.7142857142857143,
+          "critical_pass_rate": 0.6
+        },
+        {
+          "sample_id": "6842a1fb91d4dec454518bfd",
+          "weighted_score": 0.5714285714285714,
+          "pass_rate": 0.5,
+          "critical_pass_rate": 0.6
+        },
+        {
+          "sample_id": "6847710a9a6b1451d91de150",
+          "weighted_score": 0.30434782608695654,
+          "pass_rate": 0.42857142857142855,
+          "critical_pass_rate": 0.25
+        },
+        {
+          "sample_id": "685454eeb138b019d5728a96",
+          "weighted_score": 0.8571428571428571,
+          "pass_rate": 0.8,
+          "critical_pass_rate": 0.875
+        },
+        {
+          "sample_id": "685454f0fc51d7cd57aa6f85",
+          "weighted_score": 0.25925925925925924,
+          "pass_rate": 0.42857142857142855,
+          "critical_pass_rate": 0.2
+        },
+        {
+          "sample_id": "685454ee44fbb3cf43c29765",
+          "weighted_score": 0.5263157894736842,
+          "pass_rate": 0.4,
+          "critical_pass_rate": 0.5714285714285714
+        },
+        {
+          "sample_id": "684a8c40537a18f48946bc17",
+          "weighted_score": 0.024390243902439025,
+          "pass_rate": 0.1111111111111111,
+          "critical_pass_rate": 0.0
+        },
+        {
+          "sample_id": "6847710a450d4ae28699d87f",
+          "weighted_score": 0.4594594594594595,
+          "pass_rate": 0.5555555555555556,
+          "critical_pass_rate": 0.42857142857142855
+        },
+        {
+          "sample_id": "6842a1fb4b3ada7c29040359",
+          "weighted_score": 0.5217391304347826,
+          "pass_rate": 0.5714285714285714,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "685454ee930e1af9135defda",
+          "weighted_score": 0.35714285714285715,
+          "pass_rate": 0.3181818181818182,
+          "critical_pass_rate": 0.3684210526315789
+        },
+        {
+          "sample_id": "685454eec5d43a37be94b49c",
+          "weighted_score": 0.7272727272727273,
+          "pass_rate": 0.6666666666666666,
+          "critical_pass_rate": 0.75
+        },
+        {
+          "sample_id": "685454eed4c0443e0df34e6c",
+          "weighted_score": 0.7560975609756098,
+          "pass_rate": 0.7777777777777778,
+          "critical_pass_rate": 0.75
+        },
+        {
+          "sample_id": "6847710b748618a10eb516c8",
+          "weighted_score": 0.5416666666666666,
+          "pass_rate": 0.5,
+          "critical_pass_rate": 0.5555555555555556
+        },
+        {
+          "sample_id": "6842a1fb493da3d4b37fd8b5",
+          "weighted_score": 0.7027027027027027,
+          "pass_rate": 0.6666666666666666,
+          "critical_pass_rate": 0.7142857142857143
+        },
+        {
+          "sample_id": "685454ee7728ae576b847f3a",
+          "weighted_score": 0.43243243243243246,
+          "pass_rate": 0.4444444444444444,
+          "critical_pass_rate": 0.42857142857142855
+        },
+        {
+          "sample_id": "6842a1fbbdfc0b0552b0553e",
+          "weighted_score": 0.0,
+          "pass_rate": 0.0,
+          "critical_pass_rate": 0.0
+        },
+        {
+          "sample_id": "685454eecda0c5d0f3d211fd",
+          "weighted_score": 0.3541666666666667,
+          "pass_rate": 0.4166666666666667,
+          "critical_pass_rate": 0.3333333333333333
+        },
+        {
+          "sample_id": "6842a1fb0015fc211142e86e",
+          "weighted_score": 0.8055555555555556,
+          "pass_rate": 0.75,
+          "critical_pass_rate": 0.8333333333333334
+        },
+        {
+          "sample_id": "685454ee7a61803fa9dfd9d6",
+          "weighted_score": 0.3472222222222222,
+          "pass_rate": 0.3125,
+          "critical_pass_rate": 0.35714285714285715
+        },
+        {
+          "sample_id": "685454eea47330cab0e42acf",
+          "weighted_score": 0.25,
+          "pass_rate": 0.25,
+          "critical_pass_rate": 0.25
+        },
+        {
+          "sample_id": "685454eead07ff0ed76d4179",
+          "weighted_score": 0.43478260869565216,
+          "pass_rate": 0.4,
+          "critical_pass_rate": 0.4444444444444444
+        },
+        {
+          "sample_id": "684a8c400f2d31d3b4e0975d",
+          "weighted_score": 0.2608695652173913,
+          "pass_rate": 0.2857142857142857,
+          "critical_pass_rate": 0.25
+        },
+        {
+          "sample_id": "685454ee714d62d3ac325d05",
+          "weighted_score": 0.30434782608695654,
+          "pass_rate": 0.42857142857142855,
+          "critical_pass_rate": 0.25
+        },
+        {
+          "sample_id": "6847710b5f4fdb5c45e43ea2",
+          "weighted_score": 0.3018867924528302,
+          "pass_rate": 0.3076923076923077,
+          "critical_pass_rate": 0.3
+        },
+        {
+          "sample_id": "685454f0a675fc48d54e7f52",
+          "weighted_score": 0.9473684210526315,
+          "pass_rate": 0.8571428571428571,
+          "critical_pass_rate": 1.0
+        },
+        {
+          "sample_id": "684a8c4060c36b9489a7278b",
+          "weighted_score": 0.3404255319148936,
+          "pass_rate": 0.36363636363636365,
+          "critical_pass_rate": 0.3333333333333333
+        },
+        {
+          "sample_id": "684a8c41d3b4bb8eaeda2328",
+          "weighted_score": 0.27906976744186046,
+          "pass_rate": 0.36363636363636365,
+          "critical_pass_rate": 0.25
+        },
+        {
+          "sample_id": "6842a1fb5b975e19cd0c270f",
+          "weighted_score": 0.45454545454545453,
+          "pass_rate": 0.3333333333333333,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "6842a1fbba6af9cb6614fe61",
+          "weighted_score": 0.9736842105263158,
+          "pass_rate": 0.9,
+          "critical_pass_rate": 1.0
+        },
+        {
+          "sample_id": "6847710b5817461e60913ea0",
+          "weighted_score": 0.14285714285714285,
+          "pass_rate": 0.3333333333333333,
+          "critical_pass_rate": 0.0
+        },
+        {
+          "sample_id": "684a8c41f2ed21c3af4f5e68",
+          "weighted_score": 0.45,
+          "pass_rate": 0.625,
+          "critical_pass_rate": 0.3333333333333333
+        },
+        {
+          "sample_id": "684a8c40abab6ca3db430abd",
+          "weighted_score": 0.7575757575757576,
+          "pass_rate": 0.5555555555555556,
+          "critical_pass_rate": 0.8333333333333334
+        },
+        {
+          "sample_id": "6842a1fa0a1677ecde971ae1",
+          "weighted_score": 0.4230769230769231,
+          "pass_rate": 0.5,
+          "critical_pass_rate": 0.4
+        },
+        {
+          "sample_id": "6842a1fbf56d6ef965ad750e",
+          "weighted_score": 0.25,
+          "pass_rate": 0.5,
+          "critical_pass_rate": 0.0
+        },
+        {
+          "sample_id": "6842a1fbbcb6e8da4c11f241",
+          "weighted_score": 0.5882352941176471,
+          "pass_rate": 0.4,
+          "critical_pass_rate": 0.6666666666666666
+        },
+        {
+          "sample_id": "685454eea675fc48d54e7f2a",
+          "weighted_score": 0.8181818181818182,
+          "pass_rate": 0.7777777777777778,
+          "critical_pass_rate": 0.8333333333333334
+        },
+        {
+          "sample_id": "6847710a9bc321f32d5b5a95",
+          "weighted_score": 0.8387096774193549,
+          "pass_rate": 0.8571428571428571,
+          "critical_pass_rate": 0.8333333333333334
+        },
+        {
+          "sample_id": "684a8c40ad4c4ea90e9b4522",
+          "weighted_score": 0.4166666666666667,
+          "pass_rate": 0.3333333333333333,
+          "critical_pass_rate": 0.4444444444444444
+        },
+        {
+          "sample_id": "6842a1fa67aa278c9daae89e",
+          "weighted_score": 0.23076923076923078,
+          "pass_rate": 0.3333333333333333,
+          "critical_pass_rate": 0.0
+        },
+        {
+          "sample_id": "685454eee805192d91587860",
+          "weighted_score": 0.6730769230769231,
+          "pass_rate": 0.5833333333333334,
+          "critical_pass_rate": 0.7
+        },
+        {
+          "sample_id": "6842a1fbd1556c5edbd19e10",
+          "weighted_score": 0.6808510638297872,
+          "pass_rate": 0.7272727272727273,
+          "critical_pass_rate": 0.6666666666666666
+        },
+        {
+          "sample_id": "6842a1fb0c7748874c889af5",
+          "weighted_score": 0.5454545454545454,
+          "pass_rate": 0.6666666666666666,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "685454f0cda0c5d0f3d21224",
+          "weighted_score": 0.7317073170731707,
+          "pass_rate": 0.6666666666666666,
+          "critical_pass_rate": 0.75
+        },
+        {
+          "sample_id": "6847710a74c7f1cb6eb0b17b",
+          "weighted_score": 1.0,
+          "pass_rate": 1.0,
+          "critical_pass_rate": 1.0
+        },
+        {
+          "sample_id": "684a8c4018b7bd8684a48247",
+          "weighted_score": 0.52,
+          "pass_rate": 0.5555555555555556,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "685454eef56b8827a9494657",
+          "weighted_score": 0.5,
+          "pass_rate": 0.5,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "6847710b1b2bfa550f74960f",
+          "weighted_score": 0.8,
+          "pass_rate": 0.8,
+          "critical_pass_rate": 0.8
+        },
+        {
+          "sample_id": "6842a1fab8e8a60a16f55ffc",
+          "weighted_score": 0.0967741935483871,
+          "pass_rate": 0.2727272727272727,
+          "critical_pass_rate": 0.0
+        },
+        {
+          "sample_id": "685454ee7272e9f8923e1701",
+          "weighted_score": 0.9473684210526315,
+          "pass_rate": 0.8571428571428571,
+          "critical_pass_rate": 1.0
+        },
+        {
+          "sample_id": "684a8c41a2df538ed4adb700",
+          "weighted_score": 0.43243243243243246,
+          "pass_rate": 0.6153846153846154,
+          "critical_pass_rate": 0.3333333333333333
+        },
+        {
+          "sample_id": "685454ee560be313d9ec6a3a",
+          "weighted_score": 0.5925925925925926,
+          "pass_rate": 0.5714285714285714,
+          "critical_pass_rate": 0.6
+        },
+        {
+          "sample_id": "6847710b38b750070d6473ec",
+          "weighted_score": 1.0,
+          "pass_rate": 1.0,
+          "critical_pass_rate": 1.0
+        },
+        {
+          "sample_id": "685454ef80207bfd97b578a9",
+          "weighted_score": 0.5,
+          "pass_rate": 0.5,
+          "critical_pass_rate": 1.0
+        },
+        {
+          "sample_id": "6847710b5817461e60913ea3",
+          "weighted_score": 0.5714285714285714,
+          "pass_rate": 0.5,
+          "critical_pass_rate": 0.6
+        },
+        {
+          "sample_id": "685454eef8ab7067dd48b74f",
+          "weighted_score": 0.4838709677419355,
+          "pass_rate": 0.42857142857142855,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "685454ee2e6607c81507261e",
+          "weighted_score": 0.7377049180327869,
+          "pass_rate": 0.6923076923076923,
+          "critical_pass_rate": 0.75
+        },
+        {
+          "sample_id": "6842a1fb7996124c02b91b09",
+          "weighted_score": 0.18421052631578946,
+          "pass_rate": 0.3,
+          "critical_pass_rate": 0.14285714285714285
+        },
+        {
+          "sample_id": "6847710bde93ff93d7ba427f",
+          "weighted_score": 0.8181818181818182,
+          "pass_rate": 0.7777777777777778,
+          "critical_pass_rate": 0.8333333333333334
+        },
+        {
+          "sample_id": "685454f056f4afc24172730d",
+          "weighted_score": 0.3225806451612903,
+          "pass_rate": 0.2857142857142857,
+          "critical_pass_rate": 0.3333333333333333
+        },
+        {
+          "sample_id": "684a8c406dff21aacb332629",
+          "weighted_score": 0.7027027027027027,
+          "pass_rate": 0.6666666666666666,
+          "critical_pass_rate": 0.7142857142857143
+        },
+        {
+          "sample_id": "685454ef513ee4759d9bd93a",
+          "weighted_score": 0.39285714285714285,
+          "pass_rate": 0.375,
+          "critical_pass_rate": 0.4
+        },
+        {
+          "sample_id": "6847710a0598f7a09e49fec5",
+          "weighted_score": 0.16326530612244897,
+          "pass_rate": 0.47058823529411764,
+          "critical_pass_rate": 0.0
+        },
+        {
+          "sample_id": "684a8c415d646cbe4fda10bd",
+          "weighted_score": 0.48484848484848486,
+          "pass_rate": 0.4444444444444444,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "685454ee22969a049b1c9d71",
+          "weighted_score": 0.782608695652174,
+          "pass_rate": 0.8571428571428571,
+          "critical_pass_rate": 0.75
+        },
+        {
+          "sample_id": "6842a1fb5ca82eb2207af64b",
+          "weighted_score": 0.5952380952380952,
+          "pass_rate": 0.5,
+          "critical_pass_rate": 0.625
+        },
+        {
+          "sample_id": "684a8c40f1bc5bb34f054474",
+          "weighted_score": 0.4074074074074074,
+          "pass_rate": 0.42857142857142855,
+          "critical_pass_rate": 0.4
+        },
+        {
+          "sample_id": "685454ee3f42c0760b91933d",
+          "weighted_score": 0.5294117647058824,
+          "pass_rate": 0.6,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "685454ee513ee4759d9bd912",
+          "weighted_score": 0.6666666666666666,
+          "pass_rate": 0.6666666666666666,
+          "critical_pass_rate": 0.6666666666666666
+        },
+        {
+          "sample_id": "684a8c416dff21aacb332649",
+          "weighted_score": 0.7142857142857143,
+          "pass_rate": 0.6,
+          "critical_pass_rate": 0.75
+        },
+        {
+          "sample_id": "6847710a54afe630835408b3",
+          "weighted_score": 0.6071428571428571,
+          "pass_rate": 0.625,
+          "critical_pass_rate": 0.6
+        },
+        {
+          "sample_id": "6847710b756f1682065c9cb9",
+          "weighted_score": 0.23255813953488372,
+          "pass_rate": 0.2222222222222222,
+          "critical_pass_rate": 0.23529411764705882
+        },
+        {
+          "sample_id": "6842a1fb44e7b28b9fc8ba76",
+          "weighted_score": 0.21568627450980393,
+          "pass_rate": 0.2727272727272727,
+          "critical_pass_rate": 0.2
+        },
+        {
+          "sample_id": "6842a1fb2e00dd1898a9bdc6",
+          "weighted_score": 0.875,
+          "pass_rate": 0.8333333333333334,
+          "critical_pass_rate": 0.8888888888888888
+        },
+        {
+          "sample_id": "6847710b9f5075c5d5824b1b",
+          "weighted_score": 0.11538461538461539,
+          "pass_rate": 0.16666666666666666,
+          "critical_pass_rate": 0.1
+        },
+        {
+          "sample_id": "685454ee8639de96a3d235d4",
+          "weighted_score": 0.39285714285714285,
+          "pass_rate": 0.5833333333333334,
+          "critical_pass_rate": 0.25
+        },
+        {
+          "sample_id": "6842a1fabdfc0b0552b0551b",
+          "weighted_score": 0.3125,
+          "pass_rate": 0.25,
+          "critical_pass_rate": 0.3333333333333333
+        },
+        {
+          "sample_id": "685454ee1c115c624d955267",
+          "weighted_score": 0.5116279069767442,
+          "pass_rate": 0.5454545454545454,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "6847710b25bf4abe09f74b97",
+          "weighted_score": 0.5675675675675675,
+          "pass_rate": 0.5555555555555556,
+          "critical_pass_rate": 0.5714285714285714
+        },
+        {
+          "sample_id": "684a8c40d894a549149c50c1",
+          "weighted_score": 0.4074074074074074,
+          "pass_rate": 0.42857142857142855,
+          "critical_pass_rate": 0.4
+        },
+        {
+          "sample_id": "684a8c402e4d9fec5e495e22",
+          "weighted_score": 0.4782608695652174,
+          "pass_rate": 0.42857142857142855,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "684a8c40a8da4aded13ef565",
+          "weighted_score": 0.4482758620689655,
+          "pass_rate": 0.5555555555555556,
+          "critical_pass_rate": 0.4
+        },
+        {
+          "sample_id": "684a8c403b901ee3995f38f5",
+          "weighted_score": 0.17857142857142858,
+          "pass_rate": 0.125,
+          "critical_pass_rate": 0.2
+        },
+        {
+          "sample_id": "6847710b001aed0b224ab300",
+          "weighted_score": 0.36363636363636365,
+          "pass_rate": 0.5714285714285714,
+          "critical_pass_rate": 0.0
+        },
+        {
+          "sample_id": "6842a1fbb8f271121fd79472",
+          "weighted_score": 0.32,
+          "pass_rate": 0.4444444444444444,
+          "critical_pass_rate": 0.25
+        },
+        {
+          "sample_id": "685454eee6d053a2b0277f8f",
+          "weighted_score": 0.0,
+          "pass_rate": 0.0,
+          "critical_pass_rate": 0.0
+        },
+        {
+          "sample_id": "684a8c41d3b4bb8eaeda2326",
+          "weighted_score": 0.6111111111111112,
+          "pass_rate": 0.5,
+          "critical_pass_rate": 0.6666666666666666
+        },
+        {
+          "sample_id": "6842a1fb8996ff64ca7a423c",
+          "weighted_score": 0.047619047619047616,
+          "pass_rate": 0.2,
+          "critical_pass_rate": 0.0
+        },
+        {
+          "sample_id": "685454ee2ae3f8515f9eaec1",
+          "weighted_score": 0.6923076923076923,
+          "pass_rate": 0.6,
+          "critical_pass_rate": 0.75
+        },
+        {
+          "sample_id": "685454efc5d43a37be94b4c3",
+          "weighted_score": 0.3548387096774194,
+          "pass_rate": 0.42857142857142855,
+          "critical_pass_rate": 0.3333333333333333
+        },
+        {
+          "sample_id": "6847710a748618a10eb516a5",
+          "weighted_score": 0.5217391304347826,
+          "pass_rate": 0.5714285714285714,
+          "critical_pass_rate": 0.5
+        },
+        {
+          "sample_id": "684a8c40abab6ca3db430abb",
+          "weighted_score": 0.8,
+          "pass_rate": 0.7272727272727273,
+          "critical_pass_rate": 0.8333333333333334
+        },
+        {
+          "sample_id": "6842a1fbeec1338496adc799",
+          "weighted_score": 0.22641509433962265,
+          "pass_rate": 0.3076923076923077,
+          "critical_pass_rate": 0.2
+        },
+        {
+          "sample_id": "6842a1fbb320bf9b06f08ac4",
+          "weighted_score": 0.5714285714285714,
+          "pass_rate": 0.5,
+          "critical_pass_rate": 0.6
+        }
+      ]
+    }
+  ]
+}

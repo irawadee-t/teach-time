@@ -1,0 +1,47 @@
+# Experiment 1: Pedagogical Metrics Match
+#
+# Goal: Compare Baseline-CoT, Metric-CoT, and ReAct-Teacher on their ability
+# to match target teaching metrics (student talk ratio, questions, background
+# probing, understanding checks).
+
+name: "exp1_metrics_match"
+
+# Domain
+domain: "mathematics"
+
+# Tasks to use (sample from these)
+tasks:
+  - linear_equations
+  - fraction_operations
+
+# Student personas
+students:
+  - struggling
+  - confident_mistaken
+
+# Agents to compare
+agents:
+  - baseline_cot
+  - metric_cot
+  - react_teacher
+
+# Number of episodes per (task, student, agent) combination
+num_episodes_per_condition: 50
+
+# Episode settings
+max_turns: 10
+enable_quizzes: false  # Focus on metrics, not learning for this experiment
+
+# Scoring focus
+scoring_focus: "pedagogy_only"
+
+# Random seed
+random_seed: 42
+
+# Output
+description: |
+  Compare agents on pedagogical behavior match. Analyze distributions of:
+  - Student talk ratio
+  - Number of questions asked
+  - Time until background probed
+  - Frequency of understanding checks

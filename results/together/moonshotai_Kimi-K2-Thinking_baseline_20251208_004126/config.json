@@ -1,0 +1,13 @@
+{
+  "model_name": "moonshotai_Kimi-K2-Thinking",
+  "model_version": "moonshotai/Kimi-K2-Thinking",
+  "temperature": 0.0,
+  "top_p": 1.0,
+  "max_tokens": 2048,
+  "seed": null,
+  "use_async": true,
+  "max_samples": 1024,
+  "run_id": "moonshotai_Kimi-K2-Thinking_20251208_004126",
+  "timestamp": "2025-12-08T00:41:26.003812",
+  "notes": "Run via run_eval.py with 3 runs"
+}

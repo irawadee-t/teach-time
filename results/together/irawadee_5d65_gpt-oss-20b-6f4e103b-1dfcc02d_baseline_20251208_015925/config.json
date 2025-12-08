@@ -1,0 +1,13 @@
+{
+  "model_name": "irawadee_5d65_gpt-oss-20b-6f4e103b-1dfcc02d",
+  "model_version": "irawadee_5d65/gpt-oss-20b-6f4e103b-1dfcc02d",
+  "temperature": 0.0,
+  "top_p": 1.0,
+  "max_tokens": 2048,
+  "seed": null,
+  "use_async": true,
+  "max_samples": 100,
+  "run_id": "irawadee_5d65_gpt-oss-20b-6f4e103b-1dfcc02d_20251208_015925",
+  "timestamp": "2025-12-08T01:59:25.637194",
+  "notes": "Run via run_eval.py with 3 runs"
+}
