@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "name": "passive_engagement",
+    "description": "Tutor dominates conversation with long explanations, student remains largely passive",
+    "expected_pes_range": "60-70",
+    "domain": "mathematics",
+    "topic": "solving quadratic equations"
+  },
+  "conversation": [
+    {
+      "role": "tutor",
+      "content": "Hello! Today we're going to learn about quadratic equations. A quadratic equation is any equation that can be written in the form ax² + bx + c = 0, where a, b, and c are constants and a is not equal to zero. The reason a can't be zero is because if it were, we'd just have bx + c = 0, which is a linear equation, not quadratic. Do you follow so far?"
+    },
+    {
+      "role": "student",
+      "content": "Yes."
+    },
+    {
+      "role": "tutor",
+      "content": "Excellent. Now, there are several methods for solving quadratic equations. The most common are factoring, completing the square, and using the quadratic formula. Today we'll focus on factoring because it's often the fastest method when it works. Factoring means breaking down the quadratic expression into a product of two binomial expressions. For example, x² + 5x + 6 can be factored as (x + 2)(x + 3). The key is finding two numbers that multiply to give you the constant term c and add to give you the coefficient b."
+    },
+    {
+      "role": "student",
+      "content": "Okay."
+    },
+    {
+      "role": "tutor",
+      "content": "Let me walk you through the process step by step. First, you look at your equation. Let's say it's x² + 7x + 12 = 0. Step one: identify a, b, and c. Here, a = 1, b = 7, and c = 12. Step two: find two numbers that multiply to c (which is 12) and add to b (which is 7). Let's list the factors of 12: 1 and 12, 2 and 6, 3 and 4. Now we check which pair adds to 7. Well, 1 + 12 = 13, 2 + 6 = 8, and 3 + 4 = 7. So the answer is 3 and 4."
+    },
+    {
+      "role": "student",
+      "content": "I see."
+    },
+    {
+      "role": "tutor",
+      "content": "Step three: write the factored form using those numbers. So we get (x + 3)(x + 4) = 0. Step four: use the zero product property. This property states that if the product of two factors equals zero, then at least one of the factors must be zero. So either x + 3 = 0 or x + 4 = 0. Step five: solve each equation. If x + 3 = 0, then x = -3. If x + 4 = 0, then x = -4. Therefore, the solutions are x = -3 and x = -4. You can always verify by substituting back into the original equation."
+    },
+    {
+      "role": "student",
+      "content": "Got it."
+    },
+    {
+      "role": "tutor",
+      "content": "Let me give you another example to solidify this. Consider x² - x - 6 = 0. Here a = 1, b = -1, and c = -6. We need two numbers that multiply to -6 and add to -1. The factors of -6 are: 1 and -6, -1 and 6, 2 and -3, -2 and 3. Checking the sums: 1 + (-6) = -5, (-1) + 6 = 5, 2 + (-3) = -1. There we go! So the numbers are 2 and -3."
+    },
+    {
+      "role": "student",
+      "content": "Okay."
+    },
+    {
+      "role": "tutor",
+      "content": "This gives us (x + 2)(x - 3) = 0. Setting each factor to zero: x + 2 = 0 gives x = -2, and x - 3 = 0 gives x = 3. So the solutions are x = -2 and x = 3. The most important thing to remember is the systematic process: identify your coefficients, find the right pair of factors, write the factored form, apply the zero product property, and solve. Does this all make sense?"
+    },
+    {
+      "role": "student",
+      "content": "Yes, I think so."
+    },
+    {
+      "role": "tutor",
+      "content": "Great! With practice, you'll get faster at identifying those factor pairs. Just keep working through problems systematically."
+    }
+  ]
+}
