@@ -67,7 +67,7 @@ class TrajectoryLogger:
         output_file = self.output_dir / f"{experiment_id}_summary.json"
 
         with open(output_file, 'w') as f:
-            json.dumps(summary_data, f, indent=2)
+            json.dump(summary_data, f, indent=2)
 
 
 class MetricsAccumulator:
