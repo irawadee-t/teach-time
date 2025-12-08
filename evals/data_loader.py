@@ -88,6 +88,9 @@ def load_samples_from_hf(
     dataset_name: str = "ScaleAI/TutorBench",
     split: str = "train",
     max_samples: Optional[int] = None,
+    text_only: bool = True,
+    filter_use_case: Optional[str] = None,
+    filter_subject: Optional[str] = None,
 ) -> List[Sample]:
     """
     Load TutorBench samples from Hugging Face dataset.
@@ -96,6 +99,9 @@ def load_samples_from_hf(
         dataset_name: HF dataset identifier
         split: Dataset split to load
         max_samples: Maximum number of samples to load (None = all)
+        text_only: If True, filter out multimodal samples (default: True)
+        filter_use_case: Filter by use case ("adaptive", "assessment", "active_learning")
+        filter_subject: Filter by subject (e.g., "physics", "biology")
 
     Returns:
         List of Sample objects
@@ -108,20 +114,32 @@ def load_samples_from_hf(
             "Install with: pip install datasets"
         )
 
-    # Load dataset
+    # Load dataset - load more to account for filtering
     dataset = load_dataset(dataset_name, split=split)
 
-    if max_samples:
-        dataset = dataset.select(range(min(max_samples, len(dataset))))
-
-    # Convert to Sample objects
-    # Note: This will need to be adapted based on actual HF dataset schema
+    # Convert to Sample objects with filtering
     samples = []
     for idx, item in enumerate(dataset):
-        # This is a placeholder - adapt to actual schema
+        # Convert item to sample
         sample = _convert_hf_item_to_sample(item, idx)
-        if sample:
-            samples.append(sample)
+        if not sample:
+            continue
+
+        # Apply filters
+        if text_only and sample.is_multimodal:
+            continue
+
+        if filter_use_case and sample.use_case.value != filter_use_case:
+            continue
+
+        if filter_subject and sample.subject.lower() != filter_subject.lower():
+            continue
+
+        samples.append(sample)
+
+        # Stop if we have enough samples
+        if max_samples and len(samples) >= max_samples:
+            break
 
     return samples
 
@@ -203,6 +221,47 @@ def _map_batch_to_use_case(batch: str) -> UseCase:
         return UseCase.ADAPTIVE
 
 
+def _normalize_tutoring_skill(skill_str: str) -> Optional[str]:
+    """
+    Normalize HF dataset tutoring skill strings to TutoringSkill enum values.
+
+    Handles variations like:
+    - "Asks questions to guide students" → "asking_guiding_questions"
+    - "Identifying Core difficulty/ misconception attribution" → "identifying_core_difficulty"
+
+    Args:
+        skill_str: Raw tutoring skill string from HuggingFace dataset
+
+    Returns:
+        Normalized enum value string, or None if no match
+    """
+    if not skill_str or skill_str.lower().strip() == "not applicable":
+        return None
+
+    skill_lower = skill_str.lower().strip()
+
+    # Keyword-based mapping to handle variations
+    if "ask" in skill_lower and "question" in skill_lower:
+        return "asking_guiding_questions"
+    elif "core" in skill_lower and ("difficulty" in skill_lower or "misconception" in skill_lower):
+        return "identifying_core_difficulty"
+    elif "correct" in skill_lower and "steps" in skill_lower:
+        return "identifying_correct_steps"
+    elif "incorrect" in skill_lower and "steps" in skill_lower:
+        return "identifying_incorrect_steps"
+    elif "example" in skill_lower or "analogy" in skill_lower:
+        return "including_examples"
+    elif "alternative" in skill_lower and ("solution" in skill_lower or "path" in skill_lower):
+        return "providing_alternative_solutions"
+    elif "definition" in skill_lower or "formula" in skill_lower or "theorem" in skill_lower or "law" in skill_lower:
+        return "stating_knowledge"
+    elif "step" in skill_lower and ("help" in skill_lower or "analysis" in skill_lower):
+        return "step_by_step_help"
+
+    # If no match, return None
+    return None
+
+
 def _parse_rubric(rubric_data: dict) -> Optional[Rubric]:
     """Parse a single rubric from HF dataset format."""
     try:
@@ -229,13 +288,14 @@ def _parse_rubric(rubric_data: dict) -> Optional[Rubric]:
 
         # Parse tutoring skill (optional)
         tutoring_skill = None
-        skill_str = attrs.get("tutoring_skill", "").lower()
-        if skill_str and skill_str != "not applicable":
-            skill_str = skill_str.replace(" ", "_")
+        skill_str = attrs.get("tutoring_skill", "")
+        normalized_skill = _normalize_tutoring_skill(skill_str)
+        if normalized_skill:
             try:
-                tutoring_skill = TutoringSkill(skill_str)
+                tutoring_skill = TutoringSkill(normalized_skill)
             except ValueError:
-                # Skip if unknown skill
+                # Log warning if normalized skill still doesn't match enum
+                print(f"Warning: Normalized tutoring skill '{normalized_skill}' not in TutoringSkill enum")
                 pass
 
         # Parse explicitness and objectivity
