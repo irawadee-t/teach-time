@@ -26,6 +26,7 @@ from .prompts import get_system_prompt
 from .data_loader import (
     load_samples_from_json,
     load_samples_from_hf,
+    load_samples_from_csv,
     save_results_to_json,
 )
 from .providers import get_provider, ConcurrencyConfig, get_async_provider
@@ -65,6 +66,7 @@ __all__ = [
     # Data loading
     "load_samples_from_json",
     "load_samples_from_hf",
+    "load_samples_from_csv",
     "save_results_to_json",
     # Providers
     "get_provider",

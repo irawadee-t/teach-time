@@ -315,6 +315,127 @@ def _parse_rubric(rubric_data: dict) -> Optional[Rubric]:
         return None
 
 
+def load_samples_from_csv(
+    csv_path: str,
+    max_samples: Optional[int] = None,
+    text_only: bool = True,
+    filter_subject: Optional[str] = None,
+) -> List[Sample]:
+    """
+    Load TutorBench samples from local CSV file (train.csv or test.csv).
+
+    Expected CSV columns:
+    - SUBJECT
+    - PROMPT
+    - UC1_INITIAL_EXPLANATION
+    - FOLLOW_UP_PROMPT
+    - RUBRICS (JSON string)
+    - bloom_taxonomy
+
+    Args:
+        csv_path: Path to CSV file
+        max_samples: Maximum number of samples to load (None = all)
+        text_only: If True, filter out multimodal samples (default: True)
+        filter_subject: Filter by subject (e.g., "physics", "biology")
+
+    Returns:
+        List of Sample objects
+    """
+    import csv
+    import json
+
+    samples = []
+
+    with open(csv_path, 'r', encoding='utf-8') as f:
+        reader = csv.DictReader(f)
+
+        for idx, row in enumerate(reader):
+            sample = _convert_csv_row_to_sample(row, idx)
+            if not sample:
+                continue
+
+            # Apply filters
+            if text_only and sample.is_multimodal:
+                continue
+
+            if filter_subject and sample.subject.lower() != filter_subject.lower():
+                continue
+
+            samples.append(sample)
+
+            # Stop if we have enough samples
+            if max_samples and len(samples) >= max_samples:
+                break
+
+    return samples
+
+
+def _convert_csv_row_to_sample(row: dict, idx: int) -> Optional[Sample]:
+    """
+    Convert CSV row to Sample object.
+
+    Maps our CSV format to Sample model.
+
+    Args:
+        row: CSV row as dict
+        idx: Index for sample ID
+
+    Returns:
+        Sample object or None if conversion fails
+    """
+    try:
+        import json
+
+        # Extract basic info
+        sample_id = f"sample_{idx:04d}"
+        subject = row.get("SUBJECT", "unknown")
+        bloom = row.get("bloom_taxonomy", "")
+
+        # This CSV format is Use Case 1 (Adaptive Explanation)
+        use_case = UseCase.ADAPTIVE
+
+        # Build messages: PROMPT is initial question, UC1_INITIAL_EXPLANATION is tutor response,
+        # FOLLOW_UP_PROMPT is student follow-up
+        messages = []
+        if row.get("PROMPT"):
+            messages.append({"role": "user", "content": row["PROMPT"]})
+        if row.get("UC1_INITIAL_EXPLANATION"):
+            messages.append({"role": "assistant", "content": row["UC1_INITIAL_EXPLANATION"]})
+        if row.get("FOLLOW_UP_PROMPT"):
+            messages.append({"role": "user", "content": row["FOLLOW_UP_PROMPT"]})
+
+        # Parse rubrics from JSON string
+        rubrics = []
+        rubrics_json = row.get("RUBRICS", "[]")
+        if rubrics_json:
+            try:
+                rubrics_data = json.loads(rubrics_json)
+                for r in rubrics_data:
+                    rubric = _parse_rubric(r)
+                    if rubric:
+                        rubrics.append(rubric)
+            except json.JSONDecodeError as e:
+                print(f"Warning: Failed to parse rubrics JSON for sample {idx}: {e}")
+
+        # Our CSV is text-only
+        is_multimodal = False
+        images = None
+
+        return Sample(
+            sample_id=sample_id,
+            use_case=use_case,
+            subject=subject,
+            system_prompt="",  # Will be set by runner
+            messages=messages,
+            rubrics=rubrics,
+            is_multimodal=is_multimodal,
+            images=images,
+        )
+    except Exception as e:
+        print(f"Warning: Failed to convert row {idx}: {e}")
+        return None
+
+
 def save_results_to_json(results: List, output_path: str):
     """
     Save evaluation results to JSON file.
