@@ -1,0 +1,35 @@
+description: 'STEM pilot: 2 questions/category from [''math'', ''physics'', ''chemistry'',
+  ''biology'', ''computer science'', ''engineering'']'
+environment:
+  enable_cache: true
+  max_teacher_turns: 8
+  sampling:
+    categories:
+    - math
+    - physics
+    - chemistry
+    - biology
+    - computer science
+    - engineering
+    exclude_categories: null
+    max_total_questions: null
+    percentage: null
+    questions_per_category: 2
+    seed: 42
+  verbose: false
+experiment_id: clean_arch_verified_20251208_163936
+name: clean_arch_verified
+output_dir: experiments
+student:
+  description: Llama 3.1 70B Instruct as student. Simulates struggling student via
+    prompting.
+  max_tokens: 512
+  model_id: meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo
+  name: llama_70b_student
+  temperature: 0.0
+teacher:
+  description: DeepSeek V3 - state-of-the-art open model.
+  max_tokens: 512
+  model_id: deepseek-ai/DeepSeek-V3
+  name: deepseek_v3
+  temperature: 0.0
