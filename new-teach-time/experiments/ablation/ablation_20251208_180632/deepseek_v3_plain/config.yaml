@@ -1,0 +1,14 @@
+max_turns: 10
+student:
+  model_id: meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo
+  name: llama_70b_student
+teacher:
+  base_model: null
+  description: DeepSeek V3 - strong baseline, no ReAct
+  is_finetuned: false
+  max_tokens: 512
+  model_id: deepseek-ai/DeepSeek-V3
+  name: deepseek_v3_plain
+  temperature: 0.0
+  use_react: false
+use_react: false

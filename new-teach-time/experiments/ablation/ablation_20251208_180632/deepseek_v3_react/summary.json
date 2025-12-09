@@ -1,0 +1,46 @@
+{
+  "experiment_id": "deepseek_v3_react",
+  "config": {
+    "teacher": {
+      "name": "deepseek_v3_react",
+      "model_id": "deepseek-ai/DeepSeek-V3",
+      "description": "DeepSeek V3 - strong baseline, with ReAct",
+      "use_react": true,
+      "is_finetuned": false,
+      "base_model": null,
+      "temperature": 0.0,
+      "max_tokens": 512
+    },
+    "student": {
+      "name": "llama_70b_student",
+      "model_id": "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo"
+    },
+    "max_turns": 10,
+    "use_react": true
+  },
+  "sampling_summary": {
+    "total_questions": 5
+  },
+  "runtime": {
+    "start_time": "2025-12-08T18:08:08.157235",
+    "end_time": "2025-12-08T18:10:20.556020",
+    "total_duration_seconds": 132.398785
+  },
+  "stats": {
+    "num_sessions": 5,
+    "initial_correct": 1,
+    "initial_correct_rate": 0.2,
+    "final_correct": 4,
+    "final_correct_rate": 0.8,
+    "improvement": 3,
+    "terminated_naturally": 5,
+    "forced_termination": 0,
+    "avg_turns": 3.4,
+    "final_action_distribution": {
+      "END_SUCCESS": 5
+    },
+    "categories": {
+      "math": 5
+    }
+  }
+}

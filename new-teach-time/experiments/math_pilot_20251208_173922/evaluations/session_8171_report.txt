@@ -1,0 +1,87 @@
+================================================================================
+PEDAGOGICAL EVALUATION REPORT
+================================================================================
+Generated: 2025-12-08 17:45:02
+
+OVERALL PEDAGOGICAL EFFECTIVENESS SCORE (PES)
+--------------------------------------------------------------------------------
+Score: 70.0/100
+Category: Good
+Quality: good
+
+Summary: This tutoring session demonstrates strong pedagogical effectiveness with high engagement and quality feedback, but could improve by assessing prior knowledge more thoroughly and fostering deeper metacognitive thinking. Overall, it is a good interaction with clear pathways for enhancement.
+
+KEY FINDINGS
+--------------------------------------------------------------------------------
+
+Strengths:
+  1. High engagement in constructive and interactive learning activities (ICAP)
+  2. Strong comprehension probing and appropriate guidance level
+  3. Effective error feedback and encouraging tone
+
+Areas for Improvement:
+  1. Limited background knowledge assessment (score 2/5)
+  2. Lack of metacognitive questions (0 in question depth distribution)
+  3. Higher proportion of passive engagement (7 instances) compared to interactive (14)
+
+Recommendations:
+  1. Incorporate more metacognitive questions (e.g., 'How would you approach this problem?' or 'What strategies did you use?') to deepen reflection.
+  2. Begin sessions with brief background knowledge checks to tailor explanations more effectively.
+  3. Reduce passive engagement by minimizing direct instruction and increasing opportunities for student-led problem-solving.
+
+DETAILED SCORE BREAKDOWN
+--------------------------------------------------------------------------------
+
+LAYER 1: 8-Dimension Tutor Response Quality (80% weight)
+Layer Score: 0.688
+Weighted Contribution: 55.00/100
+
+  Comprehension Probing: 4/5
+    The tutor consistently checks the student's understanding with targeted questions, especially when guiding through the factorization and the assignment of numbers to the cube's faces. However, there are moments where the tutor could have probed deeper into the student's repeated confusion about the vertex products and their sums.
+    Evidence: Turn 2: 'Can you find the prime factorization of 1001?'...
+
+  Background Knowledge Assessment: 2/5
+    The tutor does not explicitly probe the student's background knowledge about the topic. The conversation jumps straight into solving the problem without assessing prior understanding. The only hint of background assessment is in Turn 2, where the tutor asks the student to factor 1001, but this is more of a problem-solving step than a background knowledge check.
+    Evidence: Turn 2 [TUTOR]: Your vertex pairing approach isn't quite right - the sum of vertex products doesn't ...
+
+  Appropriate Guidance Level: 4/5
+    The tutor provides mostly appropriate guidance, maintaining productive struggle while occasionally giving slightly too much help. They effectively guide the student through the problem-solving process without revealing the answer outright.
+    Evidence: Good job factoring! Now think about how the vertex products (each being a product of three face numb...
+
+  Error Feedback Quality: 4/5
+    The tutor provides mostly explanatory feedback, guiding the student through the problem-solving process and correcting misconceptions. However, there are moments where the feedback could be more detailed, such as when the student repeatedly struggles with the vertex product concept.
+    Evidence: Your vertex pairing approach isn't quite right - the sum of vertex products doesn't factor that way....
+
+  Encouragement & Tone: 4/5
+    The tutor is generally supportive and encouraging, with a positive tone throughout the conversation. However, there are minor lapses where the tutor could have been more celebratory of the student's progress or more explicitly encouraging during moments of struggle.
+    Evidence: Good job factoring! Now think about how the vertex products (each being a product of three face numb...
+
+  Response Coherence: 4/5
+    The tutor's responses are mostly clear and coherent, guiding the student effectively through the problem. However, there are minor moments where the tutor could be more explicit, such as in Turn 10 where the tutor corrects the student's incorrect sum but doesn't immediately clarify the correct approach.
+    Evidence: Turn 2: 'Your vertex pairing approach isn't quite right - the sum of vertex products doesn't factor ...
+
+  Response Relevance: 4/5
+    The tutor generally stays on topic and addresses the student's questions, but there are a few minor tangents and moments where the student's confusion could have been clarified more directly. The tutor does a good job guiding the student through the problem but occasionally misses opportunities to correct misunderstandings immediately.
+    Evidence: Turn 2: Corrects the student's vertex pairing approach and focuses on factoring 1001, which is relev...
+
+  Student Talk Ratio: 4/5
+    The student contributes a substantial portion of the dialogue, actively engaging with the problem and attempting multiple approaches. However, the tutor occasionally provides significant guidance and corrections, which slightly shifts the balance.
+    Evidence: Turn 1 [STUDENT]: Let's denote the numbers on the six faces as a, b, c, d, e, and f......
+
+LAYER 2: Question Depth Analysis (10% weight)
+Layer Score: 0.750
+Weighted Contribution: 7.50/100
+Raw Score: 4/5
+Question Distribution: {'recall': 1, 'procedural': 2, 'conceptual': 3, 'metacognitive': 0}
+Justification: The tutor's questions were well-distributed across recall, procedural, and conceptual categories, with a strong emphasis on conceptual questions (50% of total questions). The tutor effectively guided the student through the problem by asking questions that required deeper understanding of the relationships between the face numbers and vertex products. However, there were no metacognitive questions, which could have further enhanced the student's problem-solving strategies. The mix of question types and the emphasis on conceptual understanding justify a score of 4 (Good).
+
+LAYER 3: ICAP Student Engagement (10% weight)
+Layer Score: 0.750
+Weighted Contribution: 7.50/100
+Raw Score: 4/5
+Engagement Distribution: {'passive': 7, 'active': 29, 'constructive': 50, 'interactive': 14}
+Justification: The student demonstrates a high level of constructive engagement (50%) throughout the conversation, consistently generating new ideas and explanations. There is also a significant portion of active engagement (29%), where the student rehearses or checks information. The interactive engagement (14%) is present but limited, as the student occasionally builds on the tutor's ideas. Passive engagement is minimal (7%), occurring only when the student seeks guidance. Overall, the student's engagement aligns with a score of 4 (Good) due to the strong constructive and active engagement, with some interactive moments and minimal passive periods.
+
+================================================================================
+END OF REPORT
+================================================================================

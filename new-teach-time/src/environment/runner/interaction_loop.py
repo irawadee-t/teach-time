@@ -26,8 +26,13 @@ from ..config import (
 )
 from ..datasets import Question
 from ..agents import StudentAgent, TeacherAgent, StudentTurn, TeacherTurn
+from ..agents import PlainTeacherAgent, PlainTeacherTurn, create_teacher
 from ..agents.student_agent import DialogueContext
 from ..judge import ExternalJudge, JudgeVerdict, extract_final_answer
+
+# Type alias for teacher turn (can be either ReAct or Plain)
+from typing import Union
+AnyTeacherTurn = Union[TeacherTurn, PlainTeacherTurn]
 
 
 @dataclass
@@ -52,12 +57,17 @@ class InteractionTurn:
     judge_raw_response: Optional[str] = None
     
     @classmethod
-    def from_teacher(cls, turn_number: int, turn: TeacherTurn) -> "InteractionTurn":
+    def from_teacher(cls, turn_number: int, turn: AnyTeacherTurn) -> "InteractionTurn":
+        """Create from either TeacherTurn (ReAct) or PlainTeacherTurn."""
+        # Handle both ReAct and Plain teacher turns
+        thought = getattr(turn, 'thought', None)
+        action = getattr(turn, 'action', 'PLAIN_RESPONSE')
+        
         return cls(
             turn_number=turn_number,
             speaker="teacher",
-            teacher_thought=turn.thought,
-            teacher_action=turn.action,
+            teacher_thought=thought,
+            teacher_action=action,
             teacher_utterance=turn.utterance,
             teacher_is_terminal=turn.is_terminal,
         )
@@ -153,6 +163,70 @@ class InteractionSession:
                 "student": self.student_config_name,
             },
         }
+    
+    def to_judge_format(self) -> dict:
+        """
+        Convert session to format expected by PedagogicalEvaluator.
+        
+        Returns a dict with:
+        - metadata: session info
+        - conversation: list of {"role": "tutor"|"student", "content": "..."}
+        """
+        conversation = []
+        
+        # Add initial student attempt
+        conversation.append({
+            "role": "student",
+            "content": self.initial_student_text,
+        })
+        
+        # Add dialogue turns
+        for turn in self.turns:
+            if turn.speaker == "teacher" and turn.teacher_utterance:
+                conversation.append({
+                    "role": "tutor",
+                    "content": turn.teacher_utterance,
+                })
+            elif turn.speaker == "student" and turn.student_text:
+                conversation.append({
+                    "role": "student",
+                    "content": turn.student_text,
+                })
+        
+        return {
+            "metadata": {
+                "session_id": self.session_id,
+                "name": f"session_{self.question.question_id}",
+                "description": f"Tutoring session for: {self.question.question[:100]}...",
+                "domain": self.question.category,
+                "topic": self.question.category,
+                "question_id": self.question.question_id,
+                "ground_truth": self.question.ground_truth,
+                "initial_correct": self.initial_judge_verdict,
+                "final_correct": self.final_judge_verdict,
+                "total_turns": self.total_turns,
+                "terminated_naturally": self.terminated_naturally,
+            },
+            "conversation": conversation,
+        }
+    
+    def save_for_judge(self, output_path: Path) -> Path:
+        """
+        Save session in judge-compatible format.
+        
+        Args:
+            output_path: Path to save the JSON file
+            
+        Returns:
+            Path to saved file
+        """
+        output_path = Path(output_path)
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        
+        with open(output_path, "w") as f:
+            json.dump(self.to_judge_format(), f, indent=2)
+        
+        return output_path
 
 
 class InteractionLoop:
@@ -468,11 +542,25 @@ class ExperimentOutput:
         with open(results_path, "w") as f:
             json.dump(self.to_dict(), f, indent=2)
         
+        # Save individual conversations for judge evaluation
+        conversations_dir = experiment_dir / "conversations"
+        conversations_dir.mkdir(parents=True, exist_ok=True)
+        
+        conversation_files = []
+        for i, session in enumerate(self.sessions, 1):
+            # Create filename from question_id
+            safe_id = session.question.question_id.replace("/", "_").replace(" ", "_")
+            conv_path = conversations_dir / f"{i:03d}_{safe_id}.json"
+            session.save_for_judge(conv_path)
+            conversation_files.append(str(conv_path))
+        
         return {
             "folder": str(experiment_dir),
             "config": str(config_path),
             "summary": str(summary_path),
             "results": str(results_path),
+            "conversations_dir": str(conversations_dir),
+            "num_conversations": len(conversation_files),
         }
 
 
@@ -535,3 +623,235 @@ class ExperimentRunner:
         output.compute_stats()
         
         return output
+
+
+# =============================================================================
+# Ablation Runner (Multiple Variants)
+# =============================================================================
+
+class AblationRunner:
+    """
+    Runs ablation experiments with multiple teacher variants.
+    
+    Each variant is tested on the same set of questions for fair comparison.
+    """
+    
+    def __init__(self, llm_client, student_config: StudentConfig = None):
+        from ..config import DEFAULT_STUDENT_CONFIG
+        
+        self.llm_client = llm_client
+        self.student_config = student_config or DEFAULT_STUDENT_CONFIG
+        self.student = StudentAgent(llm_client=llm_client, config=self.student_config)
+        self.judge = ExternalJudge(llm_client=llm_client)
+    
+    def run_variant(
+        self,
+        teacher_config,  # AblationTeacherConfig
+        questions: list[Question],
+        max_turns: int = 10,
+        show_progress: bool = True,
+    ) -> ExperimentOutput:
+        """
+        Run a single variant on the given questions.
+        
+        Args:
+            teacher_config: AblationTeacherConfig with use_react flag
+            questions: Pre-sampled questions (same for all variants)
+            max_turns: Maximum teacher turns
+            show_progress: Show progress bar
+            
+        Returns:
+            ExperimentOutput with results
+        """
+        from tqdm import tqdm
+        
+        # Create appropriate teacher based on use_react flag
+        use_react = getattr(teacher_config, 'use_react', True)
+        teacher = create_teacher(
+            config=teacher_config.to_teacher_config(),
+            llm_client=self.llm_client,
+            use_react=use_react,
+        )
+        
+        # Create environment config
+        env_config = EnvironmentConfig(max_teacher_turns=max_turns)
+        
+        # Create interaction loop
+        loop = InteractionLoop(
+            teacher=teacher,
+            student=self.student,
+            judge=self.judge,
+            config=env_config,
+        )
+        
+        # Run sessions
+        start_time = datetime.now()
+        
+        output = ExperimentOutput(
+            config={
+                "teacher": teacher_config.to_dict(),
+                "student": {
+                    "name": self.student_config.name,
+                    "model_id": self.student_config.model_id,
+                },
+                "max_turns": max_turns,
+                "use_react": use_react,
+            },
+            sampling_summary={"total_questions": len(questions)},
+            sessions=[],
+            start_time=start_time.isoformat(),
+        )
+        
+        desc = f"{teacher_config.name}"
+        iterator = tqdm(questions, desc=desc, unit="q") if show_progress else questions
+        
+        for question in iterator:
+            session = loop.run(question)
+            output.sessions.append(session)
+            
+            if show_progress:
+                status = "✓" if session.final_judge_verdict else "✗"
+                iterator.set_postfix(turns=session.total_turns, ok=status)
+        
+        end_time = datetime.now()
+        output.end_time = end_time.isoformat()
+        output.total_duration_seconds = (end_time - start_time).total_seconds()
+        output.compute_stats()
+        
+        return output
+    
+    def run_ablation(
+        self,
+        teacher_configs: list,  # List of AblationTeacherConfig
+        questions: list[Question],
+        max_turns: int = 10,
+        output_dir: Path = None,
+        experiment_name: str = "ablation",
+        show_progress: bool = True,
+    ) -> dict:
+        """
+        Run full ablation study with multiple variants.
+        
+        Args:
+            teacher_configs: List of AblationTeacherConfig variants
+            questions: Pre-sampled questions (same for all variants)
+            max_turns: Maximum teacher turns
+            output_dir: Where to save results
+            experiment_name: Name for the experiment
+            show_progress: Show progress bars
+            
+        Returns:
+            Dict with all results and comparison summary
+        """
+        from datetime import datetime
+        
+        output_dir = Path(output_dir) if output_dir else Path("experiments/ablation")
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        experiment_dir = output_dir / f"{experiment_name}_{timestamp}"
+        experiment_dir.mkdir(parents=True, exist_ok=True)
+        
+        print(f"\n{'='*70}")
+        print(f"  ABLATION STUDY: {experiment_name}")
+        print(f"  Variants: {len(teacher_configs)}")
+        print(f"  Questions: {len(questions)}")
+        print(f"  Max turns: {max_turns}")
+        print(f"{'='*70}\n")
+        
+        all_results = {}
+        
+        for i, teacher_config in enumerate(teacher_configs, 1):
+            print(f"\n[{i}/{len(teacher_configs)}] Running: {teacher_config.name}")
+            print(f"    Model: {teacher_config.model_id}")
+            print(f"    ReAct: {teacher_config.use_react}")
+            print()
+            
+            # Run this variant
+            output = self.run_variant(
+                teacher_config=teacher_config,
+                questions=questions,
+                max_turns=max_turns,
+                show_progress=show_progress,
+            )
+            
+            # Save variant results
+            variant_dir = experiment_dir / teacher_config.name
+            variant_id = f"{teacher_config.name}_{timestamp}"
+            saved = output.save(variant_dir.parent, teacher_config.name)
+            
+            # Store results
+            all_results[teacher_config.name] = {
+                "config": teacher_config.to_dict(),
+                "stats": output.stats,
+                "duration": output.total_duration_seconds,
+                "saved_to": saved,
+            }
+            
+            # Print summary
+            stats = output.stats
+            print(f"    Initial correct: {stats.get('initial_correct_rate', 0)*100:.1f}%")
+            print(f"    Final correct:   {stats.get('final_correct_rate', 0)*100:.1f}%")
+            print(f"    Improvement:     {stats.get('improvement', 0):+d}")
+            print(f"    Avg turns:       {stats.get('avg_turns', 0):.1f}")
+        
+        # Save comparison summary
+        comparison = self._generate_comparison(all_results, questions)
+        
+        summary_path = experiment_dir / "comparison_summary.json"
+        with open(summary_path, "w") as f:
+            json.dump(comparison, f, indent=2)
+        
+        print(f"\n{'='*70}")
+        print("  ABLATION COMPLETE")
+        print(f"  Results saved to: {experiment_dir}")
+        print(f"{'='*70}\n")
+        
+        return {
+            "experiment_dir": str(experiment_dir),
+            "variants": all_results,
+            "comparison": comparison,
+        }
+    
+    def _generate_comparison(self, results: dict, questions: list) -> dict:
+        """Generate comparison summary across variants."""
+        comparison = {
+            "total_questions": len(questions),
+            "variants": {},
+            "rankings": {},
+        }
+        
+        for name, data in results.items():
+            stats = data["stats"]
+            comparison["variants"][name] = {
+                "model_id": data["config"]["model_id"],
+                "use_react": data["config"]["use_react"],
+                "is_finetuned": data["config"].get("is_finetuned", False),
+                "initial_correct_rate": stats.get("initial_correct_rate", 0),
+                "final_correct_rate": stats.get("final_correct_rate", 0),
+                "improvement": stats.get("improvement", 0),
+                "avg_turns": stats.get("avg_turns", 0),
+                "duration_seconds": data["duration"],
+            }
+        
+        # Rank by final correct rate
+        ranked = sorted(
+            comparison["variants"].items(),
+            key=lambda x: x[1]["final_correct_rate"],
+            reverse=True
+        )
+        comparison["rankings"]["by_final_accuracy"] = [
+            {"rank": i+1, "name": name, "accuracy": data["final_correct_rate"]}
+            for i, (name, data) in enumerate(ranked)
+        ]
+        
+        # Rank by improvement
+        ranked = sorted(
+            comparison["variants"].items(),
+            key=lambda x: x[1]["improvement"],
+            reverse=True
+        )
+        comparison["rankings"]["by_improvement"] = [
+            {"rank": i+1, "name": name, "improvement": data["improvement"]}
+            for i, (name, data) in enumerate(ranked)
+        ]
+        
+        return comparison

@@ -1,0 +1,87 @@
+{
+  "metadata": {
+    "name": "harsh_tone",
+    "description": "Tutor uses discouraging, impatient, or harsh language that demotivates the student",
+    "expected_pes_range": "50-60",
+    "domain": "mathematics",
+    "topic": "solving quadratic equations"
+  },
+  "conversation": [
+    {
+      "role": "tutor",
+      "content": "We're doing quadratic equations. You should already know this from your textbook. Have you even read chapter 5?"
+    },
+    {
+      "role": "student",
+      "content": "I tried to read it but I didn't really understand..."
+    },
+    {
+      "role": "tutor",
+      "content": "Well, that's the problem. You need to put in more effort. Anyway, solve x² + 3x + 2 = 0. This is basic factoring."
+    },
+    {
+      "role": "student",
+      "content": "Um... I'm not sure how to factor it."
+    },
+    {
+      "role": "tutor",
+      "content": "It's simple. You need two numbers that multiply to 2 and add to 3. Come on, this isn't that hard."
+    },
+    {
+      "role": "student",
+      "content": "Maybe... 1 and 2?"
+    },
+    {
+      "role": "tutor",
+      "content": "Yes, obviously. So it factors to (x + 1)(x + 2) = 0. Now what?"
+    },
+    {
+      "role": "student",
+      "content": "I... I'm not sure."
+    },
+    {
+      "role": "tutor",
+      "content": "You're not sure? We literally just covered the zero product property. If you're not going to pay attention, this is going to be very difficult. When two things multiply to zero, one of them must BE zero. So x + 1 = 0 or x + 2 = 0."
+    },
+    {
+      "role": "student",
+      "content": "Oh, so x = -1 or x = -2?"
+    },
+    {
+      "role": "tutor",
+      "content": "Finally. Yes, x = -1 or x = -2. See how easy that was? I don't understand why you're struggling with such a straightforward concept."
+    },
+    {
+      "role": "student",
+      "content": "Sorry, I'm trying my best..."
+    },
+    {
+      "role": "tutor",
+      "content": "Well, try harder. Let's do another one: x² + 5x + 6 = 0. Same process. What are the factors?"
+    },
+    {
+      "role": "student",
+      "content": "Um... 2 and 3?"
+    },
+    {
+      "role": "tutor",
+      "content": "Correct. So (x + 2)(x + 3) = 0, giving x = -2 or x = -3. At least you're getting the factoring part now, even if it's taking you longer than it should."
+    },
+    {
+      "role": "student",
+      "content": "Okay..."
+    },
+    {
+      "role": "tutor",
+      "content": "Look, quadratics aren't going away. You need to master this. Practice more problems on your own because we're wasting time on basics. Most students pick this up much faster."
+    },
+    {
+      "role": "student",
+      "content": "I'll practice more."
+    },
+    {
+      "role": "tutor",
+      "content": "Good. You should. Otherwise you're going to fall behind even more than you already are."
+    }
+  ]
+}

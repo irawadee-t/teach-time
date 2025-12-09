@@ -1,0 +1,29 @@
+description: 'Math pilot: 5 math questions for testing'
+environment:
+  enable_cache: true
+  max_teacher_turns: 8
+  sampling:
+    categories:
+    - math
+    exclude_categories: null
+    max_total_questions: null
+    percentage: null
+    questions_per_category: 5
+    seed: 42
+  verbose: false
+experiment_id: math_pilot_20251208_173652
+name: math_pilot
+output_dir: experiments
+student:
+  description: Llama 3.1 70B Instruct as student. Simulates struggling student via
+    prompting.
+  max_tokens: 512
+  model_id: meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo
+  name: llama_70b_student
+  temperature: 0.0
+teacher:
+  description: DeepSeek V3 - state-of-the-art open model.
+  max_tokens: 512
+  model_id: deepseek-ai/DeepSeek-V3
+  name: deepseek_v3
+  temperature: 0.0

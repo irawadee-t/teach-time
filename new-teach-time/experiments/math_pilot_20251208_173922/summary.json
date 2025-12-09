@@ -1,0 +1,77 @@
+{
+  "experiment_id": "math_pilot_20251208_173922",
+  "config": {
+    "experiment_id": "math_pilot_20251208_173652",
+    "name": "math_pilot",
+    "description": "Math pilot: 5 math questions for testing",
+    "teacher": {
+      "name": "deepseek_v3",
+      "model_id": "deepseek-ai/DeepSeek-V3",
+      "description": "DeepSeek V3 - state-of-the-art open model.",
+      "temperature": 0.0,
+      "max_tokens": 512
+    },
+    "student": {
+      "name": "llama_70b_student",
+      "model_id": "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
+      "description": "Llama 3.1 70B Instruct as student. Simulates struggling student via prompting.",
+      "temperature": 0.0,
+      "max_tokens": 512
+    },
+    "environment": {
+      "max_teacher_turns": 8,
+      "sampling": {
+        "questions_per_category": 5,
+        "percentage": null,
+        "max_total_questions": null,
+        "categories": [
+          "math"
+        ],
+        "exclude_categories": null,
+        "seed": 42
+      },
+      "enable_cache": true,
+      "verbose": false
+    },
+    "output_dir": "experiments"
+  },
+  "sampling_summary": {
+    "total_questions": 5,
+    "num_categories": 1,
+    "questions_per_category": {
+      "math": 5
+    },
+    "config": {
+      "questions_per_category": 5,
+      "percentage": null,
+      "max_total_questions": null,
+      "categories": [
+        "math"
+      ],
+      "exclude_categories": null,
+      "seed": 42
+    }
+  },
+  "runtime": {
+    "start_time": "2025-12-08T17:36:52.895197",
+    "end_time": "2025-12-08T17:39:22.296945",
+    "total_duration_seconds": 149.401748
+  },
+  "stats": {
+    "num_sessions": 5,
+    "initial_correct": 0,
+    "initial_correct_rate": 0.0,
+    "final_correct": 5,
+    "final_correct_rate": 1.0,
+    "improvement": 5,
+    "terminated_naturally": 5,
+    "forced_termination": 0,
+    "avg_turns": 3.4,
+    "final_action_distribution": {
+      "END_SUCCESS": 5
+    },
+    "categories": {
+      "math": 5
+    }
+  }
+}

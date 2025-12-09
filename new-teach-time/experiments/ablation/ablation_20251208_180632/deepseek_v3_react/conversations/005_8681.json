@@ -1,0 +1,25 @@
+{
+  "metadata": {
+    "session_id": "session_5_8681",
+    "name": "session_8681",
+    "description": "Tutoring session for: What is the greatest common factor of 36 and 90?...",
+    "domain": "math",
+    "topic": "math",
+    "question_id": "8681",
+    "ground_truth": "18",
+    "initial_correct": true,
+    "final_correct": true,
+    "total_turns": 1,
+    "terminated_naturally": true
+  },
+  "conversation": [
+    {
+      "role": "student",
+      "content": "To find the greatest common factor (GCF) of 36 and 90, I'll start by listing the factors of each number.\n\nThe factors of 36 are: 1, 2, 3, 4, 6, 9, 12, 18, and 36.\nThe factors of 90 are: 1, 2, 3, 5, 6, 9, 10, 15, 18, 30, 45, and 90.\n\nNow, I'll look for the common factors between the two lists. The common factors are: 1, 2, 3, 6, 9, and 18.\n\nThe greatest common factor is the largest number in the list of common factors. In this case, the greatest common factor is 18.\n\nFINAL: 18"
+    },
+    {
+      "role": "tutor",
+      "content": "Excellent work! You've correctly identified all the steps needed to find the greatest common factor, and your final answer of 18 is perfect. Well done!"
+    }
+  ]
+}

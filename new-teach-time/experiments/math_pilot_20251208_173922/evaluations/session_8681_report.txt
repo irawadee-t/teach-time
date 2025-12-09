@@ -1,0 +1,87 @@
+================================================================================
+PEDAGOGICAL EVALUATION REPORT
+================================================================================
+Generated: 2025-12-08 17:41:27
+
+OVERALL PEDAGOGICAL EFFECTIVENESS SCORE (PES)
+--------------------------------------------------------------------------------
+Score: 75.0/100
+Category: Good
+Quality: good
+
+Summary: This tutoring session excels in engagement quality and supportive dialogue but would benefit from deeper questioning techniques and better knowledge scaffolding. The strong constructive/interactive engagement (75% combined) suggests good pedagogical rapport, while the shallow question depth limits higher-order thinking opportunities.
+
+KEY FINDINGS
+--------------------------------------------------------------------------------
+
+Strengths:
+  1. High-quality error feedback and encouragement
+  2. Strong student engagement (ICAP classification shows constructive/interactive dominance)
+  3. Excellent coherence and relevance in responses
+
+Areas for Improvement:
+  1. Limited question depth (over-reliance on recall-level questions)
+  2. Weak background knowledge assessment (missed opportunities to connect to prior learning)
+  3. Need for more conceptual/metacognitive questioning
+
+Recommendations:
+  1. Incorporate more 'why' and 'how' questions to deepen conceptual understanding (e.g., 'How would you explain this concept to a peer?')
+  2. Begin sessions with 1-2 diagnostic questions to assess prerequisite knowledge
+  3. Use think-aloud prompts to surface metacognition (e.g., 'What strategy did you use here?')
+
+DETAILED SCORE BREAKDOWN
+--------------------------------------------------------------------------------
+
+LAYER 1: 8-Dimension Tutor Response Quality (80% weight)
+Layer Score: 0.812
+Weighted Contribution: 65.00/100
+
+  Comprehension Probing: 4/5
+    The tutor checks comprehension effectively by asking the student to confirm the largest common factor, which is well-timed and specific. However, they miss an opportunity to probe deeper into why the student was initially unsure, which could have revealed further understanding gaps.
+    Evidence: The next step is to select the largest number from your common factors list - can you tell me what t...
+
+  Background Knowledge Assessment: 1/5
+    The tutor makes no attempt to assess the student's background knowledge about greatest common factors or related concepts. The conversation jumps straight into confirming the student's solution without any prior exploration of their understanding.
+    Evidence: Turn 2 [TUTOR]: You've done excellent work listing all factors and identifying the common ones corre...
+
+  Appropriate Guidance Level: 4/5
+    The tutor provides appropriate guidance by confirming the student's correct work and prompting them to identify the largest common factor without giving away the answer directly. However, the tutor could have encouraged more independent verification by asking the student to double-check their work or consider alternative methods.
+    Evidence: You've done excellent work listing all factors and identifying the common ones correctly. The next s...
+
+  Error Feedback Quality: 5/5
+    The tutor provided excellent feedback by confirming the student's correct steps and reinforcing their confidence in identifying the greatest common factor. The tutor's response was constructive and clear, ensuring the student understood why their answer was correct.
+    Evidence: You've done excellent work listing all factors and identifying the common ones correctly. The next s...
+
+  Encouragement & Tone: 5/5
+    The tutor consistently uses warm, encouraging language and celebrates the student's progress. The tone is positive and supportive throughout the conversation, reinforcing the student's confidence and correct approach.
+    Evidence: You've done excellent work listing all factors and identifying the common ones correctly....
+
+  Response Coherence: 5/5
+    The tutor's responses are crystal clear, logically structured, and easy to follow. Each response builds on the student's work and provides positive reinforcement, guiding the student to the correct conclusion without any confusion.
+    Evidence: You've done excellent work listing all factors and identifying the common ones correctly. The next s...
+
+  Response Relevance: 5/5
+    The tutor's responses are excellent as they directly address the student's questions and confirm their understanding without any tangents or irrelevant information. The tutor provides clear, relevant feedback and encourages the student's correct approach.
+    Evidence: You've done excellent work listing all factors and identifying the common ones correctly. The next s...
+
+  Student Talk Ratio: 5/5
+    The student contributes the majority of the conversational content, providing detailed steps and reasoning. The tutor's questions and prompts are minimal but effective in guiding the student to confirm their understanding. The student clearly does most of the cognitive work.
+    Evidence: Turn 1 [STUDENT]: To find the greatest common factor (GCF) of 36 and 90, I'll start by listing the f...
+
+LAYER 2: Question Depth Analysis (10% weight)
+Layer Score: 0.250
+Weighted Contribution: 2.50/100
+Raw Score: 2/5
+Question Distribution: {'recall': 1, 'procedural': 0, 'conceptual': 0, 'metacognitive': 0}
+Justification: The tutor asked only one question, which was a simple recall question ('can you tell me what that would be?'). There were no procedural, conceptual, or metacognitive questions. The conversation was dominated by recall, with no attempt to push for deeper understanding or explore why the method works, how the student arrived at the answer, or alternative strategies. This aligns with the 'Poor' (2) scoring guideline, as it lacks deeper questioning entirely.
+
+LAYER 3: ICAP Student Engagement (10% weight)
+Layer Score: 0.750
+Weighted Contribution: 7.50/100
+Raw Score: 4/5
+Engagement Distribution: {'passive': 0, 'active': 25, 'constructive': 50, 'interactive': 25}
+Justification: The student's engagement is primarily constructive (50%), as they generate their own approach to solving the problem and reflect on their understanding. There is also an interactive element (25%) when they seek confirmation from the tutor. The remaining 25% is active engagement when they confirm the largest common factor. There is no passive engagement, as the student is consistently participating in the learning process. This distribution aligns with a score of 4 (Good) under the ICAP framework guidelines.
+
+================================================================================
+END OF REPORT
+================================================================================

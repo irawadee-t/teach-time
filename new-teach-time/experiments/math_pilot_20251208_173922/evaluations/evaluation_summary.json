@@ -1,0 +1,58 @@
+{
+  "experiment_id": "math_pilot_20251208_173922",
+  "num_evaluated": 5,
+  "avg_pes": 76.0,
+  "min_pes": 70.0,
+  "max_pes": 87.5,
+  "category_distribution": {
+    "Good": 4,
+    "Excellent": 1
+  },
+  "results": [
+    {
+      "name": "session_8681",
+      "pes_score": 75.0,
+      "pes_category": "Good",
+      "summary": "This tutoring session excels in engagement quality and supportive dialogue but would benefit from deeper questioning techniques and better knowledge scaffolding. The strong constructive/interactive engagement (75% combined) suggests good pedagogical rapport, while the shallow question depth limits higher-order thinking opportunities.",
+      "question_id": "8681",
+      "initial_correct": null,
+      "final_correct": true
+    },
+    {
+      "name": "session_8725",
+      "pes_score": 75.0,
+      "pes_category": "Good",
+      "summary": "This tutoring session excels in engagement and clarity but could improve by probing deeper understanding and assessing foundational knowledge more thoroughly. The tutor\u2019s supportive tone and student-centered approach provide a strong base for further refinement.",
+      "question_id": "8725",
+      "initial_correct": null,
+      "final_correct": true
+    },
+    {
+      "name": "session_8171",
+      "pes_score": 70.0,
+      "pes_category": "Good",
+      "summary": "This tutoring session demonstrates strong pedagogical effectiveness with high engagement and quality feedback, but could improve by assessing prior knowledge more thoroughly and fostering deeper metacognitive thinking. Overall, it is a good interaction with clear pathways for enhancement.",
+      "question_id": "8171",
+      "initial_correct": null,
+      "final_correct": true
+    },
+    {
+      "name": "session_8192",
+      "pes_score": 72.5,
+      "pes_category": "Good",
+      "summary": "This tutoring session excels in fostering active student participation and maintaining highly relevant dialogue, but could significantly enhance learning outcomes by addressing foundational knowledge gaps and pushing for deeper cognitive engagement through strategic questioning.",
+      "question_id": "8192",
+      "initial_correct": null,
+      "final_correct": true
+    },
+    {
+      "name": "session_8692",
+      "pes_score": 87.5,
+      "pes_category": "Excellent",
+      "summary": "This tutoring session excelled in fostering active learning and maintaining clarity, but could further enhance impact by diversifying question types and tightening knowledge gap identification. The 67% constructive engagement demonstrates strong concept-building, while the 33% interactive score reflects effective dialogue.",
+      "question_id": "8692",
+      "initial_correct": null,
+      "final_correct": true
+    }
+  ]
+}

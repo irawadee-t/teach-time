@@ -1,0 +1,14 @@
+{
+  "deepseek_v3_plain": {
+    "num_evaluated": 5,
+    "avg_pes": 81.0,
+    "min_pes": 60.0,
+    "max_pes": 92.5
+  },
+  "deepseek_v3_react": {
+    "num_evaluated": 5,
+    "avg_pes": 70.5,
+    "min_pes": 60.0,
+    "max_pes": 82.5
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "total_questions": 5,
+  "variants": {
+    "deepseek_v3_plain": {
+      "model_id": "deepseek-ai/DeepSeek-V3",
+      "use_react": false,
+      "is_finetuned": false,
+      "initial_correct_rate": 0.2,
+      "final_correct_rate": 0.6,
+      "improvement": 2,
+      "avg_turns": 2.2,
+      "duration_seconds": 95.539191
+    },
+    "deepseek_v3_react": {
+      "model_id": "deepseek-ai/DeepSeek-V3",
+      "use_react": true,
+      "is_finetuned": false,
+      "initial_correct_rate": 0.2,
+      "final_correct_rate": 0.8,
+      "improvement": 3,
+      "avg_turns": 3.4,
+      "duration_seconds": 132.398785
+    }
+  },
+  "rankings": {
+    "by_final_accuracy": [
+      {
+        "rank": 1,
+        "name": "deepseek_v3_react",
+        "accuracy": 0.8
+      },
+      {
+        "rank": 2,
+        "name": "deepseek_v3_plain",
+        "accuracy": 0.6
+      }
+    ],
+    "by_improvement": [
+      {
+        "rank": 1,
+        "name": "deepseek_v3_react",
+        "improvement": 3
+      },
+      {
+        "rank": 2,
+        "name": "deepseek_v3_plain",
+        "improvement": 2
+      }
+    ]
+  }
+}
