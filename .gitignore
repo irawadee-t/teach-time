@@ -224,6 +224,11 @@ results/processed/**/*.csv
 results/processed/**/*.json
 results/plots/**/*.png
 results/plots/**/*.pdf
+results/
+
+# Synthetic data pipeline outputs (large files)
+evals/synthetic/pipeline_outputs/
+evals/synthetic/generated_responses_cot/
 
 # Paper drafts
 paper/**/*.aux
