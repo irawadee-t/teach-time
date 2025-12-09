@@ -8,10 +8,17 @@ Uses Claude Sonnet 4 (Anthropic) as the judge model, achieving:
 
 import json
 import asyncio
+import random
 from typing import List, Optional
 from pydantic import BaseModel, Field
 from .models import Rubric, RubricRating
 from .providers import _init_provider
+
+# Retry configuration for rate limits
+MAX_RETRIES = 5
+RETRY_BASE_DELAY = 2.0  # seconds
+RETRY_MAX_DELAY = 120.0  # seconds (2 minutes max backoff)
+
 
 
 class RubricJudgment(BaseModel):
@@ -172,12 +179,13 @@ class TutorBenchJudge:
 
         return "\n".join(prompt_parts)
 
-    async def _get_judgment(self, judge_prompt: str) -> tuple[bool, str]:
+    async def _get_judgment(self, judge_prompt: str, timeout: float = 180.0) -> tuple[bool, str]:
         """
         Get pass/fail judgment from LLM judge asynchronously.
 
         Args:
             judge_prompt: The constructed prompt
+            timeout: Maximum seconds to wait for API response (default: 60)
 
         Returns:
             Tuple of (passed, explanation)
@@ -188,22 +196,60 @@ class TutorBenchJudge:
                 print("Warning: Using mock judgment (no API client)")
             return True, "[Mock judgment - API not configured]"
 
-        try:
-            response = await self.client.messages.create(
-                model=self.model,
-                max_tokens=500,
-                temperature=0.0,
-                messages=[{"role": "user", "content": judge_prompt}],
-            )
+        for attempt in range(MAX_RETRIES):
+            try:
+                response = await asyncio.wait_for(
+                    self.client.messages.create(
+                        model=self.model,
+                        max_tokens=500,
+                        temperature=0.0,
+                        messages=[{"role": "user", "content": judge_prompt}],
+                    ),
+                    timeout=timeout
+                )
 
-            content = response.content[0].text
-            passed, explanation = self._parse_judgment(content)
-            return passed, explanation
+                content = response.content[0].text
+                passed, explanation = self._parse_judgment(content)
+                return passed, explanation
 
-        except Exception as e:
-            if self.verbose:
-                print(f"Error in async judgment: {e}")
-            return False, f"[Error: {str(e)}]"
+            except asyncio.TimeoutError:
+                if attempt < MAX_RETRIES - 1:
+                    delay = min(RETRY_BASE_DELAY * (2 ** attempt) + random.uniform(0, 1), RETRY_MAX_DELAY)
+                    if self.verbose:
+                        print(f"Timeout in judgment, retrying in {delay:.1f}s (attempt {attempt+1}/{MAX_RETRIES})")
+                    await asyncio.sleep(delay)
+                    continue
+                if self.verbose:
+                    print(f"Timeout in judgment after {timeout}s (max retries exceeded)")
+                return False, f"[Error: Timeout after {timeout}s]"
+
+            except Exception as e:
+                error_str = str(e).lower()
+                is_rate_limit = "429" in error_str or "rate" in error_str or "rate_limit" in error_str
+                is_overloaded = "529" in error_str or "overloaded" in error_str or "503" in error_str or "502" in error_str
+                is_timeout = "timed out" in error_str or "interrupted" in error_str or "connection" in error_str
+                is_quota_error = "balance" in error_str or "insufficient" in error_str or "credit" in error_str or "quota" in error_str
+
+                # Quota/balance errors - fail fast, don't retry
+                if is_quota_error:
+                    if self.verbose:
+                        print(f"[Quota/Balance] API key exhausted: {str(e)[:100]}")
+                    return False, f"[Error: Quota exhausted]"
+
+                if (is_rate_limit or is_overloaded or is_timeout) and attempt < MAX_RETRIES - 1:
+                    # Exponential backoff with jitter
+                    delay = min(RETRY_BASE_DELAY * (2 ** attempt) + random.uniform(0, 1), RETRY_MAX_DELAY)
+                    if self.verbose:
+                        error_type = "rate limit" if is_rate_limit else ("timeout/connection" if is_timeout else "overload")
+                        print(f"[{error_type}] retrying in {delay:.1f}s (attempt {attempt+1}/{MAX_RETRIES})")
+                    await asyncio.sleep(delay)
+                    continue
+
+                if self.verbose:
+                    print(f"Error in async judgment: {e}")
+                return False, f"[Error: {str(e)}]"
+
+        return False, "[Error: Max retries exceeded]"
 
     def _parse_judgment(self, response_text: str) -> tuple[bool, str]:
         """

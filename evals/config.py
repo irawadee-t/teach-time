@@ -4,7 +4,7 @@ from dataclasses import dataclass
 
 # Model defaults by provider
 ANTHROPIC_DEFAULT_MODEL = "claude-sonnet-4-20250514"
-TOGETHER_DEFAULT_MODEL = "Qwen/Qwen2.5-7B-Instruct-Turbo"
+TOGETHER_DEFAULT_MODEL = "Qwen/Qwen3-Next-80B-A3B-Instruct"
 OPENAI_DEFAULT_MODEL = "gpt-4"
 JUDGE_MODEL = "claude-sonnet-4-20250514"
 
@@ -13,10 +13,10 @@ TUTOR_MAX_TOKENS = 1000
 JUDGE_MAX_TOKENS = 500
 
 # Concurrency defaults
-MAX_CONCURRENT = 50
+MAX_CONCURRENT = 50  # Lower for parallel workers with different rate limits
 SAMPLE_BATCH_SIZE = 10
 RUBRIC_BATCH_SIZE = 5
-MAX_REQUESTS_PER_SECOND = 50
+MAX_REQUESTS_PER_SECOND = 200
 RETRY_ATTEMPTS = 3
 RETRY_BASE_DELAY = 1.0
 
