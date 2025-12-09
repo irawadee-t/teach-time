@@ -1,0 +1,98 @@
+{
+  "experiment_id": "clean_arch_verified_20251208_164921",
+  "config": {
+    "experiment_id": "clean_arch_verified_20251208_163936",
+    "name": "clean_arch_verified",
+    "description": "STEM pilot: 2 questions/category from ['math', 'physics', 'chemistry', 'biology', 'computer science', 'engineering']",
+    "teacher": {
+      "name": "deepseek_v3",
+      "model_id": "deepseek-ai/DeepSeek-V3",
+      "description": "DeepSeek V3 - state-of-the-art open model.",
+      "temperature": 0.0,
+      "max_tokens": 512
+    },
+    "student": {
+      "name": "llama_70b_student",
+      "model_id": "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
+      "description": "Llama 3.1 70B Instruct as student. Simulates struggling student via prompting.",
+      "temperature": 0.0,
+      "max_tokens": 512
+    },
+    "environment": {
+      "max_teacher_turns": 8,
+      "sampling": {
+        "questions_per_category": 2,
+        "percentage": null,
+        "max_total_questions": null,
+        "categories": [
+          "math",
+          "physics",
+          "chemistry",
+          "biology",
+          "computer science",
+          "engineering"
+        ],
+        "exclude_categories": null,
+        "seed": 42
+      },
+      "enable_cache": true,
+      "verbose": false
+    },
+    "output_dir": "experiments"
+  },
+  "sampling_summary": {
+    "total_questions": 12,
+    "num_categories": 6,
+    "questions_per_category": {
+      "math": 2,
+      "chemistry": 2,
+      "biology": 2,
+      "physics": 2,
+      "computer science": 2,
+      "engineering": 2
+    },
+    "config": {
+      "questions_per_category": 2,
+      "percentage": null,
+      "max_total_questions": null,
+      "categories": [
+        "math",
+        "physics",
+        "chemistry",
+        "biology",
+        "computer science",
+        "engineering"
+      ],
+      "exclude_categories": null,
+      "seed": 42
+    }
+  },
+  "runtime": {
+    "start_time": "2025-12-08T16:39:36.070433",
+    "end_time": "2025-12-08T16:49:21.401119",
+    "total_duration_seconds": 585.330686
+  },
+  "stats": {
+    "num_sessions": 12,
+    "initial_correct": 1,
+    "initial_correct_rate": 0.08333333333333333,
+    "final_correct": 7,
+    "final_correct_rate": 0.5833333333333334,
+    "improvement": 6,
+    "terminated_naturally": 10,
+    "forced_termination": 2,
+    "avg_turns": 3.8333333333333335,
+    "final_action_distribution": {
+      "END_SUCCESS": 10,
+      "END_STUCK": 2
+    },
+    "categories": {
+      "math": 2,
+      "chemistry": 2,
+      "biology": 2,
+      "physics": 2,
+      "computer science": 2,
+      "engineering": 2
+    }
+  }
+}
