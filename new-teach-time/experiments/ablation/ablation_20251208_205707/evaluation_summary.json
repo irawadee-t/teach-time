@@ -1,0 +1,26 @@
+{
+  "llama_3b_plain": {
+    "num_evaluated": 5,
+    "avg_pes": 78.0,
+    "min_pes": 72.5,
+    "max_pes": 85.0
+  },
+  "llama_3b_react": {
+    "num_evaluated": 5,
+    "avg_pes": 69.0,
+    "min_pes": 47.5,
+    "max_pes": 85.0
+  },
+  "llama_8b_plain": {
+    "num_evaluated": 5,
+    "avg_pes": 80.5,
+    "min_pes": 75.0,
+    "max_pes": 87.5
+  },
+  "llama_8b_react": {
+    "num_evaluated": 5,
+    "avg_pes": 70.5,
+    "min_pes": 67.5,
+    "max_pes": 75.0
+  }
+}

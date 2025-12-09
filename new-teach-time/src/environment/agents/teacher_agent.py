@@ -153,6 +153,13 @@ class TeacherAgent:
         if latest_student_turn and latest_student_turn.final_answer:
             student_final = latest_student_turn.final_answer
         
+        # Get last teacher utterance to detect repetition
+        last_teacher_utterance = None
+        for speaker, msg in reversed(history):
+            if speaker == "teacher":
+                last_teacher_utterance = msg
+                break
+        
         messages = self._build_messages(
             question=question,
             initial_student_turn=initial_student_turn,
@@ -183,10 +190,31 @@ class TeacherAgent:
             action = "CORRECT_ERROR"
             parsed.validation_errors.append("Overridden: END_SUCCESS with incorrect verdict")
         
-        # Ensure utterance is never empty
+        # If action is still empty/invalid, use raw output as utterance
+        # This happens when small models don't follow ReAct format
         utterance = parsed.utterance
+        if not action or action not in ACTIONS:
+            # Model didn't follow ReAct format - use raw output directly
+            action = "GIVE_HINT"  # Default to a safe action
+            # Use the raw output as the utterance (cleaned up)
+            utterance = self._extract_utterance_from_raw(raw)
+            parsed.validation_errors.append("ReAct format not followed - using raw output")
+        
+        # Final fallback if utterance is still empty
         if not utterance or not utterance.strip():
-            utterance = "Let's think about this more carefully."
+            # Generate a contextual fallback based on the situation
+            if student_final and judge_verdict is True:
+                utterance = "Excellent work! You've arrived at the correct answer."
+            elif student_final and judge_verdict is False:
+                utterance = "That's not quite right. Let's look at this problem from a different angle."
+            else:
+                utterance = "Can you explain your reasoning for that step?"
+        
+        # Detect repetition - if this utterance is the same as last, generate alternative
+        if last_teacher_utterance and self._is_repetitive(utterance, last_teacher_utterance):
+            utterance = self._generate_alternative_utterance(
+                question, student_final, judge_verdict, turn_number, max_turns
+            )
         
         return TeacherTurn(
             thought=parsed.thought or "(No thought provided)",
@@ -196,6 +224,92 @@ class TeacherAgent:
             raw_output=raw,
             parse_errors=parsed.validation_errors,
         )
+    
+    def _is_repetitive(self, current: str, previous: str) -> bool:
+        """Check if current utterance is too similar to previous."""
+        # Normalize both
+        current_norm = current.lower().strip()
+        previous_norm = previous.lower().strip()
+        
+        # Exact match
+        if current_norm == previous_norm:
+            return True
+        
+        # Very similar (one is substring of other with >80% overlap)
+        shorter = min(len(current_norm), len(previous_norm))
+        if shorter > 0:
+            if current_norm in previous_norm or previous_norm in current_norm:
+                return True
+        
+        return False
+    
+    def _generate_alternative_utterance(
+        self,
+        question: Question,
+        student_final: Optional[str],
+        judge_verdict: Optional[bool],
+        turn_number: int,
+        max_turns: int,
+    ) -> str:
+        """Generate an alternative utterance when repetition is detected."""
+        # Vary based on situation
+        if student_final and judge_verdict is True:
+            return "Great job! You've correctly solved this problem."
+        elif student_final and judge_verdict is False:
+            alternatives = [
+                "Let's approach this differently. What's the first step you would take?",
+                "Not quite. Can you identify which part of your solution might be incorrect?",
+                f"Remember, we're looking for {question.ground_truth}. What approach would help you get there?",
+                "Let's break this down step by step. What do you know for certain?",
+            ]
+            return alternatives[turn_number % len(alternatives)]
+        else:
+            alternatives = [
+                "What's your next step?",
+                "Can you walk me through your reasoning?",
+                "What information from the problem can help you here?",
+                "What do you think the answer should look like?",
+                "Let's focus on one part at a time. What's the first thing you notice?",
+            ]
+            return alternatives[turn_number % len(alternatives)]
+    
+    def _extract_utterance_from_raw(self, raw: str) -> str:
+        """
+        Extract a usable utterance from raw output when ReAct parsing fails.
+        
+        This handles cases where smaller models don't follow the strict
+        Thought/Action/Utterance format but still produce useful content.
+        """
+        # Remove any partial ReAct markers
+        text = raw
+        for marker in ["Thought:", "Action:", "Utterance:", "[", "]"]:
+            text = text.replace(marker, " ")
+        
+        # Clean up whitespace
+        lines = [line.strip() for line in text.split('\n') if line.strip()]
+        
+        # Skip lines that look like action names
+        action_words = {"GIVE_HINT", "ASK_QUESTION", "CORRECT_ERROR", 
+                       "EXPLAIN_CONCEPT", "CONFIRM_PROGRESS", "END_SUCCESS", "END_STUCK"}
+        filtered_lines = []
+        for line in lines:
+            # Skip if line is just an action name
+            if line.upper().replace("_", "") in [a.replace("_", "") for a in action_words]:
+                continue
+            # Skip very short lines that might be fragments
+            if len(line) < 10:
+                continue
+            filtered_lines.append(line)
+        
+        if filtered_lines:
+            # Take the first substantive line as the utterance
+            utterance = filtered_lines[0]
+            # Truncate if too long
+            if len(utterance) > 300:
+                utterance = utterance[:297] + "..."
+            return utterance
+        
+        return ""
     
     def _build_messages(
         self,

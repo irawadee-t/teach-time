@@ -1,0 +1,59 @@
+{
+  "conversation_file": "005_8681.json",
+  "pes_score": 65.0,
+  "dimensions": {
+    "comprehension_probing": {
+      "score": 4,
+      "justification": "The tutor consistently asks targeted questions to verify understanding, such as prompting the student to explore multiples of common factors and reflect on the definition of GCF. However, there is one missed opportunity to probe deeper when the student initially expresses uncertainty."
+    },
+    "background_knowledge": {
+      "score": 1,
+      "justification": "The tutor makes no attempt to assess the student's background knowledge about greatest common factors. The tutor jumps straight into guiding the student through the problem without understanding the student's baseline understanding."
+    },
+    "guidance_level": {
+      "score": 4,
+      "justification": "The tutor provided mostly appropriate guidance, encouraging the student to think critically and confirm their understanding. However, there were moments where the tutor could have pushed the student to explore more deeply or verify their reasoning independently."
+    },
+    "error_feedback": {
+      "score": 4,
+      "justification": "The tutor provided mostly explanatory feedback, guiding the student through the process of identifying the greatest common factor. However, the tutor could have been more direct in confirming the student's correct answer earlier in the conversation."
+    },
+    "encouragement": {
+      "score": 3,
+      "justification": "The tutor's tone is generally neutral with occasional attempts at guidance but lacks consistent warmth or encouragement. The final response is positive, but earlier prompts could have been more supportive."
+    },
+    "coherence": {
+      "score": 4,
+      "justification": "The tutor's responses are mostly clear and coherent, guiding the student effectively through the problem. However, some questions could be more direct to avoid minor confusion, such as in Turn 2 and Turn 4 where the tutor asks open-ended questions that slightly deviate from the straightforward confirmation the student seeks."
+    },
+    "relevance": {
+      "score": 4,
+      "justification": "The tutor's responses generally address the student's questions and guide them toward confirming the GCF. However, there are minor tangents (e.g., exploring multiples of common factors) that, while helpful, are not strictly necessary to answer the student's initial question."
+    },
+    "student_talk_ratio": {
+      "score": 5,
+      "justification": "The student contributes the majority of the conversational content, actively engaging in problem-solving and demonstrating deep cognitive work. The tutor's questions effectively guide the student without dominating the conversation."
+    }
+  },
+  "question_depth": {
+    "score": 3,
+    "question_count": {
+      "recall": 0,
+      "procedural": 0,
+      "conceptual": 2,
+      "metacognitive": 1
+    },
+    "justification": "The tutor's questions were primarily conceptual (2 out of 3) and one metacognitive question, which is a good start but lacks a balanced mix of question types. There were no recall or procedural questions, which could have helped reinforce basic understanding and step-by-step problem-solving. The conceptual questions were effective in guiding the student to deeper understanding, and the metacognitive question helped the student reflect on their thinking. However, the overall distribution is skewed towards conceptual without enough variety to warrant a higher score. Thus, a score of 3 (Adequate) is appropriate, as it reflects a focus on deeper questions but lacks the balanced mix needed for higher scores."
+  },
+  "icap": {
+    "score": 4,
+    "distribution": {
+      "passive": 0,
+      "active": 25,
+      "constructive": 50,
+      "interactive": 25
+    },
+    "justification": "The student's engagement is primarily Constructive (50%) with significant Interactive moments (25%), demonstrating co-construction of understanding (e.g., Turn 7). Active engagement (25%) occurs when following instructions without transformation (Turn 5). There is no Passive engagement. The balance aligns with a 'Good' (4) score, as the student consistently builds on ideas but has minor reliance on Active tasks."
+  },
+  "summary": "This was a pedagogically effective session (75/100) with strong student engagement and skilled guidance, though it would benefit from better knowledge diagnostics and more strategic questioning to deepen learning. The tutor excelled at fostering active participation but should work on assessing foundations and prompting higher-order thinking."
+}

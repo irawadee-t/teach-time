@@ -1,0 +1,54 @@
+{
+  "llama_3b_plain": {
+    "num_evaluated": 5,
+    "avg_pes": 74.5,
+    "min_pes": 65.0,
+    "max_pes": 82.5,
+    "scores": [
+      77.5,
+      82.5,
+      72.5,
+      65.0,
+      75.0
+    ]
+  },
+  "llama_3b_react": {
+    "num_evaluated": 5,
+    "avg_pes": 40.5,
+    "min_pes": 30.0,
+    "max_pes": 55.0,
+    "scores": [
+      42.5,
+      40.0,
+      30.0,
+      35.0,
+      55.0
+    ]
+  },
+  "llama_8b_plain": {
+    "num_evaluated": 5,
+    "avg_pes": 77.0,
+    "min_pes": 70.0,
+    "max_pes": 82.5,
+    "scores": [
+      75.0,
+      77.5,
+      70.0,
+      82.5,
+      80.0
+    ]
+  },
+  "llama_8b_react": {
+    "num_evaluated": 5,
+    "avg_pes": 71.5,
+    "min_pes": 50.0,
+    "max_pes": 85.0,
+    "scores": [
+      72.5,
+      85.0,
+      50.0,
+      85.0,
+      65.0
+    ]
+  }
+}

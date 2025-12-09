@@ -1,0 +1,46 @@
+{
+  "experiment_id": "llama_8b_plain",
+  "config": {
+    "teacher": {
+      "name": "llama_8b_plain",
+      "model_id": "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",
+      "description": "Llama 3.1 8B - medium baseline, no ReAct",
+      "use_react": false,
+      "is_finetuned": false,
+      "base_model": null,
+      "temperature": 0.0,
+      "max_tokens": 512
+    },
+    "student": {
+      "name": "llama_70b_student",
+      "model_id": "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo"
+    },
+    "max_turns": 10,
+    "use_react": false
+  },
+  "sampling_summary": {
+    "total_questions": 5
+  },
+  "runtime": {
+    "start_time": "2025-12-08T20:59:24.017671",
+    "end_time": "2025-12-08T21:00:06.195101",
+    "total_duration_seconds": 42.17743
+  },
+  "stats": {
+    "num_sessions": 5,
+    "initial_correct": 0,
+    "initial_correct_rate": 0.0,
+    "final_correct": 3,
+    "final_correct_rate": 0.6,
+    "improvement": 3,
+    "terminated_naturally": 5,
+    "forced_termination": 0,
+    "avg_turns": 3.4,
+    "final_action_distribution": {
+      "END_SUCCESS": 5
+    },
+    "categories": {
+      "math": 5
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "experiment_id": "llama_3b_react",
+  "config": {
+    "teacher": {
+      "name": "llama_3b_react",
+      "model_id": "meta-llama/Llama-3.2-3B-Instruct-Turbo",
+      "description": "Llama 3.2 3B - small baseline, with ReAct",
+      "use_react": true,
+      "is_finetuned": false,
+      "base_model": null,
+      "temperature": 0.0,
+      "max_tokens": 512
+    },
+    "student": {
+      "name": "llama_70b_student",
+      "model_id": "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo"
+    },
+    "max_turns": 10,
+    "use_react": true
+  },
+  "sampling_summary": {
+    "total_questions": 3
+  },
+  "runtime": {
+    "start_time": "2025-12-08T20:52:51.918724",
+    "end_time": "2025-12-08T20:54:20.442531",
+    "total_duration_seconds": 88.523807
+  },
+  "stats": {
+    "num_sessions": 3,
+    "initial_correct": 0,
+    "initial_correct_rate": 0.0,
+    "final_correct": 2,
+    "final_correct_rate": 0.6666666666666666,
+    "improvement": 2,
+    "terminated_naturally": 3,
+    "forced_termination": 0,
+    "avg_turns": 6.0,
+    "final_action_distribution": {
+      "END_SUCCESS": 3
+    },
+    "categories": {
+      "math": 3
+    }
+  }
+}
