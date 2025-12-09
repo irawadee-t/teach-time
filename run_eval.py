@@ -5,9 +5,15 @@ Output Structure:
     Results are saved to: results/{provider}/{model}_{run_type}_{timestamp}/
 
 Usage:
-    # Single run (quick)
+    # Single run using local test.csv (default)
     python run_eval.py --provider together
     python run_eval.py --provider anthropic --model claude-sonnet-4-20250514
+
+    # Use a different CSV file
+    python run_eval.py --provider together --csv evals/train.csv
+
+    # Use HuggingFace dataset instead of local CSV
+    python run_eval.py --provider together --use-hf
 
     # Chained pipeline (multi-stage reasoning)
     python run_eval.py --provider anthropic --use-chain
@@ -34,6 +40,7 @@ else:
 
 from evals import (
     load_samples_from_hf,
+    load_samples_from_csv,
     TutorBenchJudge,
     evaluate_model,
     aggregate_scores,
@@ -241,6 +248,8 @@ def main():
     parser.add_argument("--model", type=str, default=None, help="Model identifier (uses provider default if not specified)")
     parser.add_argument("--samples", type=int, default=None, help="Number of samples (default: all)")
     parser.add_argument("--include-multimodal", action="store_true", help="Include multimodal samples")
+    parser.add_argument("--csv", type=str, default="evals/test.csv", help="Path to CSV file (default: evals/test.csv)")
+    parser.add_argument("--use-hf", action="store_true", help="Use HuggingFace dataset instead of local CSV")
     parser.add_argument("--output-dir", type=str, default="results", help="Base output directory")
     parser.add_argument("--n-runs", type=int, default=1, help="Number of evaluation runs")
     parser.add_argument("--save-leaderboard", action="store_true", help="Save to leaderboard.json")
@@ -282,13 +291,21 @@ def main():
     print("=" * 70)
 
     # Load samples
-    print(f"\nLoading samples from HuggingFace...")
-    samples = load_samples_from_hf(
-        dataset_name="ScaleAI/TutorBench",
-        split="train",
-        max_samples=args.samples,
-        text_only=not args.include_multimodal,
-    )
+    if args.use_hf:
+        print(f"\nLoading samples from HuggingFace...")
+        samples = load_samples_from_hf(
+            dataset_name="ScaleAI/TutorBench",
+            split="train",
+            max_samples=args.samples,
+            text_only=not args.include_multimodal,
+        )
+    else:
+        print(f"\nLoading samples from {args.csv}...")
+        samples = load_samples_from_csv(
+            csv_path=args.csv,
+            max_samples=args.samples,
+            text_only=not args.include_multimodal,
+        )
     print(f"Loaded {len(samples)} samples")
 
     # Initialize provider
