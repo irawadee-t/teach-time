@@ -29,7 +29,8 @@ API_KEY_VARS = {
 
 # Retryable error keywords
 RETRYABLE_ERRORS = frozenset([
-    "rate limit", "timeout", "connection", "429", "503", "502"
+    "rate limit", "timeout", "connection", "429", "503", "502", "500", "529",
+    "overloaded", "not ready", "cloudflare", "server error"
 ])
 
 
