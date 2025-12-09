@@ -217,6 +217,9 @@ __marimo__/
 .cache/
 *.cache
 
+# Synthetic data files
+synthetic/*
+
 # Results (keep structure, ignore data)
 results/raw/**/*.jsonl
 results/raw/**/*.json

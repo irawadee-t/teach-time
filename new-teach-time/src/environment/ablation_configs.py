@@ -100,7 +100,7 @@ DEEPSEEK_V3_REACT = AblationTeacherConfig(
 
 QWEN_3B_PLAIN = AblationTeacherConfig(
     name="qwen_3b_plain",
-    model_id="Qwen/Qwen2.5-3B-Instruct-Turbo",
+    model_id="Qwen/Qwen2.5-3B-Instruct",
     description="Qwen 2.5 3B - small baseline, no ReAct",
     use_react=False,
     is_finetuned=False,
@@ -108,7 +108,7 @@ QWEN_3B_PLAIN = AblationTeacherConfig(
 
 QWEN_3B_REACT = AblationTeacherConfig(
     name="qwen_3b_react",
-    model_id="Qwen/Qwen2.5-3B-Instruct-Turbo",
+    model_id="Qwen/Qwen2.5-3B-Instruct",
     description="Qwen 2.5 3B - small baseline, with ReAct",
     use_react=True,
     is_finetuned=False,
@@ -136,7 +136,7 @@ LLAMA_3B_REACT = AblationTeacherConfig(
 
 QWEN_7B_PLAIN = AblationTeacherConfig(
     name="qwen_7b_plain",
-    model_id="Qwen/Qwen2.5-7B-Instruct-Turbo",
+    model_id="Qwen/Qwen2.5-7B-Instruct",
     description="Qwen 2.5 7B - medium baseline, no ReAct",
     use_react=False,
     is_finetuned=False,
@@ -144,7 +144,7 @@ QWEN_7B_PLAIN = AblationTeacherConfig(
 
 QWEN_7B_REACT = AblationTeacherConfig(
     name="qwen_7b_react",
-    model_id="Qwen/Qwen2.5-7B-Instruct-Turbo",
+    model_id="Qwen/Qwen2.5-7B-Instruct",
     description="Qwen 2.5 7B - medium baseline, with ReAct",
     use_react=True,
     is_finetuned=False,
@@ -177,7 +177,7 @@ QWEN_3B_FINETUNED_PLAIN = AblationTeacherConfig(
     description="Qwen 2.5 3B fine-tuned for teaching, no ReAct",
     use_react=False,
     is_finetuned=True,
-    base_model="Qwen/Qwen2.5-3B-Instruct-Turbo",
+    base_model="Qwen/Qwen2.5-3B-Instruct",
 )
 
 QWEN_3B_FINETUNED_REACT = AblationTeacherConfig(
@@ -186,7 +186,7 @@ QWEN_3B_FINETUNED_REACT = AblationTeacherConfig(
     description="Qwen 2.5 3B fine-tuned for teaching, with ReAct",
     use_react=True,
     is_finetuned=True,
-    base_model="Qwen/Qwen2.5-3B-Instruct-Turbo",
+    base_model="Qwen/Qwen2.5-3B-Instruct",
 )
 
 # 7B Fine-tuned
@@ -196,7 +196,7 @@ QWEN_7B_FINETUNED_PLAIN = AblationTeacherConfig(
     description="Qwen 2.5 7B fine-tuned for teaching, no ReAct",
     use_react=False,
     is_finetuned=True,
-    base_model="Qwen/Qwen2.5-7B-Instruct-Turbo",
+    base_model="Qwen/Qwen2.5-7B-Instruct",
 )
 
 QWEN_7B_FINETUNED_REACT = AblationTeacherConfig(
@@ -205,7 +205,7 @@ QWEN_7B_FINETUNED_REACT = AblationTeacherConfig(
     description="Qwen 2.5 7B fine-tuned for teaching, with ReAct",
     use_react=True,
     is_finetuned=True,
-    base_model="Qwen/Qwen2.5-7B-Instruct-Turbo",
+    base_model="Qwen/Qwen2.5-7B-Instruct",
 )
 
 # =============================================================================

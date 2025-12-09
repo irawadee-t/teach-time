@@ -93,14 +93,9 @@ Examples:
     from src.environment import (
         AblationRunner,
         AblationTeacherConfig,
-        # 3B models
-        QWEN_3B_PLAIN,
-        QWEN_3B_REACT,
+        # Serverless models on Together AI
         LLAMA_3B_PLAIN,
         LLAMA_3B_REACT,
-        # 7-8B models
-        QWEN_7B_PLAIN,
-        QWEN_7B_REACT,
         LLAMA_8B_PLAIN,
         LLAMA_8B_REACT,
         # Large models (for reference)
@@ -127,10 +122,12 @@ Examples:
         print()
         print("  Use --variants <name1> <name2> ... to select specific configs")
         print()
-        print("  Recommended ablations:")
-        print("    3B models:  --variants qwen_3b_plain qwen_3b_react")
-        print("    7B models:  --variants qwen_7b_plain qwen_7b_react llama_8b_plain llama_8b_react")
-        print("    Size test:  --variants qwen_3b_react qwen_7b_react")
+        print("  Recommended ablations (serverless on Together AI):")
+        print("    3B models:  --variants llama_3b_plain llama_3b_react")
+        print("    8B models:  --variants llama_8b_plain llama_8b_react")
+        print("    Size test:  --variants llama_3b_react llama_8b_react")
+        print()
+        print("  NOTE: Qwen 3B/7B require dedicated endpoints on Together AI")
         return 0
     
     print_header("ABLATION STUDY")
@@ -151,12 +148,12 @@ Examples:
                 return 1
             teacher_configs.append(available[name])
     else:
-        # Default: Qwen 3B and 7B, plain vs react (good for fine-tuning comparison)
+        # Default: Llama 3B and 8B, plain vs react (serverless on Together AI)
         teacher_configs = [
-            QWEN_3B_PLAIN,
-            QWEN_3B_REACT,
-            QWEN_7B_PLAIN,
-            QWEN_7B_REACT,
+            LLAMA_3B_PLAIN,
+            LLAMA_3B_REACT,
+            LLAMA_8B_PLAIN,
+            LLAMA_8B_REACT,
         ]
     
     # Add fine-tuned model if provided

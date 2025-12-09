@@ -1,0 +1,14 @@
+max_turns: 10
+student:
+  model_id: meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo
+  name: llama_70b_student
+teacher:
+  base_model: null
+  description: Llama 3.1 8B - medium baseline, with ReAct
+  is_finetuned: false
+  max_tokens: 512
+  model_id: meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo
+  name: llama_8b_react
+  temperature: 0.0
+  use_react: true
+use_react: true
